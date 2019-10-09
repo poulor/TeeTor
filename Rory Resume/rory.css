@@ -65,7 +65,7 @@ body{
 	height: 100%;
 	margin-left: 2%;
 	margin-right: 2%;
-	background-color: rgb(192,192,192);
+	background-color: red ;/*rgb(192,192,192);*/
 	display: inline-block;
 }
 
