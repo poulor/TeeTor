@@ -1,0 +1,10 @@
+.headerMenuLink {
+    color:gray;
+    text-decoration: none;
+    
+}
+
+.headerMenuLink:hover{
+    color: darkgray;
+    text-decoration: none;
+}
