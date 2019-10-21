@@ -20,6 +20,8 @@ def results(request, question_id):
     response = "Hi! %s."
     return HttpResponse(response % question_id)
 
+#this takes the input from the user and places it in the data base of 
+#usernames and passwords
 def submit(request):
     username = request.POST['username']
     password = request.POST['password']
