@@ -37,9 +37,9 @@
 
 
     <div class="text-center">
-      <img src="pic4.png" class="img-fluid" width="400" height="400" class="rounded" alt="...">
+      <img src="pic4.png" class="img-fluid" width="400" height="400" class="rounded" draggable = "false" alt="...">
 	    <div class="text-center">
-	      <a class="btn btn-secondary "href="#" data-toggle="modal" data-target="#modalRegisterForm">Get Started Today!</a>
+	      <a href="#" data-toggle="modal" data-target="#modalRegisterForm" class="GetStartedBtn">Get Started!</a>
 	    </div>
     </div>
 
@@ -66,7 +66,7 @@
 		          <input type="password" id="loginPassword" class="form-control validate" placeholder="Please enter password">
 		        </div>
 		        <div class="checkbox">
-            	<label><input type="checkbox"> Remember me</label>
+            	<label><input type="checkbox">Remember me</label>
         		</div>
 		      </div>
 		      <div class="modal-footer d-flex justify-content-center">
@@ -75,7 +75,7 @@
 		    </div>
 		  </div>
 		</div>
-		
+
 		<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
@@ -104,7 +104,6 @@
 		        </div>
 						<div class="md-form mb-3">
 		          <!-- <i class="fas fa-user prefix grey-text"></i> -->
-		          <!-- <label for="inputPassword">Password:</label> -->
 		          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
 		        </div>
 
