@@ -47,6 +47,7 @@ opacity: 0.7;
 }
 
 .GetStartedBtn {
+    
     background-image: linear-gradient(to right, #47C2FF 0%, #7ED957 100%);
     border-radius: 40px;
     font-size: 1.2em;
