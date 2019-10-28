@@ -16,24 +16,6 @@ body {
     text-decoration: none;
 }
 
-/* @media (min-width: 768px) {
-     .navbar {
-         height: 80px;
-         display: flex;
-         align-items: center;
-     }
-}
-@media (max-width: 767px) {
-    .navbar-header {
-        height: 80px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    .navbar-toggle {
-        margin-top: 5px;
-    }
-}       */
-
 /*reset the default navbar brand padding [it's 15px by default]*/
 .navbar-brand {
     padding: 0;
@@ -46,34 +28,34 @@ body {
 }   
 
 /*mainBody-----------------------------------------------------------------*/
-/*
-          <div class="col-md-2" id = "sideBar">
-              <div class="big-box">Hello</div>
-          </div>
-
-          <div class="col-md-10">
-              <div class="row">
-                  <div class="col-md-12" id = "searchBar">searchBar</div>
-                  <div class="col-md-12" id = "trendingCarousel">Carousel</div>
-
-                  <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-4" id = "liveStreaming">livestreaming</div>
-                        <div class="col-md-4" id = "tutors">tutors</div>
-                        <div class="col-md-4" id = "forum">forums</div>*/
-
-#sideBar {
-    height: 85vh;
-    background-color: yellow;
+#mainBody {
+    padding:0 ! important;
 }
 
+/* user profile*/
+#userProfile {
+ height:70%;
+ background-color: #CAE7EC;
+ text-align: center
+}
 
-#profilePic {
-    background-color:lightblue;
-    padding:10px;
+#profilePhoto {
     margin:auto;
-   
+    padding: 10px 0px 10px 0px;
 }
+
+#userName {
+   font-size:1.2rem;
+}
+
+#userStatus {
+    font-size:1rem;
+}
+
+#userProfileClasses {
+    padding: 10px 0px 10px 0px;
+}
+
 
 .input-group.md-form.form-sm.form-1 input{
     border: 1px solid #bdbdbd;
@@ -83,15 +65,15 @@ body {
 
 #liveStreaming {
     height: 30vh;
-    background-color: red;
+    background-color: rgb(169, 223, 248);
 }
 
 #tutors {
     height: 30vh;
-    background-color: green;
+    background-color: rgb(181, 240, 217);
 }
 
 #forum {
     height: 30vh;
-    background-color: blue;
+    background-color: rgb(180, 180, 255);
 }
