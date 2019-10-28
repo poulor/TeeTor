@@ -46,8 +46,26 @@ body {
 }   
 
 /*mainBody-----------------------------------------------------------------*/
+/*
+          <div class="col-md-2" id = "sideBar">
+              <div class="big-box">Hello</div>
+          </div>
 
+          <div class="col-md-10">
+              <div class="row">
+                  <div class="col-md-12" id = "searchBar">searchBar</div>
+                  <div class="col-md-12" id = "trendingCarousel">Carousel</div>
 
+                  <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-4" id = "liveStreaming">livestreaming</div>
+                        <div class="col-md-4" id = "tutors">tutors</div>
+                        <div class="col-md-4" id = "forum">forums</div>*/
+
+#sideBar {
+    height: 85vh;
+    background-color: yellow;
+}
 
 
 #profilePic {
@@ -55,4 +73,25 @@ body {
     padding:10px;
     margin:auto;
    
+}
+
+.input-group.md-form.form-sm.form-1 input{
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+#liveStreaming {
+    height: 30vh;
+    background-color: red;
+}
+
+#tutors {
+    height: 30vh;
+    background-color: green;
+}
+
+#forum {
+    height: 30vh;
+    background-color: blue;
 }
