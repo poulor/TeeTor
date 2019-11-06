@@ -54,13 +54,13 @@
 		        </button>
 		      </div>
 		      <div class="modal-body mx-3">
-		        <div class="md-form mb-3">
+		        <div class="md-form mb-3" action = '/users' method = 'post'>
 		          <!-- <i class="fas fa-envelope prefix grey-text"></i> -->
 		          <label for="loginEmail">Email address:</label>
 		          <input type="email" id="loginEmail" class="form-control validate" placeholder="Please enter email">
 		        </div>
 
-		        <div class="md-form mb-3">
+		        <div class="md-form mb-3" action = '/users' method = 'post'>
 		          <!-- <i class="fas fa-lock prefix grey-text"></i> -->
 		          <label for="loginPassword">Password:</label>
 		          <input type="password" id="loginPassword" class="form-control validate" placeholder="Please enter password">
@@ -87,30 +87,31 @@
 		        </button>
 		      </div>
 		      <div class="modal-body mx-3">
+			  <form action = '/users' method = 'post'>
 		        <div class="md-form mb-3">
 		          <!-- <i class="fas fa-envelope prefix grey-text"></i> -->
 		          <label for="inputEmail">Email address:</label>
-		          <input type="email" class="form-control" id="inputEmail" placeholder="Please enter email">
+		          <input type="email" name = "email" class="form-control" id="inputEmail" placeholder="Please enter email">
 		        </div>
 		        <div class="md-form mb-3">
 		          <!-- <i class="fas fa-user prefix grey-text"></i> -->
 		          <label for="inputFullName">Name:</label>
-		          <input type="text" class="form-control" id="inputFullName" placeholder="Please enter full name">
+		          <input type="text" name = "name" class="form-control" id="inputFullName" placeholder="Please enter full name">
 		        </div>
 		        <div class="md-form mb-3">
 		          <!-- <i class="fas fa-user prefix grey-text"></i> -->
 		          <label for="inputPassword">Password:</label>
-		          <input type="password" class="form-control" id="inputPassword" placeholder="Please enter password">
+		          <input type="password" name = "password" class="form-control" id="inputPassword" placeholder="Please enter password">
 		        </div>
 						<div class="md-form mb-3">
 		          <!-- <i class="fas fa-user prefix grey-text"></i> -->
 		          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
 		        </div>
-
 		      </div>
 		      <div class="modal-footer d-flex justify-content-center">
-		        <button class="btn btn-deep-orange">Sign up</button>
-		      </div>
+		        <button class="btn btn-deep-orange" type = 'submit'>Sign up</button>
+			  </div>
+			</form>
 		    </div>
 		  </div>
 		</div>

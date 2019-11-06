@@ -3,14 +3,14 @@ var bodyParser=require("body-parser");
 
 const mongoose = require('mongoose'); 
 mongoose.connect('mongodb://localhost:27017/gfg'); 
-var db=mongoose.connection; 
+var db=mongoose.connection;
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
 	console.log("connection succeeded"); 
 }) 
 
 var app=express() 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname)); //magic
 
 
 app.use(bodyParser.json()); 
@@ -24,6 +24,8 @@ app.post('/sign_up', function(req,res){
 	var email =req.body.email; 
 	var pass = req.body.password; 
 	var phone =req.body.phone; 
+
+	console.log("Phone" + phone)
 
 	var data = { 
 		"name": name, 
