@@ -51,20 +51,15 @@ app.post('/users', async (req, res) => {
 
 //Login
 app.post('/users/login', async (req, res) => {
-	db.collection("details").find().count()
-	.then(function(usercursor){
-		console.log(usercursor.next());
-	});
+	let user = await db.collection("details").findOne({email: req.body.email});
 	
-	console.log(user.name);
 	if(user == null){
 		return res.status(400).send('Cannot find user')
 	}
 	try{
 		console.log("Got here");
 		if (await bcrypt.compare(req.body.password, user.password)){
-			
-			console.log("Success");
+			res.send("Success"); 
 		}
 		else{
 			res.send('Not Allowed')
