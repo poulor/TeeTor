@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from django.http import HttpResponse
 from django.template import loader
 
@@ -29,7 +29,7 @@ def submit(request):
     q = User(username = username, password = password)
     q = User(username = "Uh oh", password = "stinky")
     q.save()
-=======
+
 from django.http import HttpResponse
 from django.template import loader
 
@@ -58,5 +58,6 @@ def submit(request):
     q = User(username = username, password = password)
     q = User(username = "Uh oh", password = "stinky")
     q.save()
->>>>>>> 32071c982e34d6442650c0582f44fe7e91cdc976
+
     return HttpResponse("Submitted response")
+
