@@ -24,7 +24,7 @@ const users = []
 app.get('/users', (req, res) => {
 	res.json(users)
 })
-
+//npm run devstart
 //Register
 app.post('/users', async (req, res) => {
 	try{
@@ -38,12 +38,14 @@ app.post('/users', async (req, res) => {
 			"email":email, 
 			"password":hashedPassword
 		} 
+		//discoverPage/discoverPage.html
+		res.redirect('discoverPage/discoverPage.html');
 	db.collection('details').insertOne(data,function(err, collection){ 
 			if (err) throw err; 
 			console.log("Record inserted Successfully"); 
-				
 		}); 
 		res.status(201).send()
+		
 	} catch{
 		res.status(500).send()
 	}
@@ -59,7 +61,7 @@ app.post('/users/login', async (req, res) => {
 	try{
 		console.log("Got here");
 		if (await bcrypt.compare(req.body.password, user.password)){
-			res.send("Success"); 
+			res.redirect('/discoverPage/discoverPage.html');
 		}
 		else{
 			res.send('Not Allowed')
