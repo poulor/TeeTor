@@ -64,7 +64,7 @@ app.post('/users/login', async (req, res) => {
 			res.redirect('/discoverPage/discoverPage.html');
 		}
 		else{
-			res.send('Not Allowed')
+			
 		}
 	}
 	catch{
