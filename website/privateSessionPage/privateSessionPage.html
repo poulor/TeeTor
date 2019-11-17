@@ -80,8 +80,17 @@
         <!--Interactive Content---------------------------------------------->
         <div id="interactiveContent"class="col-lg-10 offset-lg-2 h-100">
           <div class="row h-100">
-            <div id="interactionWindow" class="col-lg-9 p-0">
-              <iframe id="interactionAssignment" src="assignment.pdf"></iframe>
+            <div id="interactionWindow" class="col-lg-9 p-0 h-100">
+              <!--Assignment PDF with no toolbar at the top-->
+              <!-- <iframe id="interactionAssignmentFrame" src="assignment.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe> -->
+              <div id="interactionAssignmentCanvas h-100">
+                <div id="drawingToolbar" class="row">
+                  <div class="col-lg-3 h-10"><img src="../resources/pencil.png" class="img-fluid" alt="Responsive image"></div>
+                  <div class="col-lg-3 h-10"><img src="../resources/marker.png" class="img-fluid" alt="Responsive image"></div>
+                  <div class="col-lg-3 h-10"><img src="../resources/crayon.png" class="img-fluid" alt="Responsive image"></div>
+                  <div class="col-lg-3 h-10"><img src="../resources/eraser.png" class="img-fluid" alt="Responsive image"></div>
+                </div>
+              </div>
             </div>
 
             <div id="interactionSidebar" class="col-lg-3">
@@ -89,6 +98,7 @@
                 <p>mentorcam</p>
               </div>
   
+              <!--Still needs some adjustments on video-->
               <div id="menteeCam" class="row">
                 <video id="menteeVideo"autoplay></video>  
               </div>
