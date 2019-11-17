@@ -96,10 +96,13 @@ html,body{height:100%;}
 }
 
 #menteeCam {
-    background-color: orange;
     height:25%;
 }
 
+#menteeVideo {
+    width:100%;
+    
+}
 
 
 #chatWindow {
