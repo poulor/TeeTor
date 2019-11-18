@@ -41,7 +41,11 @@ app.post('/users', async (req, res) => {
 	//If a user with this email already exists, do not register!
 	let duplicate = await db.collection('details').findOne({email:email});
 	if (duplicate != null){
-		res.send("Account with email already registered.");
+		//alert("Account with email already registered.");
+		res.redirect("index.html");
+	}
+	else{
+		
 	}
 
 	//redirect upon registration
