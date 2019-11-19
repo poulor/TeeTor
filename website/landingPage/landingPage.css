@@ -81,8 +81,7 @@ body {
   }
 }*/
 
-.hr {
-	opacity: 0;
+.hr-divider {
 	padding-top: 150px;
 }
 
@@ -133,7 +132,6 @@ body {
 	text-align: center;
 }
 
-
 .padding {
 	padding: 80px;
 }
@@ -145,4 +143,39 @@ body {
 #user_info {
 	height: 200px;
 	padding-top: 30px;
+}
+
+footer {
+	width: 100%;
+	padding: 30px 20px 20px;
+	background-color: #23415c;
+	/*background-color: white;*/
+	color: #999;
+}
+
+footer .title {
+	color: white;
+}
+
+.fa {
+	padding-top: 10px;
+	padding-right: 10px;
+	font-size: 25px;
+	margin: 0px;
+	color: white;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.fa: hover {
+	color: #D5D5D5;
+	text-decoration: none;
+}
+
+.hr-footer {
+	border-top: 1px solid #eee;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-bottom: 0;
+	height: 0;
 }
