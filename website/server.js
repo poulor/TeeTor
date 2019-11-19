@@ -38,11 +38,11 @@ app.post('/users', async (req, res) => {
 			"email":email, 
 			"password":hashedPassword
 		} 
+		
 	//If a user with this email already exists, do not register!
 	let duplicate = await db.collection('details').findOne({email:email});
 	if (duplicate != null){
-		//alert("Account with email already registered.");
-		res.redirect("index.html");
+		res.send("Account with email already registered.");
 	}
 	else{
 		
@@ -52,11 +52,10 @@ app.post('/users', async (req, res) => {
 	res.redirect('discoverPage/discoverPage.html'); 
 
 	db.collection('details').insertOne(data,function(err, collection){ 
-			if (err) throw err; 
-			console.log("Record inserted Successfully");
-		}); 
-		res.status(201).send()
-		
+		if (err) throw err; 
+		console.log("Record inserted Successfully");
+	}); 
+	res.status(201).send()
 	} catch{
 		res.status(500).send()
 	}
@@ -85,5 +84,7 @@ app.get('/',function(req,res){
 		'Access-control-Allow-Origin': '*'
 		}); 
 	return res.redirect('landingPage.html'); 
-	}).listen(3000) 
+	}).listen(3000, '0.0.0.0', function(){
+		console.log("Server running");
+	})
 
