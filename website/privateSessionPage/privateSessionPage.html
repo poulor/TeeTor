@@ -7,6 +7,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="privateSessionPage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <title>Private Session</title>
   </head>
   <body>
@@ -82,29 +85,52 @@
           <div class="row h-100">
             <div id="interactionWindow" class="col-lg-9 p-0 h-100">
               <!--Assignment PDF with no toolbar at the top-->
-              <!-- <iframe id="interactionAssignmentFrame" src="assignment.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe> -->
-              <div id="interactionAssignmentCanvas h-100">
-                <div id="drawingToolbar" class="row">
-                  <div class="col-lg-3 h-10"><img src="../resources/pencil.png" class="img-fluid" alt="Responsive image"></div>
-                  <div class="col-lg-3 h-10"><img src="../resources/marker.png" class="img-fluid" alt="Responsive image"></div>
-                  <div class="col-lg-3 h-10"><img src="../resources/crayon.png" class="img-fluid" alt="Responsive image"></div>
-                  <div class="col-lg-3 h-10"><img src="../resources/eraser.png" class="img-fluid" alt="Responsive image"></div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="drawingToolbar">
+                    <div id="drawingTools">
+                      <img src="../resources/pencil.png" class="img-fluid drawingUtensil" alt="Responsive image">
+                      <img src="../resources/marker.png" class="img-fluid drawingUtensil" alt="Responsive image">
+                      <img src="../resources/crayon.png" class="img-fluid drawingUtensil" alt="Responsive image">
+                      <img src="../resources/eraser.png" class="img-fluid drawingUtensil" alt="Responsive image">
+                      </div>
+                  </div>
                 </div>
               </div>
+              <iframe id="interactionAssignmentFrame" src="assignment.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+<!-- 
+              <div class="row">
+                <div class="col-lg-12">
+                    <iframe id="interactionAssignmentFrame" src="assignment.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                </div>
+              </div> -->
+              
+              <!-- <div id="interactionAssignmentCanvas h-100">
+              </div> -->
             </div>
 
             <div id="interactionSidebar" class="col-lg-3">
               <div id="mentorCam" class="row">
-                <p>mentorcam</p>
+                <video id="mentorVideo"autoplay></video>  
               </div>
-  
               <!--Still needs some adjustments on video-->
               <div id="menteeCam" class="row">
                 <video id="menteeVideo"autoplay></video>  
               </div>
   
-              <div id="chatWindow" class="row">
-
+              <div class="row">
+                <div class="col-lg-12 p-0" id = "chatWindow">
+                  <div class= "chatBox">
+                    <div class = "message1">Welcome!</div>
+                    <div class = "message2">What do you want to work on today?</div>
+                    <!-- ------------------------------Insert Chat Menu Here Please-----------------------------------------  -->
+                  </div>
+                  <div class = "messageBox nopadding">
+                      <textarea id = "userMessage" placeholder = "Type your message here" cols = "100" rows = "1"></textarea>
+        
+                      <button id = "messageSend">Send</button>
+                  </div>
+                </div>
               </div> 
             </div>
           </div>
@@ -113,7 +139,7 @@
     </div>
     <!--javascript-->
     <script src="privateSessionPage.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
