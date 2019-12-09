@@ -1,0 +1,35 @@
+body {
+	background-color: #f6fcff;
+}
+
+/*header-----------------------------------------------------------------*/
+.headerMenuLink {
+    color:gray;
+    text-decoration: none; 
+}
+
+.headerMenuLink:hover{
+    color: darkgray;
+    text-decoration: none;
+}
+
+/*reset the default navbar brand padding [it's 15px by default]*/
+.navbar-brand {
+    padding: 0;
+}
+
+/*transfer the navbar brand padding to the image inside it, also make it 100% height*/
+.navbar-brand  >img {
+    padding: 15px;  /*this value is optional, increasing or decreasing it is up to you.*/
+    height: 100%;
+}
+
+/*mainBody-----------------------------------------------------------------*/
+#mainBody {
+    /*padding:0 ! important;*/
+    padding-left: 100px;
+}
+
+.hr-divider {
+	padding-top: 150px;
+}
