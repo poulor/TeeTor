@@ -3,5 +3,5 @@
 ## Learning HTML and CSS
 Practice HTML and CSS by creating your own resume.
 
-## Fall 2019
+## RCOS Fall 2019 Presentation
 https://docs.google.com/presentation/d/1-RyzdoHVI-Kadn2neCGuzAetOHTaxFdOmX9bCBT8Lzc/edit?usp=sharing
