@@ -1,20 +1,43 @@
+var server = null;
+
+// Import loggers
+const { logger, finalLogger } = require('./logging.js')();
+
+// Load environmental variables from .env file
+const envResult = require('dotenv').config()
+
+// If dotenv failed to load environmental variables, throw error
+if (envResult.error) {
+    logger.error(`Failed to load .env configuration: ${envResult.error.message}`);
+    throw envResult.error;
+}
+
+// Used to promisify callback functions
+const util = require('util');
+
+//Set up connection to mongodb database
+const mongoose = require('mongoose'); 
+
+// API
+const http = require('http');
 const express = require('express')
 const bcrypt = require('bcrypt')
 const bodyParser=require("body-parser");
 
-//Set up connection to mongodb database
-const mongoose = require('mongoose'); 
-mongoose.connect('mongodb://localhost:27017/gfg');
+//connect to localhost at port 27017
+mongoose.connect('mongodb://localhost:27017/teetor');
 var db=mongoose.connection;
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
 	console.log("connection succeeded"); 
 })
+
+// Import routes
+const router = require('./routes.js');
+
 //Setting up express
 const app = express()
 app.use(express.static(__dirname));
-
-
 app.use(bodyParser.json());
 app.use(express.static('pulib'));
 app.use(bodyParser.urlencoded({
@@ -40,7 +63,7 @@ app.post('/users', async (req, res) => {
 		} 
 		
 	//If a user with this email already exists, do not register!
-	let duplicate = await db.collection('details').findOne({email:email});
+	let duplicate = await db.collection('users').findOne({email:email});
 	if (duplicate != null){
 		res.send("Account with email already registered.");
 	}
@@ -51,7 +74,7 @@ app.post('/users', async (req, res) => {
 	//redirect upon registration
 	res.redirect('discoverPage/discoverPage.html'); 
 
-	db.collection('details').insertOne(data,function(err, collection){ 
+	db.collection('users').insertOne(data,function(err, collection){ 
 		if (err) throw err; 
 		console.log("Record inserted Successfully");
 	}); 
@@ -64,7 +87,7 @@ app.post('/users', async (req, res) => {
 //Login
 app.post('/users/login', async (req, res) => {
 	//Find user from database, then compare passwords
-	let user = await db.collection("details").findOne({email: req.body.email});
+	let user = await db.collection("users").findOne({email: req.body.email});
 	if(user == null){
 		return res.status(400).send('Cannot find user')
 	}
