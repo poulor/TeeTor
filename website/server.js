@@ -1,16 +1,16 @@
 var server = null;
 
 // Import loggers
-const { logger, finalLogger } = require('./logging.js')();
+// const { logger, finalLogger } = require('./logging.js')();
 
-// Load environmental variables from .env file
-const envResult = require('dotenv').config()
+// // Load environmental variables from .env file
+// const envResult = require('dotenv').config()
 
-// If dotenv failed to load environmental variables, throw error
-if (envResult.error) {
-    logger.error(`Failed to load .env configuration: ${envResult.error.message}`);
-    throw envResult.error;
-}
+// // If dotenv failed to load environmental variables, throw error
+// if (envResult.error) {
+//     logger.error(`Failed to load .env configuration: ${envResult.error.message}`);
+//     throw envResult.error;
+// }
 
 // Used to promisify callback functions
 const util = require('util');
