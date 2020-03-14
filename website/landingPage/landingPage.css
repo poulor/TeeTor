@@ -1,5 +1,10 @@
 body {
-	background-color: #f6fcff;
+	background-image: linear-gradient(to left bottom, #4a1adb, #004eef, #006ffb, #008bff, #00a4ff, #00b4ff, #00c2fb, #00cff5, #00d7e2, #00dbbe, #2cdc8e, #7ed957);
+	background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100vh;
 }
 
 .headerMenuLink {
@@ -7,7 +12,7 @@ body {
 	text-decoration: none;
 }
 	
-}
+
 .headerMenuLink:hover{
 	color: darkgray;
 	text-decoration: none;
@@ -170,7 +175,7 @@ footer .title {
 	box-sizing: border-box;
 }
 
-.fa: hover {
+ .fa:hover {
 	color: #D5D5D5;
 	text-decoration: none;
 }
