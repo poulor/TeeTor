@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const config = require('config');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/teetor');
+var db = mongoose.connection;
 // const db = config.get('mongoURI');
 
 //Register
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         //Retrieve data from HTML form
         var name = req.body.name;
@@ -46,7 +49,7 @@ router.post('/users', async (req, res) => {
 });
 
 //Login
-router.post('/users/login', async (req, res) => {
+router.post('/', async (req, res) => {
     //Find user from database, then compare passwords
     let user = await db.collection("users").findOne({ email: req.body.email });
     if (user == null) {
@@ -55,11 +58,11 @@ router.post('/users/login', async (req, res) => {
     try {
         //If login is successful, then redirect to discover page
         if (await bcrypt.compare(req.body.password, user.password)) {
-            res.redirect('/discoverPage/discoverPage.html');
+            res.redirect('./discoverPage/discoverPage.html');
         }
     }
     catch{
-        res.status(500).send()
+        res.status(500).send() in 
     }
 });
 
