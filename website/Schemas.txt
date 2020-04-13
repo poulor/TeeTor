@@ -2,15 +2,60 @@ Database name: teetor
 
 Collections:
 
-users
+register/logging in
 --------------------------------
-id
+user
+fname 
+lname
+email
+password
+
+profile page
+--------------------------------
 name
-userType
+userType: mentee/mentor
 email
 password
 classes
 credit
+
+mentor table
+--------------------------------
+fname
+lname
+teachingSubjects [
+    {
+        subName: Math
+    }
+]
+title
+bio
+rating(0-5)
+linkedMentees [
+    {
+        pointerToMenteeObject
+    }
+]
+personalPageId
+
+mentee table
+--------------------------------
+fname
+lname
+title
+bio
+learningSubject [
+    {
+        subName: Math
+    }
+]
+menteePoints
+linkedMentors [
+    {
+        pointerToMentorObject
+    }
+]
+personalPageId
 
 classes
 --------------------------------
