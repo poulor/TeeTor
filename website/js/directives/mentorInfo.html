@@ -1,4 +1,4 @@
-<div class="our-team">
+<!-- <div class="our-team">
     <img ng-src="{{ info.imageUrl }}" alt="profile">
     <div class="team-content">
         <h3 class="title"> {{ info.fname }} </h3>
@@ -9,4 +9,143 @@
             <li> <a href="#"> <i class="fas fa-comments"></i> </a></li>
         </ul>
     </div>
+</div> -->
+
+<div class="card">
+    <div class="activity justify-content-center">
+        <p class="activityStatus">Active</p>
+        <div class="statusCircle"></div>
+    </div>
+
+    <div class="profileImgBox d-flex justify-content-center">
+        <img class="profileImg" ng-src=" {{ info.imageUrl }} " alt="profile">
+    </div>
+    <div class="profileCardBody text-center">
+        <h class="profileCardName">{{ info.fname + ' ' + info.lname }}</h>
+        <div class="profileCardTitle">
+            {{ info.title }}
+        </div>
+        <div class="profileCardBio">
+            <span>{{ info.bio }}
+            </span>
+        </div>
+
+        <div class="bulbRating">
+            <img class="bulb" src="fullBulb.png">
+            <img class="bulb" src="fullBulb.png">
+            <img class="bulb" src="fullBulb.png">
+            <img class="bulb" src="fullBulb.png">
+            <img class="bulb" src="halfBulb.png">
+        </div>
+
+        <div class="tagSubjects text-center">
+            <div class="sub" ng-repeat="subject in info.teachingSubjects"> {{ subject.subjectName }} </div>
+            <!-- <div class="sub">Python</div>
+            <div class="sub">Python</div> -->
+        </div>
+    </div>
 </div>
+
+<style>
+    .card {
+        overflow: hidden;
+        border-radius: 25px !important;
+        border-width: 0 !important;
+        padding-bottom: 30px;
+        padding-top: 5px;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+        min-width: 100%;
+        height: 400px;
+    }
+
+    .profileCardBody {
+        position: relative;
+        margin: 0;
+        padding: 0px 15px 0px 15px;
+        box-shadow: none;
+    }
+
+    .activity {
+        margin-left: auto;
+        margin-right: 6%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+
+    }
+
+    .activityStatus {
+        color: rgba(146, 146, 146, 0.68);
+        display: inline-block;
+        margin: 0;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .statusCircle {
+        display: inline-block;
+        margin: 0;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #7ED957;
+        box-shadow: inset 0 0 10px rgb(93, 175, 58);
+        padding-top: 15px;
+    }
+
+    .profileCardName {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: rgb(88, 88, 88);
+    }
+
+    .profileCardTitle {
+        font-size: .9rem;
+        color: rgba(0, 0, 0, .68);
+        color: #47C2FF;
+        font-weight: bold;
+        line-height: .5rem;
+    }
+
+    .profileCardBio {
+        padding: 20px 0px 15px 0px;
+        font-size: .7rem;
+        line-height: .8rem;
+    }
+
+    .profileImg {
+        height: 120px;
+        width: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+        border: 2px solid white;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .bulbRating {
+        padding: 0px 0px 20px 0px;
+    }
+
+    .bulb {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+    }
+
+    .tagSubjects {
+        padding: 0px 0px 5px 0px;
+        font-size: .7rem;
+    }
+
+    .sub {
+        padding: 1px 3px 1px 3px;
+        margin: 0px 2px 0px 2px;
+        display: inline-block;
+        border-radius: 5px;
+        background-color: #47C2FF;
+        color: white;
+    }
+</style>
