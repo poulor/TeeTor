@@ -107,14 +107,20 @@ modal-body {
   padding: 0px 5px 0px 5px;
 }
 
-.userClasses {
+/* .userClasses {
   margin-top: 10px;
   border-radius: 8px !important;
-}
+} */
 
 .userClassesHeader {
   background-color: rgb(246,248,250);
   color:gray;
+}
+
+.userTabs {
+  margin-top: 10px;
+  border-radius: 8px !important;
+  width: 250px;
 }
 
 /* Search Form --------------------------------------------------------------------------- */

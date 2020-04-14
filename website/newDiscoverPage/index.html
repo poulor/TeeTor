@@ -67,7 +67,7 @@
                   <div class="profileCardBody text-center">
                       <h class="profileCardName"> RCOS MEMBER </h>
                       <div class="profileCardTitle">
-                          Pro Student
+                          Pro Student/Teacher
                       </div>
 
                       <div class="bulbRating">
@@ -95,25 +95,25 @@
             <i class="notificationIcon fas fa-bell iconColor"></i>
           </div>
           
-          <ul class="userClasses list-group rounded-top rounded-bottom displayed">
+          <ul class="userClasses list-group rounded-top rounded-bottom displayed userTabs">
             <li class="list-group-item userClassesHeader">Classes</li>
             <li class="list-group-item">Computer Science I</li>
             <li class="list-group-item">Introduction to Algorithms</li>
           </ul>
 
-          <ul class="userFriends list-group rounded-top rounded-bottom notDisplayed">
+          <ul class="userFriends list-group rounded-top rounded-bottom notDisplayed userTabs">
             <li class="list-group-item userClassesHeader">Friends</li>
           </ul>
 
-          <ul class="userChat list-group rounded-top rounded-bottom notDisplayed">
+          <ul class="userChat list-group rounded-top rounded-bottom notDisplayed userTabs">
             <li class="list-group-item userClassesHeader">Chat</li>
           </ul>
 
-          <ul class="userCalendar list-group rounded-top rounded-bottom notDisplayed">
+          <ul class="userCalendar list-group rounded-top rounded-bottom notDisplayed userTabs">
             <li class="list-group-item userClassesHeader">Calendar</li>
           </ul>
 
-          <ul class="userNotification list-group rounded-top rounded-bottom notDisplayed">
+          <ul class="userNotification list-group rounded-top rounded-bottom notDisplayed userTabs">
             <li class="list-group-item userClassesHeader">Notifications</li>
           </ul>
         </div>
@@ -138,10 +138,10 @@
 
     </div>
 
-    <div class="row justify-content-end notDisplayed" id="menteeRow">
+    <div class="row justify-content-end displayed" id="menteeRow">
 
       <div class="col-sm-6 col-md-5 col-lg-3 mt-4" ng-repeat=" menteeProfile in menteeProfiles">
-        <mentor-info info="menteeProfile"></mentor-info>
+        <mentee-info info="menteeProfile"></mentee-info>
       </div> 
 
     </div>
@@ -190,10 +190,25 @@
       else {
         $(".userClasses").removeClass("notDisplayed");
         $(".userClasses").addClass("displayed");
-        
+
         if($(".userFriends").hasClass("displayed")) {
           $(".userFriends").removeClass("displayed");
           $(".userFriends").addClass("notDisplayed");
+        }
+
+        if($(".userChat").hasClass("displayed")) {
+          $(".userChat").removeClass("displayed");
+          $(".userChat").addClass("notDisplayed");
+        }
+        
+        if($(".userCalendar").hasClass("displayed")) {
+          $(".userCalendar").removeClass("displayed");
+          $(".userCalendar").addClass("notDisplayed");
+        }
+
+        if($(".userNotification").hasClass("displayed")) {
+          $(".userNotification").removeClass("displayed");
+          $(".userNotification").addClass("notDisplayed");
         }
       }
     });
@@ -211,6 +226,21 @@
           $(".userClasses").removeClass("displayed");
           $(".userClasses").addClass("notDisplayed");
         }
+
+        if($(".userChat").hasClass("displayed")) {
+          $(".userChat").removeClass("displayed");
+          $(".userChat").addClass("notDisplayed");
+        }
+        
+        if($(".userCalendar").hasClass("displayed")) {
+          $(".userCalendar").removeClass("displayed");
+          $(".userCalendar").addClass("notDisplayed");
+        }
+
+        if($(".userNotification").hasClass("displayed")) {
+          $(".userNotification").removeClass("displayed");
+          $(".userNotification").addClass("notDisplayed");
+        }
       }
     });
 
@@ -223,6 +253,25 @@
         $(".userChat").removeClass("notDisplayed");
         $(".userChat").addClass("displayed");
         
+        if($(".userClasses").hasClass("displayed")) {
+          $(".userClasses").removeClass("displayed");
+          $(".userClasses").addClass("notDisplayed");
+        }
+        
+        if($(".userFriends").hasClass("displayed")) {
+          $(".userFriends").removeClass("displayed");
+          $(".userFriends").addClass("notDisplayed");
+        }
+
+        if($(".userCalendar").hasClass("displayed")) {
+          $(".userCalendar").removeClass("displayed");
+          $(".userCalendar").addClass("notDisplayed");
+        }
+
+        if($(".userNotification").hasClass("displayed")) {
+          $(".userNotification").removeClass("displayed");
+          $(".userNotification").addClass("notDisplayed");
+        }
       }
     });
 
@@ -234,6 +283,26 @@
       else {
         $(".userCalendar").removeClass("notDisplayed");
         $(".userCalendar").addClass("displayed");
+
+        if($(".userClasses").hasClass("displayed")) {
+          $(".userClasses").removeClass("displayed");
+          $(".userClasses").addClass("notDisplayed");
+        }
+        
+        if($(".userFriends").hasClass("displayed")) {
+          $(".userFriends").removeClass("displayed");
+          $(".userFriends").addClass("notDisplayed");
+        }
+
+        if($(".userChat").hasClass("displayed")) {
+          $(".userChat").removeClass("displayed");
+          $(".userChat").addClass("notDisplayed");
+        }
+
+        if($(".userNotification").hasClass("displayed")) {
+          $(".userNotification").removeClass("displayed");
+          $(".userNotification").addClass("notDisplayed");
+        }
       }
     });
 
@@ -245,6 +314,26 @@
       else {
         $(".userNotification").removeClass("notDisplayed");
         $(".userNotification").addClass("displayed");
+
+        if($(".userClasses").hasClass("displayed")) {
+          $(".userClasses").removeClass("displayed");
+          $(".userClasses").addClass("notDisplayed");
+        }
+        
+        if($(".userFriends").hasClass("displayed")) {
+          $(".userFriends").removeClass("displayed");
+          $(".userFriends").addClass("notDisplayed");
+        }
+
+        if($(".userChat").hasClass("displayed")) {
+          $(".userChat").removeClass("displayed");
+          $(".userChat").addClass("notDisplayed");
+        }
+        
+        if($(".userCalendar").hasClass("displayed")) {
+          $(".userCalendar").removeClass("displayed");
+          $(".userCalendar").addClass("notDisplayed");
+        }
       }
     });
   </script>
@@ -256,6 +345,7 @@
 
   <!-- Directives -->
   <script src="../js/directives/mentorInfo.js"></script>
+  <script src="../js/directives/menteeInfo.js"></script>
   <script src="../js/directives/navbar.js"></script>
 </body>
 
