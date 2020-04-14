@@ -6,16 +6,16 @@
     </div>
 
     <div class="profileImgBox d-flex justify-content-center">
-        <img class="profileImg" ng-src="https://devshift.biz/wp-content/uploads/2017/04/profile-icon-png-898.png" alt="profile">
+        <img class="profileImg" ng-src=" {{ info.imageUrl }} " alt="profile">
     </div>
     <div class="profileCardBody text-center">
-        <h class="profileCardName"> RCOS MEMBER </h>
+        <h class="profileCardName"> {{ info.fname + ' ' + info.lname }} </h>
         <div class="profileCardTitle">
-            Pro Student
+            {{ info.title }}
         </div>
 
         <div class="bulbRating">
-            <span> 5000xp </span>
+            <span> {{ info.menteePoints }}xp </span>
         </div>
 
         <div class="tagSubjects text-center">
