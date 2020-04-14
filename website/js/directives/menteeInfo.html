@@ -1,45 +1,28 @@
-<!-- <div class="our-team">
-    <img ng-src="{{ info.imageUrl }}" alt="profile">
-    <div class="team-content">
-        <h3 class="title"> {{ info.fname }} </h3>
-        <span class="post"> {{ info.title }} </span>
-        <ul class="social">
-            <li> <a href="#"> <i class="fas fa-paperclip"></i> </a></li>
-            <li> <a href="#"> <i class="fas fa-plus"></i> </a></li>
-            <li> <a href="#"> <i class="fas fa-comments"></i> </a></li>
-        </ul>
-    </div>
-</div> -->
 
-<div class="card">
+<div class="card" style="height: 300px;">
     <div class="activity justify-content-center">
         <p class="activityStatus">Active</p>
         <div class="statusCircle"></div>
     </div>
 
     <div class="profileImgBox d-flex justify-content-center">
-        <img class="profileImg" ng-src=" {{ info.imageUrl }} " alt="profile">
+        <img class="profileImg" ng-src="https://devshift.biz/wp-content/uploads/2017/04/profile-icon-png-898.png" alt="profile">
     </div>
     <div class="profileCardBody text-center">
-        <h class="profileCardName">{{ info.fname + ' ' + info.lname }}</h>
+        <h class="profileCardName"> RCOS MEMBER </h>
         <div class="profileCardTitle">
-            {{ info.title }}
-        </div>
-        <div class="profileCardBio">
-            <span>{{ info.bio }}
-            </span>
+            Pro Student
         </div>
 
         <div class="bulbRating">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/halfBulb.png">
+            <span> 5000xp </span>
         </div>
 
         <div class="tagSubjects text-center">
-            <div class="sub" ng-repeat="subject in info.teachingSubjects"> {{ subject.subjectName }} </div>
+            <div class="sub">HTML</div>
+            <div class="sub">CSS</div>
+            <div class="sub">JS</div>
+            <div class="sub">MEAN</div>
             <!-- <div class="sub">Python</div>
             <div class="sub">Python</div> -->
         </div>
@@ -157,8 +140,5 @@
         display: none;
     }
 
-    #menteeRow {
-        width: 100%;
-    }
-
 </style>
+  

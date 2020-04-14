@@ -28,7 +28,7 @@ app.controller('MainController', ['$scope', function ($scope) {
             "fname": "Rose",
             "lname": "Baker",
             "title": "C++ Programming tutor",
-            "bio": "I was born in Toronto to parents of Hong Kong descendent. Throughout my childhood, I was enrolled as a student at a Kumon Learning Centre in their math program. I...",
+            "bio": "I was born in Toronto. Throughout my childhood, I was enrolled as a student at a Kumon Learning Centre in their math program. I...",
             "imageUrl": "https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "rating": 4.0,
             "teachingSubjects": [
@@ -121,7 +121,7 @@ app.controller('MainController', ['$scope', function ($scope) {
             "fname": "Mark",
             "lname": "Thompson",
             "title": "Knowledgeable UCLA Student",
-            "bio": "Aditya is a student at UCLA, studying Biomedical Engineering, looking to help others learn and grow themselves in a fun and engaging way.",
+            "bio": "I am studying Biomedical Engineering, looking to help others learn and grow themselves in a fun and engaging way.",
             "imageUrl": "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "rating": 3.0,
             "teachingSubjects": [
@@ -142,7 +142,7 @@ app.controller('MainController', ['$scope', function ($scope) {
             "fname": "Patrick",
             "lname": "Hernandez",
             "title": "theoretical scientist",
-            "bio": "Yuriy Sereda, visiting assistant professor at Indiana University. Conducts scientific research in the field of modeling biomolecular and other nanosystems related to...",
+            "bio": "I am a visiting assistant professor at Indiana University. Conducts scientific research in the field of modeling biomolecular and other nanosystems related to...",
             "imageUrl": "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "rating": 3.5,
             "teachingSubjects": [
@@ -166,7 +166,7 @@ app.controller('MainController', ['$scope', function ($scope) {
             "fname": "Stephanie",
             "lname": "Morris",
             "title": "Math and Physics Pro",
-            "bio": "I’m Fatema. I am an Electronics and Communications Engineering junior student at the American University in Cairo. I am a Science and Math lover. Passionate about...",
+            "bio": "I am an Electronics and Communications Engineering junior student at the American University in Cairo. I am a Science and Math lover. Passionate about...",
             "imageUrl": "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "rating": 5.0,
             "teachingSubjects": [
@@ -331,4 +331,57 @@ app.controller('MainController', ['$scope', function ($scope) {
             ]
         }
     ];
+
+    $scope.menteeProfiles = [
+        {
+            "fname": "molly",
+            "lname": "liang",
+            "title": "student",
+            "bio": "",
+            "imageUrl": "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/s851x315/18301030_119279118636502_3633165447875794797_n.jpg?_nc_cat=108&_nc_sid=e33968&_nc_ohc=M4sUkmcQsCYAX9RAHSe&_nc_ht=scontent-ort2-1.xx&_nc_tp=7&oh=037db3bdec26a2394fca345947ad9a8a&oe=5EBCC0F2",
+            "learningSubject": [
+                {
+                    "subjectName": "HTML"
+                },
+                {
+                    "subjectName": "CSS"
+                },
+                {
+                    "subjectName": "JS"
+                },
+                {
+                    "subjectName": "MEAN"
+                }
+            ],
+            "menteePoints": 3000,
+            "linkedMentors": [
+                {
+                    "menteeName": "Tina Bennett"
+                }
+            ]
+        },
+        {
+            "fname": "ace",
+            "lname": "sehat",
+            "title": "student",
+            "bio": "",
+            "imageUrl": "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/28379740_110721743092668_8465115601987011695_n.jpg?_nc_cat=110&_nc_sid=a4a2d7&_nc_ohc=QOenMlCJ0v4AX8cgoa7&_nc_ht=scontent-ort2-1.xx&oh=fe307c6edbfd662aa1729db907ff9c8b&oe=5EB994F0",
+            "learningSubject": [
+                {
+                    "subjectName": "HTML"
+                },
+                {
+                    "subjectName": "CSS"
+                }
+            ],
+            "menteePoints": 1000,
+            "linkedMentors": [
+                {
+                    "menteeName": "Rose Baker"
+                }
+            ]
+        }
+    ];
+    
+    
 }]);

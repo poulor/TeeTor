@@ -42,7 +42,7 @@ body {
 }
 
 .modal-header {
-  height: 20%;
+  height: 15%;
 }
 
 .slideIn {
@@ -97,6 +97,7 @@ modal-body {
 }
 
 .iconTab {
+  margin-top: 20px;
   margin-left:auto;
   margin-right: auto;
 }
@@ -107,12 +108,13 @@ modal-body {
 }
 
 .userClasses {
+  margin-top: 10px;
   border-radius: 8px !important;
 }
 
 .userClassesHeader {
-  background-color: gray;
-  color:white;
+  background-color: rgb(246,248,250);
+  color:gray;
 }
 
 /* Search Form --------------------------------------------------------------------------- */

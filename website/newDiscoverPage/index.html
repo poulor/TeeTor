@@ -52,20 +52,70 @@
 
         <div class="modal-body">
 
-          <div class="iconTab text-center">
-            <i class="fas fa-tasks iconColor"></i>
-            <i class="fas fa-user-friends iconColor"></i>
-            <i class="fas fa-comments iconColor"></i>
-            <i class="far fa-calendar-alt iconColor"></i>
-            <i class="fas fa-bell iconColor"></i>
+          <div class="container mt">
+            <div class="row justify-content-end">
+              <div class="col-12">
+                <div class="card" style="height: 300px;">
+                  <div class="activity justify-content-center">
+                      <p class="activityStatus">Active</p>
+                      <div class="statusCircle"></div>
+                  </div>
+              
+                  <div class="profileImgBox d-flex justify-content-center">
+                      <img class="profileImg" ng-src="https://devshift.biz/wp-content/uploads/2017/04/profile-icon-png-898.png" alt="profile">
+                  </div>
+                  <div class="profileCardBody text-center">
+                      <h class="profileCardName"> RCOS MEMBER </h>
+                      <div class="profileCardTitle">
+                          Pro Student
+                      </div>
+
+                      <div class="bulbRating">
+                          <span> 5000xp </span>
+                      </div>
+              
+                      <div class="tagSubjects text-center">
+                          <div class="sub">HTML</div>
+                          <div class="sub">CSS</div>
+                          <div class="sub">JS</div>
+                          <div class="sub">MEAN</div>
+                          <!-- <div class="sub">Python</div>
+                          <div class="sub">Python</div> -->
+                      </div>
+                  </div>
+              </div>
+            </div>
           </div>
 
-          <ul class="userClasses list-group rounded-top rounded-bottom">
+          <div class="iconTab text-center">
+            <i class="classesIcon fas fa-tasks iconColor"></i>
+            <i class="friendsIcon fas fa-user-friends iconColor"></i>
+            <i class="chatIcon fas fa-comments iconColor"></i>
+            <i class="calendarIcon far fa-calendar-alt iconColor"></i>
+            <i class="notificationIcon fas fa-bell iconColor"></i>
+          </div>
+          
+          <ul class="userClasses list-group rounded-top rounded-bottom displayed">
             <li class="list-group-item userClassesHeader">Classes</li>
             <li class="list-group-item">Computer Science I</li>
             <li class="list-group-item">Introduction to Algorithms</li>
           </ul>
 
+          <ul class="userFriends list-group rounded-top rounded-bottom notDisplayed">
+            <li class="list-group-item userClassesHeader">Friends</li>
+          </ul>
+
+          <ul class="userChat list-group rounded-top rounded-bottom notDisplayed">
+            <li class="list-group-item userClassesHeader">Chat</li>
+          </ul>
+
+          <ul class="userCalendar list-group rounded-top rounded-bottom notDisplayed">
+            <li class="list-group-item userClassesHeader">Calendar</li>
+          </ul>
+
+          <ul class="userNotification list-group rounded-top rounded-bottom notDisplayed">
+            <li class="list-group-item userClassesHeader">Notifications</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -80,27 +130,22 @@
 
   <!--profile cards-->
   <div class="container mt-4" ng-controller="MainController">
-    <div class="row justify-content-end">
+    <div class="row justify-content-end notDisplayed" id="mentorRow">
 
       <div class="col-sm-6 col-md-5 col-lg-3 mt-4" ng-repeat=" mentorProfile in mentorProfiles">
         <mentor-info info="mentorProfile"></mentor-info>
-
-        <!-- <div class="our-team">
-            <img src="profile.png" alt="profile">
-            <div class="team-content">
-              <h3 class="title"> Mrs. Bean </h3>
-              <span class="post"> Mentor </span>
-              <ul class="social">
-                <li> <a href="#"> <i class="fas fa-paperclip"></i> </a></li>
-                <li> <a href="#"> <i class="fas fa-plus"></i> </a></li>
-                <li> <a href="#"> <i class="fas fa-comments"></i> </a></li>
-              </ul>
-            </div>
-          </div> -->
-
-      </div>
+      </div> 
 
     </div>
+
+    <div class="row justify-content-end notDisplayed" id="menteeRow">
+
+      <div class="col-sm-6 col-md-5 col-lg-3 mt-4" ng-repeat=" menteeProfile in menteeProfiles">
+        <mentor-info info="menteeProfile"></mentor-info>
+      </div> 
+
+    </div>
+
   </div>
 
   <br />
@@ -115,6 +160,91 @@
       else {
         $(this).parent().removeClass("slideOut");
         $(this).parent().addClass("slideIn");
+      }
+    });
+  </script>
+
+  <script>
+    $("#typeSwitch").click(function () {
+      if($("#mentorRow").hasClass("displayed")) {
+        $("#mentorRow").removeClass("displayed");
+        $("#mentorRow").addClass("notDisplayed");
+        $("#menteeRow").removeClass("notDisplayed");
+        $("#menteeRow").addClass("displayed");
+      }
+      else {
+        $("#mentorRow").removeClass("notDisplayed");
+        $("#mentorRow").addClass("displayed");
+        $("#menteeRow").removeClass("displayed");
+        $("#menteeRow").addClass("notDisplayed");
+      }
+    });
+  </script>
+
+  <script>
+    $(".classesIcon").click(function () {
+      if($(".userClasses").hasClass("displayed")) {
+        $(".userClasses").removeClass("displayed");
+        $(".userClasses").addClass("notDisplayed");
+      }
+      else {
+        $(".userClasses").removeClass("notDisplayed");
+        $(".userClasses").addClass("displayed");
+        
+        if($(".userFriends").hasClass("displayed")) {
+          $(".userFriends").removeClass("displayed");
+          $(".userFriends").addClass("notDisplayed");
+        }
+      }
+    });
+
+    $(".friendsIcon").click(function () {
+      if($(".userFriends").hasClass("displayed")) {
+        $(".userFriends").removeClass("displayed");
+        $(".userFriends").addClass("notDisplayed");
+      }
+      else {
+        $(".userFriends").removeClass("notDisplayed");
+        $(".userFriends").addClass("displayed");
+
+        if($(".userClasses").hasClass("displayed")) {
+          $(".userClasses").removeClass("displayed");
+          $(".userClasses").addClass("notDisplayed");
+        }
+      }
+    });
+
+    $(".chatIcon").click(function () {
+      if($(".userChat").hasClass("displayed")) {
+        $(".userChat").removeClass("displayed");
+        $(".userChat").addClass("notDisplayed");
+      }
+      else {
+        $(".userChat").removeClass("notDisplayed");
+        $(".userChat").addClass("displayed");
+        
+      }
+    });
+
+    $(".calendarIcon").click(function () {
+      if($(".userCalendar").hasClass("displayed")) {
+        $(".userCalendar").removeClass("displayed");
+        $(".userCalendar").addClass("notDisplayed");
+      }
+      else {
+        $(".userCalendar").removeClass("notDisplayed");
+        $(".userCalendar").addClass("displayed");
+      }
+    });
+
+    $(".notificationIcon").click(function () {
+      if($(".userNotification").hasClass("displayed")) {
+        $(".userNotification").removeClass("displayed");
+        $(".userNotification").addClass("notDisplayed");
+      }
+      else {
+        $(".userNotification").removeClass("notDisplayed");
+        $(".userNotification").addClass("displayed");
       }
     });
   </script>
