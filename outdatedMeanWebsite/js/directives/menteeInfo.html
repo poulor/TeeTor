@@ -1,17 +1,5 @@
-<!-- <div class="our-team">
-    <img ng-src="{{ info.imageUrl }}" alt="profile">
-    <div class="team-content">
-        <h3 class="title"> {{ info.fname }} </h3>
-        <span class="post"> {{ info.title }} </span>
-        <ul class="social">
-            <li> <a href="#"> <i class="fas fa-paperclip"></i> </a></li>
-            <li> <a href="#"> <i class="fas fa-plus"></i> </a></li>
-            <li> <a href="#"> <i class="fas fa-comments"></i> </a></li>
-        </ul>
-    </div>
-</div> -->
 
-<div class="card">
+<div class="card" style="height: 300px;">
     <div class="activity justify-content-center">
         <p class="activityStatus">Active</p>
         <div class="statusCircle"></div>
@@ -21,25 +9,20 @@
         <img class="profileImg" ng-src=" {{ info.imageUrl }} " alt="profile">
     </div>
     <div class="profileCardBody text-center">
-        <h class="profileCardName">{{ info.fname + ' ' + info.lname }}</h>
+        <h class="profileCardName"> {{ info.fname + ' ' + info.lname }} </h>
         <div class="profileCardTitle">
             {{ info.title }}
         </div>
-        <div class="profileCardBio">
-            <span>{{ info.bio }}
-            </span>
-        </div>
 
         <div class="bulbRating">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/fullBulb.png">
-            <img class="bulb" src="../resources/halfBulb.png">
+            <span> {{ info.menteePoints }}xp </span>
         </div>
 
         <div class="tagSubjects text-center">
-            <div class="sub" ng-repeat="subject in info.teachingSubjects"> {{ subject.subjectName }} </div>
+            <div class="sub">HTML</div>
+            <div class="sub">CSS</div>
+            <div class="sub">JS</div>
+            <div class="sub">MEAN</div>
             <!-- <div class="sub">Python</div>
             <div class="sub">Python</div> -->
         </div>
@@ -157,8 +140,5 @@
         display: none;
     }
 
-    #menteeRow {
-        width: 100%;
-    }
-
 </style>
+  

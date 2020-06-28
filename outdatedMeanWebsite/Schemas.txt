@@ -4,6 +4,8 @@ Collections:
 
 register/logging in
 --------------------------------
+
+userID
 user
 fname 
 lname
@@ -21,6 +23,8 @@ credit
 
 mentor table
 --------------------------------
+
+userID
 fname
 lname
 teachingSubjects [
@@ -40,6 +44,7 @@ personalPageId
 
 mentee table
 --------------------------------
+userID
 fname
 lname
 title
@@ -61,6 +66,8 @@ classes
 --------------------------------
 id 
 name
+classId 
+subjectName
 
 sessions
 --------------------------------
