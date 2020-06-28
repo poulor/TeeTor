@@ -1,3 +1,13 @@
+/*Theme*/
+/*
+Dark Blue: #01303f
+
+
+
+*/
+
+
+
 h1 {
     color: red;
 }
@@ -14,6 +24,8 @@ body {
     background-color: #01303f;
 }
 
+/* Slider  --------------------------------------------------------------------------- */
+
 #slider {
   z-index: 2;
 }
@@ -29,7 +41,8 @@ body {
 }
 
 .modal-header {
-  height: 20%;
+
+  height: 15%;
 }
 
 .slideIn {
@@ -82,6 +95,36 @@ body {
 modal-body {
   height: 1000px;
 }
+
+
+.iconTab {
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right: auto;
+}
+.iconColor {
+  color: #01303f;
+  font-size: 1.5rem;
+  padding: 0px 5px 0px 5px;
+}
+
+/* .userClasses {
+  margin-top: 10px;
+  border-radius: 8px !important;
+} */
+
+.userClassesHeader {
+  background-color: rgb(246,248,250);
+  color:gray;
+}
+
+.userTabs {
+  margin-top: 10px;
+  border-radius: 8px !important;
+  width: 250px;
+}
+
+/* Search Form --------------------------------------------------------------------------- */
 
 .searchIcon {
   position: absolute;
