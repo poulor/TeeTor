@@ -8,7 +8,6 @@ Dark Blue: #01303f
 
 
 
-
 h1 {
     color: red;
 }
@@ -42,6 +41,7 @@ body {
 }
 
 .modal-header {
+
   height: 15%;
 }
 
@@ -95,6 +95,7 @@ body {
 modal-body {
   height: 1000px;
 }
+
 
 .iconTab {
   margin-top: 20px;
