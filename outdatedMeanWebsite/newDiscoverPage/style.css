@@ -1,0 +1,384 @@
+/*Theme*/
+/*
+Dark Blue: #01303f
+
+
+
+*/
+
+
+
+
+h1 {
+    color: red;
+}
+
+body {
+  background-color: #F6F8FA;
+}
+
+#mainContent {
+    margin-top: 50px;
+}
+
+.navbar {
+    background-color: #01303f;
+}
+
+/* Slider  --------------------------------------------------------------------------- */
+
+#slider {
+  z-index: 2;
+}
+
+#slider {
+  height: 100%;
+}
+
+.modal-content {
+  height: 100%;
+  -webkit-box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, .5);
+  box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, .5);
+}
+
+.modal-header {
+  height: 15%;
+}
+
+.slideIn {
+  position: fixed;
+  width: 20%;
+  left: -20%;
+  /* Animation  */
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slideOut {
+  position: fixed;
+  width: 20%;
+  min-width: 300px;
+  left: 0px;
+  /* Animation  */
+  transition-property: all;
+  transition-duration: 1.6s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+    
+#slideOutTab {
+  margin-top: 80%;
+  position: absolute;
+  right: -39px;
+  height: 200px;
+  width: 40px;
+  -webkit-box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, .5);
+  box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, .5);
+  background: white;
+  border-radius: 0px 15px 15px 0px;
+  z-index: 5;
+}
+
+#slideOutTab div {
+  text-align: center;
+  position: relative;
+  right: 70px;
+  top: 90px;
+  background: white;
+  width: 180px;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  writing-mode: lr-tb;
+}
+
+modal-body {
+  height: 1000px;
+}
+
+.iconTab {
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right: auto;
+}
+.iconColor {
+  color: #01303f;
+  font-size: 1.5rem;
+  padding: 0px 5px 0px 5px;
+}
+
+/* .userClasses {
+  margin-top: 10px;
+  border-radius: 8px !important;
+} */
+
+.userClassesHeader {
+  background-color: rgb(246,248,250);
+  color:gray;
+}
+
+.userTabs {
+  margin-top: 10px;
+  border-radius: 8px !important;
+  width: 250px;
+}
+
+/* Search Form --------------------------------------------------------------------------- */
+
+.searchIcon {
+  position: absolute;
+  right: 2%;
+  top: 10%;
+  z-index: 3;
+  width: 29px;
+  height: 29px;
+}
+
+.roundedCustom {
+  border-radius: 25px;
+}
+
+.navSearchWidth {
+  width: 40vw;
+}
+
+
+/* Account Type Toggle Switch --------------------------------------------------------------------------- */
+
+
+.knobs, .typeSwitchBody
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button
+{
+    position: relative;
+    width: 230px;
+    height: 75px;
+    overflow: hidden;
+}
+
+.button.r, .button.r .typeSwitchBody
+{
+    border-radius: 100px;
+}
+
+.button.b2
+{
+    border-radius: 2px;
+}
+
+.checkbox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs
+{
+    z-index: 2;
+}
+
+.typeSwitchBody
+{
+    width: 100%;
+    /* background-color: #ebf7fc; */
+    background-color: #F6F8FA;
+    transition: 0.3s ease all;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+#typeSwitch .knobs:before, #typeSwitch .knobs:after, #typeSwitch .knobs span
+{
+    position: absolute;
+    vertical-align: center;
+    top: 8px;
+    width: 100px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    line-height: 1.5;
+    padding: 9px 4px;
+    border-radius: 8px;
+    transition: 0.3s ease all;
+}
+
+
+
+#typeSwitch .knobs:before
+{
+    content: '';
+    left: 8px;
+    background-color: #47C2FF;
+    text-align: center;
+}
+
+#typeSwitch .knobs:after
+{
+    content: 'Mentee';
+    right: 8px;
+    color: #4e4e4e;
+}
+
+#typeSwitch .knobs span
+{
+    display: inline-block;
+    left: 4px;
+    color: #fff;
+    z-index: 1;
+}
+
+#typeSwitch .checkbox:checked + .knobs span
+{
+    color: #4e4e4e;
+}
+
+#typeSwitch .checkbox:checked + .knobs:before
+{
+    left: 122px;
+    background-color: #7ED957;
+}
+
+#typeSwitch .checkbox:checked + .knobs:after
+{
+    color: #fff;
+}
+
+#typeSwitch .checkbox:checked ~ .typeSwitchBody
+{
+    /* background-color: #ECFFE3; */
+    background-color: #F6F8FA;
+}
+
+.our-team {
+  border: 2px solid #47C2FF;
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.our-team:before ,
+.our-team:after {
+  content: "";
+  width: 100%;
+  height: 104%;
+  background-color: #47C2FF;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  z-index: -1;
+  transform: translateY(-50%) scaleX(0.3);
+  transition: all 0.3s ease 0s;
+}
+
+.our-team:after {
+  width: 106%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleY(0.25);
+}
+
+.our-team:hover:before {
+  transform: translateY(-50%) scale(0.7);
+}
+
+.our-team:hover:after {
+  transform: translate(-50%, -50%) scaleY(0.7);
+}
+
+.our-team img {
+  width: 100%;
+  /*opacity: 0.5; */
+  height: auto;
+  border-radius: 10px;
+  transition: all 0.3s ease 0s;
+}
+
+.our-team .team-content {
+  width: 93%;
+  padding: 25px 0 10px;
+  background: #47C2FF;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  opacity: 0;
+  -webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.5, 0.2, 0.1, 0.9);
+}
+
+.our-team:hover .team-content {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.our-team .title {
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.our-team .post {
+  display: block;
+  font-size: 16px;
+  color: #fff;
+ text-transform: uppercase;
+ margin-bottom: 10px;
+ }
+
+.our-team .social {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.our-team .social li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.our-team .social li a {
+  display: block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 20px;
+  color: #47C2FF;
+  transition: all 0.3s ease 0s;
+}
+
+.our-team .social li a:hover {
+  background: linear-gradient(to bottom, #47C2FF, #0088c7);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+@media only screen and (max-width: 990px) {
+  .our-team {
+    margin-bottom: 30px; 
+  }
+}
+
+.container {
+  float: right;
+}
