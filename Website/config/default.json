@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://Admin:Admin@teetor-vud18.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "randomSecretToken"
+}
