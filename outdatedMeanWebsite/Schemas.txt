@@ -4,6 +4,7 @@ Collections:
 
 register/logging in
 --------------------------------
+
 userID
 user
 fname 
@@ -22,6 +23,7 @@ credit
 
 mentor table
 --------------------------------
+
 userID
 fname
 lname
@@ -62,6 +64,8 @@ personalPageId
 
 classes
 --------------------------------
+id 
+name
 classId 
 subjectName
 
