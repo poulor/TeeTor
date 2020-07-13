@@ -6,8 +6,9 @@ const ProfileSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
-	teeTorType: {
-	    type: [String],
+	teetorType: {
+		// 1 mentee, 2 mentor, 3 both
+	    type: Number,
 	    required: true
     },
     bio: {
@@ -20,18 +21,12 @@ const ProfileSchema = new mongoose.Schema({
 	    type: [String]
     },
     skills: {
-        type: [String],
-        required: true
+        type: [String]
     },
     mentorProfile: {
-    	subjects: [
-    		{
-    			subName: {
-    				type: String,
-    				required: true
-    			}
-    		}
-    	],
+    	subjects: {
+    		type: [String]
+    	},
     	connections: [
     		{
     			mentee: {
@@ -50,14 +45,15 @@ const ProfileSchema = new mongoose.Schema({
 	                type: Schema.Types.ObjectId,
 	                ref: 'users'
 	            },
+	            rating: {
+	            	type: Number,
+	            	required: true
+	            },
 	            text: {
 	                type: String,
-	                required: 'true'
+	                required: true
 	            },
 	            name: {
-	                type: String
-	            },
-	            avatar: {
 	                type: String
 	            },
 	            date: {
@@ -71,14 +67,9 @@ const ProfileSchema = new mongoose.Schema({
         }
     },
     menteeProfile: {
-    	subjects: [
-    		{
-    			subName: {
-    				type: String,
-    				required: true
-    			}
-    		}
-    	],
+    	subjects: {
+    		type: [String]
+    	},
     	connections: [
     		{
     			mentor: {
