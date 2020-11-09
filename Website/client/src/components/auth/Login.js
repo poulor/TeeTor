@@ -4,8 +4,40 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
+//
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+//
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+//
+
+
 // Parameters of function should contain all props used and be reflected by the prop types listed below
 const Login = ({ login, isAuthenticated }) => {
+  //
+  const styles = useStyles();
+  //
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,7 +60,56 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-        {/* Login form */}
+      {/* Login form */}
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={styles.paper}>
+            <Typography component="h1" variant="h5">
+            Login
+            </Typography>
+            <form className={styles.form} noValidate>
+                <TextField 
+                    type="email"
+                    name="email"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Email"
+                    value={state.email}
+                    onChange={handleChange}
+                    variant="outlined"
+                    margin="normal"
+                    label="Email Address"
+                    required
+                    fullWidth
+                    autoFocus
+                />
+                <TextField 
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    value={state.password}
+                    onChange={handleChange}
+                    variant="outlined"
+                    margin="normal"
+                    label="Password"
+                    required
+                    fullWidth
+                />
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={styles.submit}
+                    onClick={handleSubmitClick}
+                >
+                    Login
+                </Button>
+            </form>
+        </div>
+      </Container>
+      {/* Login form */}
     </Fragment>
   );
 };

@@ -7,9 +7,43 @@ import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
+//
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+//
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+//
+
+//
+
 // Bring in all actions the component will use inside an object listed as a param
 // Parameters of function should contain all props used and be reflected by the prop types listed below
 const Register = ({ setAlert, register, isAuthenticated }) => {
+  //
+  const styles = useStyles();
+  //
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -39,6 +73,87 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
+      {/* Register Form */}
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+          <div className={styles.paper}>
+              <Typography component="h1" variant="h5">
+                  Sign up
+              </Typography>
+              <form className={styles.form} noValidate>
+                  <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                          <TextField 
+                              type="name"
+                              id="name"
+                              placeholder="Enter Name"
+                              name="name"
+                              value={state.name}
+                              onChange={handleChange}
+                              variant="outlined"
+                              required
+                              fullWidth
+                              label="Name"
+                              autoFocus
+                          />
+                      </Grid>
+                      <Grid item xs={12}>
+                          <TextField 
+                              type="email"
+                              id="email"
+                              name="email"
+                              aria-describedby="emailHelp"
+                              placeholder="Enter Email"
+                              value={state.email}
+                              onChange={handleChange}
+                              label="Email Address"
+                              variant="outlined"
+                              required
+                              fullWidth
+                          />
+                      </Grid>
+                      <Grid item xs={12}>
+                          <TextField
+                              type="password"
+                              id="password"
+                              placeholder="Enter Password"
+                              name="password"
+                              label="Password"
+                              value={state.password}
+                              onChange={handleChange}
+                              variant="outlined"
+                              required
+                              fullWidth
+                          />
+                      </Grid>
+                      <Grid item xs={12}>
+                          <TextField
+                              type="password"
+                              id="confirmPassword"
+                              placeholder="Confirm Password"
+                              label="Confirm Password"
+                              name="confirm password"
+                              value={state.confirmPassword}
+                              onChange={handleChange}
+                              variant="outlined"
+                              required
+                              fullWidth
+                          />
+                      </Grid>
+                      <Button
+                          type="submit"
+                          className={styles.submit}
+                          onClick={handleSubmitClick}
+                          fullWidth
+                          variant="contained"
+                          color="primary"
+                      >
+                          Sign up
+                      </Button>
+                  </Grid>
+              </form>
+          </div>
+        </Container>
       {/* Register Form */}
     </Fragment>
   );
