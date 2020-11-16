@@ -1,0 +1,73 @@
+.page {
+    background-color:  #47C2FF;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+}
+
+.input {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 0.3em;
+    border-radius: 10px;
+    border: solid;
+    font-size: 20px;
+    padding: 0.3em 0;
+    cursor: pointer;
+    z-index: 1;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.form {
+}
+
+.label {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.submit {
+    padding: 10px;
+    background:  #a0f07a;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Montserrat";
+    cursor: pointer;
+}
+
+.submit:hover, .switch:hover {
+    background: #04cf0b;
+}
+
+.switch {
+    margin-top: 10px;
+    padding: 10px;
+    background:  #a0f07a;
+    border: solid;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Montserrat";
+    cursor: pointer;
+}
+
+@media  (min-width: 1000px) {
+    .input {
+        width: 30%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+}
