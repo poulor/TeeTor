@@ -1,55 +1,60 @@
 .page {
-    background-color:  #47C2FF;
+    background-color:#fafaff;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding-top: 100px;
+    font-family: "Montserrat";
+}
+
+.formWrapper {
+    width: 250px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.formWrapperLogin {
+    margin-top: 100px;
+}
+
+.title {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 25px;
 }
 
 .input {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 0.3em;
-    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
     border: solid;
-    font-size: 20px;
-    padding: 0.3em 0;
-    cursor: pointer;
-    z-index: 1;
-    animation-name: slide;
-    animation-duration: 0.5s;
-    font-family: "Montserrat";
-    text-align: center;
+    border-color: #cccccf;
+    font-size: 15px;
+    padding: 10px;
+    text-align:left;
 }
 
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
-
-.form {
-}
-
-.label {
-    margin: 0;
-    margin-bottom: 5px;
-}
+.input:focus::placeholder {
+    color: transparent;
+  }
 
 .submit {
-    padding: 10px;
-    background:  #a0f07a;
+    border: solid;
+    background: #5858d1;
+    color: white;
+    padding: 15px;
     border: none;
-    border-radius: 10px;
     font-size: 20px;
     font-family: "Montserrat";
     cursor: pointer;
+    margin: auto;
+    width: 100%;
 }
 
-.submit:hover, .switch:hover {
-    background: #04cf0b;
+.submit:hover {
+    color: #5858d1;
+    background: white;
+    border: solid;
+    border-color: #5858d1;
 }
 
 .switch {
@@ -64,10 +69,14 @@
     cursor: pointer;
 }
 
+@media  (min-width: 500px) {
+    .formWrapper {
+        width: 400px;
+    }
+}
+
 @media  (min-width: 1000px) {
-    .input {
-        width: 30%;
-        margin-left: 35%;
-        margin-right: 35%;
+    .formWrapper {
+        width: 450px;
     }
 }
