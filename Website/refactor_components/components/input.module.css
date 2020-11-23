@@ -1,0 +1,22 @@
+.wrapper {
+    position: relative;
+}
+
+.placeholder {
+    display: none;
+}
+
+.input:focus {
+    border-color: blue;
+}
+
+.input:focus + .placeholder{
+    display: block;
+    position: absolute;
+    top: -25px;
+    margin-left: 10px;
+    background: #fafaff;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
