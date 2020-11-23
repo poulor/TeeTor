@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
+import styles from './styling/Navbar.module.css';
+import logo from '../../img/TeeTorLogo2.png';
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
@@ -36,7 +39,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav className='navbar'>
+    <nav className={styles.navbar}>
+      <img src={logo} alt="Logo" className={styles.logo} />
       {!loading && (
         <Fragment> {isAuthenticated ? authLinks : guestLinks} </Fragment>
       )}
