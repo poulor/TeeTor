@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  opacity: 0.9;
+  background-color: white;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: black;
+  padding: 20px;
+  margin: 0 5px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
