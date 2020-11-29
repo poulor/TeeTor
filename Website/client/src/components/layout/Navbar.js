@@ -21,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <a onClick={logout} href='#!'>
           <i></i>{' '}
           {/* Add css class that hides the text when on a small screen */}
-          <span>Logout</span>
+          <span className={styles.alt}>Sign Out</span>
         </a>
       </li>
     </ul>
