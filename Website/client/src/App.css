@@ -5,10 +5,11 @@
 }
 
 body {
+  padding-top: 55px;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #ccf1ff;
+  background-color: #f6f8fa;
 }
 
 ul {

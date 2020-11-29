@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
+import SideBar from './SideBar';
 
 const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
@@ -10,7 +11,9 @@ const Dashboard = ({ getCurrentProfile, auth, profile }) => {
     getCurrentProfile();
   }, []);
 
-  return <div>Dashboard</div>;
+  return (
+    <SideBar />
+  )
 };
 
 // List all proptypes here for error checking
