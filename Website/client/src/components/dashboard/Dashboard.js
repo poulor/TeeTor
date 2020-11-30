@@ -6,20 +6,22 @@ import LoadingAnim from '../layout/LoadingAnim';
 
 
 
-const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading }}) => {
+const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }}) => {
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
   }, []);
 
+  // While the component is being loaded and profile has not been updated, display the loading animation
+  // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      {/* <h1>Hello ({name})</h1> */}
-      <h1>Hello World`</h1>
+      <div className='page'>
+        <h1>Hello {user && user.name}</h1>
+      </div>
       {/* <LoadingAnim /> */}
     </Fragment>
-  
 };
 
 // List all proptypes here for error checking

@@ -8,8 +8,18 @@ export default class sideBar extends Component {
 
   slideIn = () => {
     var x = document.getElementById("slider");
-    if (x.className === styles.slideOut) x.className = styles.slideIn;
-    else x.className = styles.slideOut;
+    if (x.className === styles.slideOut) {
+      var y = document.getElementsByClassName("page");
+      [...y].forEach( x => x.className = "pageExpand" );
+      // [...y].forEach( x => x.classList.remove("page") );
+      x.className = styles.slideIn;
+    }
+    else {
+      x.className = styles.slideOut;
+      var y = document.getElementsByClassName("pageExpand");
+      [...y].forEach( x => x.className = "page" );
+      // [...y].forEach( x => x.classList.remove("pageExpand") );
+    }
   };
 
   render() {

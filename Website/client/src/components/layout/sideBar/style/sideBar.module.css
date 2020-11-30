@@ -12,6 +12,8 @@
   width: 20%;
   min-width: 300px;
   left: min(-20%, -300px);
+  background-color: white;
+
   /* left: -300px; */
   /* Animation  */
   transition-property: all;
@@ -37,13 +39,16 @@
   /* margin-top: auto; */
   top: 25%;
   position: absolute;
-  right: -39px;
+  /* right: -39px; */
+  left: 100%;
   height: 200px;
   width: 40px;
   -webkit-box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  clip-path: inset(-50px -50px -50px 0px);
   background: white;
   border-radius: 0px 15px 15px 0px;
+  border-left-color: rgba(255, 255, 255, 1);
   z-index: 5;
   cursor: pointer;
 }
