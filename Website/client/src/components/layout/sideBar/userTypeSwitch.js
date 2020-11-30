@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./style/sideBar.module.css";
+import styles from "./style/userTypeSwitch.module.css";
 
 export default class userTypeSwitch extends Component {
   state = {
