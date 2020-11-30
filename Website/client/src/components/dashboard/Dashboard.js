@@ -1,23 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
-// import SideBar from '../layout/SideBar';
+import LoadingAnim from '../layout/LoadingAnim';
 
 
 
-const Dashboard = ({ getCurrentProfile, auth, profile}) => {
+const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading }}) => {
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
   }, []);
 
-  return (
-    // <SideBar />
-    // <h1>Hello ({name})</h1>
-    <h1>Hello World`</h1>
-  )
+  return loading && profile == null ? <LoadingAnim /> : 
+    <Fragment>
+      {/* <h1>Hello ({name})</h1> */}
+      <h1>Hello World`</h1>
+      {/* <LoadingAnim /> */}
+    </Fragment>
+  
 };
 
 // List all proptypes here for error checking
