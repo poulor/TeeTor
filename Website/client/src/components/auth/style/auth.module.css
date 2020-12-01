@@ -39,7 +39,7 @@
 
 .submit {
   border: solid;
-  background: #5858d1;
+  background: #01303f;
   color: white;
   padding: 15px;
   border: none;
@@ -51,10 +51,6 @@
 }
 
 .submit:hover {
-  color: #5858d1;
-  background: white;
-  border: solid;
-  border-color: #5858d1;
 }
 
 .switch {
