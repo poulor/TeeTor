@@ -33,6 +33,9 @@ router.post('/', auth, async (req, res) => {
     if (! errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
+    
+    return res.json(req.body);
+    console.log(req.body);
 
     // Destructure request body to access parameters loosely
     const {
@@ -41,12 +44,10 @@ router.post('/', auth, async (req, res) => {
         location,
         languages,
         skills,
-        youtube,
-        facebook,
-        twitter,
-        instagram,
-        linkedin
     } = req.body;
+
+    console.log(teetorType);
+
 
     // Build profile object
     const profileFields = {};
@@ -67,46 +68,28 @@ router.post('/', auth, async (req, res) => {
         profileFields.skills = skills.split(',').map(skills => skills.trim());
     }
 
-    // Build social object
-    profileFields.social = {}
-    if (youtube) {
-        profileFields.social.youtube = youtube;
-    }
-    if (twitter) {
-        profileFields.social.twitter = twitter;
-    }
-    if (facebook) {
-        profileFields.social.facebook = facebook;
-    }
-    if (linkedin) {
-        profileFields.social.linkedin = linkedin;
-    }
-    if (instagram) {
-        profileFields.social.instagram = instagram;
-    }
+    // try {
+    //     let profile = await Profile.findOne({user: req.user.id});
+    //     // If profile already exists
+    //     if (profile) {
+    //         profile = await Profile.findOneAndUpdate({
+    //             user: req.user.id
+    //         }, {
+    //             $set: profileFields
+    //         }, {new: true});
 
-    try {
-        let profile = await Profile.findOne({user: req.user.id});
-        // If profile already exists
-        if (profile) {
-            profile = await Profile.findOneAndUpdate({
-                user: req.user.id
-            }, {
-                $set: profileFields
-            }, {new: true});
+    //         return res.json(profile);
+    //     }
 
-            return res.json(profile);
-        }
+    //     // Create profile
+    //     profile = new Profile(profileFields);
 
-        // Create profile
-        profile = new Profile(profileFields);
-
-        await profile.save();
-        res.json(profile);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
+    //     await profile.save();
+    //     res.json(profile);
+    // } catch (err) {
+    //     console.error(err.message);
+    //     res.status(500).send('Server Error');
+    // }
 });
 
 // @route       GET api/profile
