@@ -38,7 +38,8 @@ img {
   height: 100%;
   margin-left: max(20%, 300px);
   width: var(vw - max(20%, 300px));
-  padding: 2rem;
+  padding: 2em;
+  padding-left: 70px;
 
   transition-property: all;
   transition-duration: 1s;
@@ -55,4 +56,11 @@ img {
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.fa-cog {
+  font-size: 20px;
+  margin-right: auto;
+  margin-top: 2.5px;
+  margin-left: 15px;
 }

@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import styles from "./style/userTypeSwitch.module.css";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class userTypeSwitch extends Component {
-  state = {
-      status: "mentor"
-  };
+
+import styles from "./style/userTypeSwitch.module.css";
+import { toggleTeeTorType } from '../../../actions/profile';
+
+const UserTypeSwitch = ({}) => {
+  // state = {
+  //     status: "mentee"
+  // };
 
   // When user clicks the button to switch contexts, the slider is adjusted:
-  typeSwitch = () => {
+  const typeSwitch = () => {
+    toggleTeeTorType(); 
     // Toggle slider position:
     var x = document.getElementById("typeSwitch");
     // First determine what state the slider is already in:
@@ -23,37 +29,49 @@ export default class userTypeSwitch extends Component {
       y.className = styles.switchTextInactive;
       z.className = styles.switchTextActive;
       // Update state:
-      this.setState({status : "mentee"});
+      // this.setState({status : "mentor"});
     } else {
       // Switch which text is active:
       z.className = styles.switchTextInactive;
       y.className = styles.switchTextActive;
       // Update: state:
-      this.setState({status : "mentor"});
+      // this.setState({status : "mentee"});
     }
   };
 
-  render() {
-    return (
-        <div class={styles.modalContent}>
-            <div className={styles.modalHeader}>
-                <div>
-                    <div onClick={this.typeSwitch} className={styles.switch}>
-                    <div id="typeSwitch" className={styles.switchSliderLeft}></div>
-                    <div className={styles.switchTextLeft}>
-                        <p id="switchTextLeft" className={styles.switchTextActive}>
-                        Mentor
-                        </p>
-                    </div>
-                    <div className={styles.switchTextRight}>
-                        <p id="switchTextRight" className={styles.switchTextInactive}>
-                        Mentee
-                        </p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-  }
-}
+  return (
+      <div class={styles.modalContent}>
+          <div className={styles.modalHeader}>
+              <div>
+                  {/* <div onClick={this.typeSwitch} className={styles.switch}> */}
+                  <div onClick={toggleTeeTorType} className={styles.switch}>
+                  <div id="typeSwitch" className={styles.switchSliderLeft}></div>
+                  <div className={styles.switchTextLeft}>
+                      <p id="switchTextLeft" className={styles.switchTextActive}>
+                      Mentee
+                      </p>
+                  </div>
+                  <div className={styles.switchTextRight}>
+                      <p id="switchTextRight" className={styles.switchTextInactive}>
+                      Mentor
+                      </p>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  );
+};
+
+UserTypeSwitch.propType = {
+  toggleTeeTorType: PropTypes.func.isRequired,
+  // auth: PropTypes.object.isRequired,
+};
+
+// Use mapStateToProps when we want to pull a value from the state, in this case updating auth
+const mapStateToProps = (state) => ({
+  // auth: state.auth,
+});
+
+export default connect(mapStateToProps, { toggleTeeTorType })(UserTypeSwitch);
+
