@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, {  } from "react";
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 import styles from "./style/userTypeSwitch.module.css";
-import { toggleTeeTorType } from '../../../actions/profile';
+// import { toggleTeeTorType } from '../../../actions/profile';
 
-const UserTypeSwitch = ({}) => {
+const UserTypeSwitch = () => {
   // state = {
   //     status: "mentee"
   // };
 
   // When user clicks the button to switch contexts, the slider is adjusted:
   const typeSwitch = () => {
-    toggleTeeTorType(); 
+    // toggleTeeTorType(); 
     // Toggle slider position:
     var x = document.getElementById("typeSwitch");
     // First determine what state the slider is already in:
@@ -40,11 +40,11 @@ const UserTypeSwitch = ({}) => {
   };
 
   return (
-      <div class={styles.modalContent}>
+      <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
               <div>
                   {/* <div onClick={this.typeSwitch} className={styles.switch}> */}
-                  <div onClick={toggleTeeTorType} className={styles.switch}>
+                  <div onClick={typeSwitch} className={styles.switch}>
                   <div id="typeSwitch" className={styles.switchSliderLeft}></div>
                   <div className={styles.switchTextLeft}>
                       <p id="switchTextLeft" className={styles.switchTextActive}>
@@ -63,15 +63,16 @@ const UserTypeSwitch = ({}) => {
   );
 };
 
-UserTypeSwitch.propType = {
-  toggleTeeTorType: PropTypes.func.isRequired,
-  // auth: PropTypes.object.isRequired,
-};
+// UserTypeSwitch.propType = {
+//   toggleTeeTorType: PropTypes.func.isRequired,
+//   // auth: PropTypes.object.isRequired,
+// };
 
-// Use mapStateToProps when we want to pull a value from the state, in this case updating auth
-const mapStateToProps = (state) => ({
-  // auth: state.auth,
-});
+// // Use mapStateToProps when we want to pull a value from the state, in this case updating auth
+// const mapStateToProps = (state) => ({
+//   // auth: state.auth,
+// });
 
-export default connect(mapStateToProps, { toggleTeeTorType })(UserTypeSwitch);
+// export default connect(mapStateToProps, { toggleTeeTorType })(UserTypeSwitch);
+export default connect()(UserTypeSwitch);
 

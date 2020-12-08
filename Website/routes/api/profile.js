@@ -25,6 +25,7 @@ router.get('/me', auth, async (req, res) => {
     }
 });
 
+
 // @route       POST api/profile
 // @desc        Create or update user profile
 // @access      Private
@@ -34,9 +35,6 @@ router.post('/', auth, async (req, res) => {
         return res.status(400).json({errors: errors.array()});
     }
     
-    return res.json(req.body);
-    console.log(req.body);
-
     // Destructure request body to access parameters loosely
     const {
         teetorType,
@@ -45,9 +43,6 @@ router.post('/', auth, async (req, res) => {
         languages,
         skills,
     } = req.body;
-
-    console.log(teetorType);
-
 
     // Build profile object
     const profileFields = {};
@@ -68,28 +63,28 @@ router.post('/', auth, async (req, res) => {
         profileFields.skills = skills.split(',').map(skills => skills.trim());
     }
 
-    // try {
-    //     let profile = await Profile.findOne({user: req.user.id});
-    //     // If profile already exists
-    //     if (profile) {
-    //         profile = await Profile.findOneAndUpdate({
-    //             user: req.user.id
-    //         }, {
-    //             $set: profileFields
-    //         }, {new: true});
+    try {
+        let profile = await Profile.findOne({user: req.user.id});
+        // If profile already exists
+        if (profile) {
+            profile = await Profile.findOneAndUpdate({
+                user: req.user.id
+            }, {
+                $set: profileFields
+            }, {new: true});
 
-    //         return res.json(profile);
-    //     }
+            return res.json(profile);
+        }
 
-    //     // Create profile
-    //     profile = new Profile(profileFields);
+        // Create profile
+        profile = new Profile(profileFields);
 
-    //     await profile.save();
-    //     res.json(profile);
-    // } catch (err) {
-    //     console.error(err.message);
-    //     res.status(500).send('Server Error');
-    // }
+        await profile.save();
+        res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 // @route       GET api/profile
