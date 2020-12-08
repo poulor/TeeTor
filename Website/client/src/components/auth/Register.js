@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react';
 // We need this in order to use the store in a component
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // Bringing in redux action
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 import styles from './style/auth.module.css';
-import Input from './input';
+// import Input from './input';
 
 // Bring in all actions the component will use inside an object listed as a param
 // Parameters of function should contain all props used and be reflected by the prop types listed below

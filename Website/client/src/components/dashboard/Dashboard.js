@@ -11,7 +11,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   // While the component is being loaded and profile has not been updated, display the loading animation
   // Otherwise show the main content of the page

@@ -7,8 +7,8 @@ export default () => (
             src={loadingAnim}
             alt='Loading...' 
             style={{ width: '100px', margin: 'auto', display: 'block', 
-                    position: 'absolute' , top: '50%', transform: 'translateY(-50%)',
-                    left: '50%', transform: 'TranslateX(-50%)'}} 
+                    position: 'absolute' , top: '50%', transform: 'translate(-50%,-50%)',
+                    left: '50%'}} 
         />
     </Fragment>
 );

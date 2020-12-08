@@ -8,6 +8,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import { loadUser } from './actions/auth';
 import Dashboard from './components/dashboard/Dashboard';
+import EditProfileForm from './components/profileForm/EditProfileForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 //Redux
@@ -40,6 +41,7 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/Dashboard' component={Dashboard} />
+              <PrivateRoute exact path='/EditProfile' component={EditProfileForm} />
             </Switch>
           </section>
         </Fragment>

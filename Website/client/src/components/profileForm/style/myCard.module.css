@@ -1,0 +1,126 @@
+.card {
+  overflow: hidden;
+  border-radius: 25px !important;
+  border-width: 0 !important;
+  padding-bottom: 30px;
+  padding-top: 5px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  /* height: 400px; */
+  width: 270px;
+  /* border: solid; */
+  margin: auto;
+}
+
+.profileCardHeader {
+  height: 140px;
+  width: 100%;
+  padding: 10px;
+  /* display: inline-block; */
+}
+
+.profileCardBody {
+  position: relative;
+  margin: 0;
+  padding: 0px 15px 0px 15px;
+  box-shadow: none;
+  /* margin: auto; */
+  text-align: center;
+}
+
+.activity {
+  margin-left: auto;
+  margin-right: 6%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.activityStatus {
+  color: rgba(146, 146, 146, 0.68);
+  display: inline-block;
+  margin: 0;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.statusCircle {
+  display: inline-block;
+  margin: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #7ed957;
+  box-shadow: inset 0 0 10px rgb(93, 175, 58);
+  margin-top: 2.5px;
+  margin-left: 15px;
+}
+
+.gearIcon {
+  /* font-size: 20px; */
+}
+
+.profileCardName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(88, 88, 88);
+}
+
+.profileCardTitle {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.68);
+  color: #47c2ff;
+  font-weight: bold;
+  line-height: 0.5rem;
+}
+
+.profileCardBio {
+  padding: 20px 0px 15px 0px;
+  font-size: 0.7rem;
+  line-height: 0.8rem;
+}
+
+.profileImg {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid white;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bulbRating {
+  padding: 0px 0px 20px 0px;
+}
+
+.bulb {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.tagSubjects {
+  padding: 0px 0px 5px 0px;
+  font-size: 0.7rem;
+}
+
+.sub {
+  padding: 1px 3px 1px 3px;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #47c2ff;
+  color: white;
+}
+
+.displayed {
+  display: inline-flex;
+}
+
+.notDisplayed {
+  display: none;
+}
