@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
-import styles from './styling/Navbar.module.css';
+import styles from './style/Navbar.module.css';
 import logo from '../../img/TeeTorLogo2.png';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
@@ -21,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <a onClick={logout} href='#!'>
           <i></i>{' '}
           {/* Add css class that hides the text when on a small screen */}
-          <span>Logout</span>
+          <span className={styles.alt}>Sign Out</span>
         </a>
       </li>
     </ul>

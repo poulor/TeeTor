@@ -1,11 +1,14 @@
 import React, { Fragment, useState } from 'react';
 // We need this in order to use the store in a component
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // Bringing in redux action
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
+
+import styles from './style/auth.module.css';
+// import Input from './input';
 
 // Bring in all actions the component will use inside an object listed as a param
 // Parameters of function should contain all props used and be reflected by the prop types listed below
@@ -39,7 +42,56 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      {/* Register Form */}
+      <div className={styles.page}>
+        <form 
+          id="signup"
+          className={styles.form} 
+          onSubmit={(e) => onSubmit(e)}
+        >
+          <div className={styles.formWrapper}>
+            <h1 className={styles.title}>Sign Up</h1>
+            <input
+              className={styles.input}
+              type='text'
+              placeholder='Name'
+              name='name'
+              value={name}
+              onChange={(e) => onChange(e)}
+              required
+            />
+            <input
+              className={styles.input}
+              type='email'
+              placeholder='Email Address'
+              name='email'
+              value={email}
+              onChange={(e) => onChange(e)}
+              required
+            />
+            <input
+              className={styles.input}
+              type='password'
+              placeholder='Password'
+              name='password'
+              minLength='6'
+              value={password}
+              onChange={(e) => onChange(e)}
+              required
+            />
+            <input
+              className={styles.input}
+              type='password'
+              placeholder='Confirm Password'
+              name='password2'
+              minLength='6'
+              value={password2}
+              onChange={(e) => onChange(e)}
+              required
+            />
+            <input type='submit' className={styles.submit} value='Register' />
+          </div>
+        </form>
+      </div>
     </Fragment>
   );
 };
