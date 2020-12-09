@@ -1,8 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+
+import styles from './style/auth.module.css';
+import Input from './input';
 
 // Parameters of function should contain all props used and be reflected by the prop types listed below
 const Login = ({ login, isAuthenticated }) => {
@@ -28,8 +31,42 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-        {/* Login form */}
-    </Fragment>
+      <div className={styles.page}>
+        <form 
+          id="login" 
+          onSubmit={(e) => onSubmit(e)} 
+          className={[styles.form].join(" ")}
+        >
+          <div className={[styles.formWrapper,styles.formWrapperLogin].join(" ")}>
+            <h1 className={styles.title}>Log In</h1>
+            <div className='form-group'>
+              <Input
+                className={styles.input}
+                type='email'
+                placeholder='Email Address'
+                name='email'
+                value={email}
+                onChange={(e) => onChange(e)}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <Input
+                className={styles.input}
+                type='password'
+                placeholder='Password'
+                name='password'
+                minLength='6'
+                value={password}
+                onChange={(e) => onChange(e)}
+                required
+                />
+            </div>
+            <input type='submit' className={styles.submit} value='Login' />
+          </div>
+        </form>
+      </div>
+  </Fragment>
   );
 };
 

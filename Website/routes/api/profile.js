@@ -25,6 +25,7 @@ router.get('/me', auth, async (req, res) => {
     }
 });
 
+
 // @route       POST api/profile
 // @desc        Create or update user profile
 // @access      Private
@@ -33,7 +34,7 @@ router.post('/', auth, async (req, res) => {
     if (! errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
-
+    
     // Destructure request body to access parameters loosely
     const {
         teetorType,
@@ -41,11 +42,6 @@ router.post('/', auth, async (req, res) => {
         location,
         languages,
         skills,
-        youtube,
-        facebook,
-        twitter,
-        instagram,
-        linkedin
     } = req.body;
 
     // Build profile object
@@ -65,24 +61,6 @@ router.post('/', auth, async (req, res) => {
     }
     if (skills) {
         profileFields.skills = skills.split(',').map(skills => skills.trim());
-    }
-
-    // Build social object
-    profileFields.social = {}
-    if (youtube) {
-        profileFields.social.youtube = youtube;
-    }
-    if (twitter) {
-        profileFields.social.twitter = twitter;
-    }
-    if (facebook) {
-        profileFields.social.facebook = facebook;
-    }
-    if (linkedin) {
-        profileFields.social.linkedin = linkedin;
-    }
-    if (instagram) {
-        profileFields.social.instagram = instagram;
     }
 
     try {

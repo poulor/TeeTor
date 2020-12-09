@@ -1,12 +1,14 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import SideBar from './components/layout/sideBar/SideBar'; 
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import { loadUser } from './actions/auth';
 import Dashboard from './components/dashboard/Dashboard';
+import EditProfileForm from './components/profileForm/EditProfileForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 //Redux
@@ -34,10 +36,12 @@ const App = () => {
           <Route exact path='/' component={Landing} />
           <section className='container'>
             <Alert />
+            <PrivateRoute component={SideBar} />
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/Dashboard' component={Dashboard} />
+              <PrivateRoute exact path='/EditProfile' component={EditProfileForm} />
             </Switch>
           </section>
         </Fragment>
