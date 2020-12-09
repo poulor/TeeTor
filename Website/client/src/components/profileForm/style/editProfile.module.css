@@ -43,22 +43,35 @@
 
 /* ProfTypeSelect */
 
+.checkBoxesHolder {
+  width: 100%;
+  display: block;
+  text-align: center;
+  /* display: inline-block; */
+}
+
 .container {
   background: #fff;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
   text-align: center;
-  width: 280px;
-  height: 170px;
+  width: 200px;
+  height: 100px;
+  /* margin-left: 9%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  /* margin-right: 9%; */
+  padding-top: 20px;
+  border-radius: 20px;
 }
 
 .container h3 {
   color: #111;
-  margin: 0 0 25px;
   position: relative;
+  font-size: 20px;
   z-index: 2;
 }
 
@@ -125,10 +138,12 @@
 
 .checkboxContainer.mentee .activeCircle,
 .checkboxContainer.mentee input:checked + label {
-  background-color: #47b881;
+  /* background-color: #47b881; */
+  background-color: #47c2ff;
 }
 
 .checkboxContainer.mentor .activeCircle,
 .checkboxContainer.mentor input:checked + label {
-  background-color: #735dd0;
+  /* background-color: #735dd0; */
+  background-color: #7ed957;
 }

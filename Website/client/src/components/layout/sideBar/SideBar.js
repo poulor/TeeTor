@@ -67,7 +67,7 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
       url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
     />
 
-{profile && profile.skills[0]} 
+{/* {profile && profile.skills[0]}  */}
       {/* <div className={styles.modalBody}>
         <Mentor
           className={styles.card}

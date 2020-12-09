@@ -102,7 +102,8 @@ const EditProfileForm = ({
 
                     <form id="editProfileForm" onSubmit={e => onSubmit(e)}>
                         <h1 className={styles.fieldTitle}>I am a ...</h1>
-                        <div>
+                        <br/>
+                        <div className = {styles.checkBoxesHolder}>
                             <div className={styles.container}>
                                 <h3>Mentee</h3>
                                 <div className={[styles.checkboxContainer,styles.mentee].join(" ")} >
@@ -121,6 +122,7 @@ const EditProfileForm = ({
                                 </div>
                             </div>
                         </div>
+                        <br/>
                         {/* <div className="form-group">
                             <input
                             className={styles.input}
