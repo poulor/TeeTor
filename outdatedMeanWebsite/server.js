@@ -103,7 +103,7 @@ app.get('/', function (req, res) {
 		'Access-control-Allow-Origin': '*'
 	});
 	return res.redirect('index.html');
-}).listen(3000, '0.0.0.0', function () {
+}).listen(3001, '0.0.0.0', function () {
 	console.log("Server running");
 })
 
