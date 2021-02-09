@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from "./style/sideBar.module.css";
-import UserTypeSwitch from "./UserTypeSwitch";
+import UserTypeSwitch from "./userTypeSwitch";
 import { getCurrentProfile } from '../../../actions/profile';
 import Card from '../../profileForm/myCard';
 
