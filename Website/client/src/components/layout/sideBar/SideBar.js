@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from "./style/sideBar.module.css";
-import UserTypeSwitch from "./UserTypeSwitch";
+import UserTypeSwitch from "./userTypeSwitch";
 import { getCurrentProfile } from '../../../actions/profile';
 import Card from '../../profileForm/myCard';
 
@@ -63,7 +63,8 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
-      subjects = {profile && profile.skills} 
+      skills = {["math","history"]}
+      // skills = {profile && profile.skills} 
       url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
     />
 
