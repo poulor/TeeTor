@@ -10,7 +10,7 @@ type = "mentee"
 name = "Myles Carr" 
 title = "Hamster" 
 score = {451} 
-subjects = {["HTML","CSS", "JS", "MEAN", "Python"]} 
+skills = {["HTML","CSS", "JS", "MEAN", "Python"]} 
 url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"/> */
 
 /* <myCard 
@@ -19,7 +19,7 @@ name = "Hughie Campbell"
 title = "Sup' Killer" 
 bio = "The best character in the Boys" 
 url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
-subjects = {["electronics", "bowling", "customer service"]}
+skills = {["electronics", "bowling", "customer service"]}
 rating = {5}/> */
 
 // Given a rating, return the number of full light bulbs
@@ -43,7 +43,7 @@ export default class myCard extends Component {
     state = {
         type: "",
         bulbs: [],
-        subjects: []
+        skills: []
     }
     componentDidMount = () => {
         // When mounted, check if this is a mentor or mentee mycard.
@@ -62,8 +62,8 @@ export default class myCard extends Component {
             comps.push(<img className={styles.bulb} src={HalfBulb} alt = "halfbulbnotfound"/>)
         }
         this.setState({bulbs: comps});
-        console.log(this.props.subjects);
-        this.setState({subjects : this.props.subjects })
+        console.log(this.props.skills);
+        this.setState({skills : this.props.skills })
     }
   render() {
     return (
@@ -95,9 +95,9 @@ export default class myCard extends Component {
           </div>
 
           <div className={[styles.tagSubjects].join(" ")}>
-            {/* {this.state.subjects.map((subject) => (
-              <div key = {subject} className = {styles.sub}>{subject}</div>
-            ))} */}
+            {this.state.skills.map((skill) => (
+              <div key = {skill} className = {styles.sub}>{skill}</div>
+            ))}
           </div>
         </div>}
         {/* display content relevant to mentors */}
@@ -117,8 +117,8 @@ export default class myCard extends Component {
             </div>
 
             <div className={[styles.tagSubjects].join(" ")}>
-            {this.props.subjects.map((subject) => (
-                <div className = {styles.sub}>{subject}</div>
+            {this.props.skills.map((skill) => (
+                <div className = {styles.sub}>{skill}</div>
             ))}
             </div>
         </div>}
