@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_PROFILE, PROFILE_ERROR } from './types';
+import { SET_ALL_PROFILES } from './types';
 
 // Get current users profile
-export const getCurrentProfile = () => async (dispatch) => {
+export const setAllProfiles = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/profile/me');
+    const res = await axios.get('/api/profile/');
 
     dispatch({
-      type: GET_PROFILE,
+      type: SET_ALL_PROFILES,
       payload: res.data,
     });
   } catch (err) {
@@ -17,41 +17,6 @@ export const getCurrentProfile = () => async (dispatch) => {
       type: PROFILE_ERROR,
       // Will respond with an object that gives the 1. Response text 2. Status code
       payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// Create or update profile
-export const createProfile = (formData, history, edit = false) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    const res = await axios.post('/api/profile', formData, config);
-
-    dispatch({
-      type: GET_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
-
-    if(!edit) {
-      history.push('/dashboard');
-    }
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
