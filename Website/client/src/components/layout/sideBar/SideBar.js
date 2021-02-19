@@ -12,7 +12,7 @@ import Card from '../../profileForm/myCard';
 
 // import Mentor from "./mentorCard.js";
 
-const SideBar = ({ getCurrentProfile, auth: { user }, profile: { profile, loading, skills, languages}}) => {
+const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
 
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
@@ -45,7 +45,6 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
         </div>
       </div>
       <UserTypeSwitch />
-
       {profile !== null ? (
         <Fragment>
           <p>Profile Exists</p>
@@ -56,7 +55,6 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
           <Link to='/editProfile'>Create Profile</Link>
         </Fragment>
       )}
-
     <Card 
       type = "mentee"
       //Why is this?
