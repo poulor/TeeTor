@@ -93,7 +93,6 @@ export default class myCard extends Component {
 
 
           </div>
-
           <div className={[styles.tagSubjects].join(" ")}>
             {this.state.skills.map((skill) => (
               <div key = {skill} className = {styles.sub}>{skill}</div>
