@@ -5,7 +5,6 @@ import { SET_ALL_PROFILES, ALL_PROFILES_ERROR } from './types';
 export const setAllProfiles = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/');
-
     dispatch({
       type: SET_ALL_PROFILES,
       payload: res.data,
