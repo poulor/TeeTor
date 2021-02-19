@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { setAlert } from './alert';
-
-import { SET_ALL_PROFILES } from './types';
+import { SET_ALL_PROFILES, ALL_PROFILES_ERROR } from './types';
 
 // Get current users profile
 export const setAllProfiles = () => async (dispatch) => {
@@ -14,7 +12,7 @@ export const setAllProfiles = () => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: ALL_PROFILES_ERROR,
       // Will respond with an object that gives the 1. Response text 2. Status code
       payload: { msg: err.response.statusText, status: err.response.status },
     });

@@ -1,9 +1,10 @@
-import { SET_ALL_PROFILES } from '../actions/types';
+import { ALL_PROFILES_ERROR, SET_ALL_PROFILES } from '../actions/types';
 
 // Default initial status
 const initialState = {
     allProfiles: [],
-    isDirty: true
+    isDirty: true,
+    error: {}
 };
 
 export default function (state = initialState, action) {
@@ -16,6 +17,12 @@ export default function (state = initialState, action) {
         allProfiles: payload,
         isDirty: false
       };
+    case ALL_PROFILES_ERROR:
+        return{
+            ...state,
+            error: payload
+        }
+        
     default:
       return state;
   }
