@@ -9,13 +9,8 @@ import Card from '../profileForm/myCard'
 
 
 
-const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }}) => {
+const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }, external:{ allProfiles }}) => {
 
-  
-  const getAllProfiles = async () => {
-    const res = await axios.get('/api/profile');
-    return res.data
-  }
   const displayAllProfiles = (allProfiles) => {allProfiles.map(profile => (
     <Card 
     type = "mentor"
@@ -48,6 +43,7 @@ url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/r
 skills = {["electronics", "bowling", "customer service"]}
 rating = {1}/> 
       {/* <LoadingAnim /> */}
+      {displayAllProfiles(allProfiles)}
     </Fragment>
 };
 
@@ -64,6 +60,7 @@ Dashboard.propTypes = {
 const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile,
+  external: state.external
   // userName: state.auth.user || 'Ahsan',
 });
 
