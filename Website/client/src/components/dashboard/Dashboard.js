@@ -3,11 +3,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import LoadingAnim from '../layout/LoadingAnim';
+import axios from 'axios';
+import Card from '../profileForm/myCard'
+
 
 
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }}) => {
-  //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
+
+  
+  const getAllProfiles = async () => {
+    const res = await axios.get('/api/profile');
+    return res.data
+  }
+  const displayAllProfiles = (allProfiles) => {allProfiles.map(profile => (
+    <Card 
+    type = "mentor"
+    name = {profile.user.name}
+    title = "Sup' Killer" 
+    bio = {profile.bio}
+    url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
+    skills = {profile.skills}
+    rating = {1}/> 
+  ))}
+
+
+
+  //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
@@ -17,9 +39,14 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      <div className='page'>
-        <h1>Hello {user && user.name}</h1>
-      </div>
+      <Card 
+type = "mentor"
+name = "Hughie Campbell" 
+title = "Sup' Killer" 
+bio = "The best character in the Boys" 
+url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
+skills = {["electronics", "bowling", "customer service"]}
+rating = {1}/> 
       {/* <LoadingAnim /> */}
     </Fragment>
 };
