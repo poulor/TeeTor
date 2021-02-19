@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
+import {setAllProfiles} from '../../actions/external'
 import LoadingAnim from '../layout/LoadingAnim';
 import axios from 'axios';
 import Card from '../profileForm/myCard'
@@ -9,9 +10,22 @@ import Card from '../profileForm/myCard'
 
 
 
-const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }, external:{ allProfiles }}) => {
+const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
 
-  const displayAllProfiles = (allProfiles) => {allProfiles.map(profile => (
+  
+
+  //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
+  // Will run continuously unless we add the brackets as second parameter
+  useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
+
+  if(external.isDirty){
+    setAllProfiles();
+    console.log("Happened");
+  }
+
+  const displayAllProfiles = (allProfiles) => {return allProfiles.map(profile => (
     <Card 
     type = "mentor"
     name = {profile.user.name}
@@ -21,14 +35,6 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
     skills = {profile.skills}
     rating = {1}/> 
   ))}
-
-
-
-  //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
-  // Will run continuously unless we add the brackets as second parameter
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
 
   // While the component is being loaded and profile has not been updated, display the loading animation
   // Otherwise show the main content of the page
@@ -43,7 +49,7 @@ url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/r
 skills = {["electronics", "bowling", "customer service"]}
 rating = {1}/> 
       {/* <LoadingAnim /> */}
-      {displayAllProfiles(allProfiles)}
+      {displayAllProfiles(external.allProfiles)}
     </Fragment>
 };
 
@@ -68,4 +74,4 @@ const mapStateToProps = (state) => ({
 // export default connect()(Dashboard);
 
 // First parameter is any state that you want to map, second is an object with any actions you want to use with this component
-export default connect(mapStateToProps, { getCurrentProfile } )(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, setAllProfiles } )(Dashboard);
