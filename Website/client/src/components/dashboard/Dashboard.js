@@ -33,23 +33,17 @@ const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile:
     bio = {profile.bio}
     url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
     skills = {profile.skills}
-    rating = {1}/> 
+    rating = {3}/> 
   ))}
 
   // While the component is being loaded and profile has not been updated, display the loading animation
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      <Card 
-type = "mentor"
-name = "Hughie Campbell" 
-title = "Sup' Killer" 
-bio = "The best character in the Boys" 
-url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
-skills = {["electronics", "bowling", "customer service"]}
-rating = {1}/> 
+      <div className = "page">
       {/* <LoadingAnim /> */}
       {displayAllProfiles(external.allProfiles)}
+      </div>
     </Fragment>
 };
 
