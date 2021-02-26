@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SET_ALL_PROFILES, ALL_PROFILES_ERROR } from './types';
 
-// Set all profiles in redux state
+// Get all profiles
 export const getAllProfiles = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/');
