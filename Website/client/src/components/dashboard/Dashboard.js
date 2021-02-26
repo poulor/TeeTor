@@ -36,7 +36,7 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
     bio = {profile.bio}
     url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
     skills = {profile.skills}
-    rating = {3}/> 
+    rating = {3.5}/> 
   ))}
 
   // While the component is being loaded and profile has not been updated, display the loading animation
