@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
-import {setAllProfiles} from '../../actions/external'
+import {getAllProfiles} from '../../actions/external'
 import LoadingAnim from '../layout/LoadingAnim';
 import axios from 'axios';
 import Card from '../profileForm/myCard'
@@ -10,7 +10,7 @@ import Card from '../profileForm/myCard'
 
 
 
-const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
+const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
 
   
 
@@ -21,7 +21,7 @@ const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile:
   }, [getCurrentProfile]);
 
   if(external.isDirty){
-    setAllProfiles();
+    getAllProfiles();
     console.log("Happened");
   }
 
@@ -68,4 +68,4 @@ const mapStateToProps = (state) => ({
 // export default connect()(Dashboard);
 
 // First parameter is any state that you want to map, second is an object with any actions you want to use with this component
-export default connect(mapStateToProps, { getCurrentProfile, setAllProfiles } )(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, getAllProfiles } )(Dashboard);
