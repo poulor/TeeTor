@@ -20,11 +20,14 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
     getCurrentProfile();
   }, [getCurrentProfile]);
 
+  //This checks to see if the external redux is 'dirty.' The state should be dirty when the user just logged in
+  //or when the state has been modified
   if(external.isDirty){
     getAllProfiles();
     console.log("Happened");
   }
 
+  //Function to map all profiles to a card component
   const displayAllProfiles = (allProfiles) => {return allProfiles.map(profile => (
     <Card 
     type = "mentor"
