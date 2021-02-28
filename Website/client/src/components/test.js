@@ -6,7 +6,7 @@ export default class test extends Component {
     return(
     <div>
       <h1>This is the testing page</h1>
-      <Carousel steps = {[{link : "link1", step : "Profile"}, {link : "link2", step : "School Terms"},{link : "link3", step : "Course Schedule"} ]}></Carousel>
+      <Carousel steps = {[{link : "link1", step : "Profile"}, {link : "link2", step : "School Terms"},{link : "link3", step : "Course Schedule"}, {link: "link4", step: "Unavailability"} ]}></Carousel>
     </div>);
   }
 }
