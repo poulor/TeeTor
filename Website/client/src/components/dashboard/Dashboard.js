@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
@@ -10,9 +10,9 @@ import Card from '../profileForm/myCard'
 
 
 
+
 const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
 
-  
 
   //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
@@ -36,6 +36,10 @@ const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile:
     rating = {1}/> 
   ))}
 
+  const [showModal, setShowModal] = useState(false);
+
+
+
   // While the component is being loaded and profile has not been updated, display the loading animation
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
@@ -50,6 +54,10 @@ skills = {["electronics", "bowling", "customer service"]}
 rating = {1}/> 
       {/* <LoadingAnim /> */}
       {displayAllProfiles(external.allProfiles)}
+      <button  onClick={e => {
+              setShowModal(!showModal)
+         }}
+          > show Modal </button>
     </Fragment>
 };
 
