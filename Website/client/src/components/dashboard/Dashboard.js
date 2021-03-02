@@ -6,6 +6,7 @@ import {setAllProfiles} from '../../actions/external'
 import LoadingAnim from '../layout/LoadingAnim';
 import axios from 'axios';
 import Card from '../profileForm/myCard'
+import Modal from '../Modal/Modal'
 
 
 
@@ -44,6 +45,9 @@ const Dashboard = ({ getCurrentProfile, setAllProfiles, auth: { user }, profile:
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <div>Hello this is covenant</div>
+      </Modal>
       <Card 
 type = "mentor"
 name = "Hughie Campbell" 
@@ -54,10 +58,11 @@ skills = {["electronics", "bowling", "customer service"]}
 rating = {1}/> 
       {/* <LoadingAnim /> */}
       {displayAllProfiles(external.allProfiles)}
-      <button  onClick={e => {
+      <div><button  onClick={e => {
               setShowModal(!showModal)
          }}
-          > show Modal </button>
+          > show Modal </button></div>
+      
     </Fragment>
 };
 
