@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 // Import connect when you want to access from the redux store
 import { connect } from 'react-redux';
 
+import styles from './style/Alert.module.css';
+
+
 // Destructuring the alerts taken from the state using mapStateToProps below
 const Alert = ({ alerts }) =>
   // As long as its not empty, map all the alerts to divs with keys and styling --- and content taken from the alert.msg
@@ -12,6 +15,7 @@ const Alert = ({ alerts }) =>
     // Want to return a div for each alert
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
     <div key={alert.id} className={`alert alert-${alert.alertType}`}>
+    {/* <div key={alert.id} className={`alert alert-${alert.alertType}`}> */}
       {alert.msg}
     </div>
   ));
