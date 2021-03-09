@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { SET_ALL_PROFILES, ALL_PROFILES_ERROR } from './types';
 
-// Get current users profile
-export const setAllProfiles = () => async (dispatch) => {
+// Get all profiles
+export const getAllProfiles = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/');
     dispatch({
