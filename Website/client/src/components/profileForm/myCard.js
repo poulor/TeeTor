@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./style/myCard.module.css";
-import FullBulb from "./resources/fullBulb.png";
-import HalfBulb from "./resources/halfBulb.png";
+import FullBulb from "./resources/fullBulb.svg";
+import HalfBulb from "./resources/halfBulb.svg";
 
 /* 
   Use Case:
