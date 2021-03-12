@@ -64,3 +64,25 @@ img {
   margin-top: 2.5px;
   margin-left: 15px;
 }
+
+.alert {
+  /* top: 100px; */
+  /* right: 500px; */
+  width: 200px;
+  color: white;
+  background-color: lightblue;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  border-radius: 10px;
+
+}
+
+.alert-danger {
+  background-color: tomato;
+
+}
+
+.alert-success {
+  background-color: greenyellow;
+
+}
