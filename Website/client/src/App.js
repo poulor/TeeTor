@@ -9,11 +9,11 @@ import Alert from './components/layout/Alert';
 import { loadUser } from './actions/auth';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfileForm from './components/profileForm/CreateProfileForm';
-import EditProfileForm from './components/profileForm/EditProfileForm';
-import ManageExperiencePage from './components/profileForm/ManageExperiencePage';
-import AddExperienceForm from './components/profileForm/AddExperienceForm';
-import ManageEducationPage from './components/profileForm/ManageEducationPage';
-import AddEducationForm from './components/profileForm/AddEducationForm';
+import EditProfile from './components/profileForm/EditProfile';
+// import ManageExperiencePage from './components/profileForm/ManageExperiencePage';
+// import AddExperienceForm from './components/profileForm/AddExperienceForm';
+// import ManageEducationPage from './components/profileForm/ManageEducationPage';
+// import AddEducationForm from './components/profileForm/AddEducationForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 //Redux
@@ -47,11 +47,11 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/Dashboard' component={Dashboard} />
               <PrivateRoute exact path='/CreateProfile' component={CreateProfileForm} />
-              <PrivateRoute exact path='/EditProfile' component={EditProfileForm} />
-              <PrivateRoute exact path='/ManageExperience' component={ManageExperiencePage} />
+              <PrivateRoute exact path='/EditProfile' component={EditProfile} />
+              {/* <PrivateRoute exact path='/ManageExperience' component={ManageExperiencePage} />
               <PrivateRoute exact path='/AddExperience' component={AddExperienceForm} />
               <PrivateRoute exact path='/ManageEducation' component={ManageEducationPage} />
-              <PrivateRoute exact path='/AddEducation' component={AddEducationForm} />
+              <PrivateRoute exact path='/AddEducation' component={AddEducationForm} /> */}
             </Switch>
           </section>
         </Fragment>
