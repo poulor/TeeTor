@@ -1,15 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import { createProfile } from '../../actions/profile';
 
 import styles from './style/profile.module.css';
 
-const EditProfileForm = ({
-    profile: { profile, loading},
+const CreateProfileForm = ({
     createProfile,
-    getCurrentProfile,
     history
 }) => {
 
@@ -27,19 +25,7 @@ const EditProfileForm = ({
     });
 
     const [toggleData] = useState(toggleType);
-    
-    useEffect (() => {
-        if (!profile) getCurrentProfile();
-
-        setFormData({
-            teetorType: loading || !profile.teetorType ? null : profile.teetorType,
-            bio: loading || !profile.bio ? '' : profile.bio,
-            location: loading || !profile.location ? '' : profile.location,
-            languages: loading || !profile.languages ? '' : profile.languages.join(','),
-            skills: loading || !profile.skills ? '' : profile.skills.join(',')
-        });
-    }, [loading, getCurrentProfile, profile]);
-
+        
     const {
         bio,
         location,
@@ -62,7 +48,7 @@ const EditProfileForm = ({
         //     alert("You must select mentor, mentee, or both");
         //     return;
         // }
-        createProfile(formData, history, true);
+        createProfile(formData, history);
     };
 
     // This function ensures that either the box mentor box is checked,
@@ -77,7 +63,7 @@ const EditProfileForm = ({
         else if (!menteeChecked && mentorChecked) teetorType = 2
         else if (menteeChecked && mentorChecked) teetorType = 3
         else{
-            teetorType = 0
+            teetorType = "null"
         }
         formData.teetorType = teetorType;
         
@@ -135,7 +121,6 @@ const EditProfileForm = ({
                             </div>
                         </div>
                         <br/>
-
                         <h1 className={styles.fieldTitle}>Bio:</h1>
                         <div className="form-group">
                             <textarea
@@ -184,8 +169,6 @@ const EditProfileForm = ({
                         <Link to="/dashboard">
                             Return
                         </Link>
-                        <br/>
-                        <Link to='/ManageExperience'>Manage Experiences</Link>
                     </form>
                 </div>
             </div>
@@ -194,16 +177,16 @@ const EditProfileForm = ({
     );
 };
 
-EditProfileForm.propTypes = {
+CreateProfileForm.propTypes = {
     createProfile: PropTypes.func.isRequired,
-    getCurrentProfile: PropTypes.func.isRequired,
-    profile: PropTypes.object.isRequired
+    // getCurrentProfile: PropTypes.func.isRequired,
+    // profile: PropTypes.object.isRequired
 };
   
-const mapStateToProps = state => ({
-    profile: state.profile
-});
+// const mapStateToProps = state => ({
+//     profile: state.profile
+// });
   
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-    withRouter(EditProfileForm)
+export default connect(null, { createProfile })(
+    withRouter(CreateProfileForm)
 );
