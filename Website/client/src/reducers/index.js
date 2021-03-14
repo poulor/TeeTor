@@ -11,5 +11,5 @@ export default combineReducers({
   auth,
   profile,
   profileType,
-  external
+  external,
 });
