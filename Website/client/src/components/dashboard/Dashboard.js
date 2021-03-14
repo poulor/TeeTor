@@ -37,7 +37,7 @@ const Dashboard = ({ getAllProfiles, auth: { user }, profile: { profile, loading
     <Fragment>
       <div className = "page">
       {/* <LoadingAnim /> */}
-      {displayAllProfiles(.allProfiles)}
+      {displayAllProfiles(external.allProfiles)}
       </div>
     </Fragment>
 };

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import alert from './alert';
 import auth from './auth';
 import profile from './profile';
+import profileType from "./profile_type.js";
 import external from './external';
 
 export default combineReducers({
@@ -9,5 +10,6 @@ export default combineReducers({
   alert,
   auth,
   profile,
-  external
+  profileType,
+  external,
 });
