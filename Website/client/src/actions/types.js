@@ -11,7 +11,8 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
-export const SET_MENTOR = "MENTOR"
-export const SET_MENTEE = "MENTEE"
-export const SET_ALL_PROFILES = 'SET_ALL_PROFILES'
-export const ALL_PROFILES_ERROR = 'ALL_PROFILES_ERROR'
+export const SET_MENTOR = "MENTOR";
+export const SET_MENTEE = "MENTEE";
+export const SET_ALL_PROFILES = 'SET_ALL_PROFILES';
+export const ALL_PROFILES_ERROR = 'ALL_PROFILES_ERROR';
+
