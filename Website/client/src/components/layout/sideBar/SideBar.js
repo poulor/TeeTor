@@ -10,6 +10,9 @@ import Card from '../../profileForm/myCard';
 
 
 
+
+
+
 // import Mentor from "./mentorCard.js";
 
 const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: { profile, loading, skills, languages}}) => {
