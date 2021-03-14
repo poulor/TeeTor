@@ -5,18 +5,13 @@ import { connect } from 'react-redux';
 import {changeMentee, changeMentor } from '../../../actions/profile_type';
 import {useDispatch, useSelector} from 'react-redux';
 
-
 import styles from "./style/userTypeSwitch.module.css";
-// import { toggleTeeTorType } from '../../../actions/profile';
 
 const UserTypeSwitch = () => {
-  // state = {
-  //     status: "mentee"
-  // };
-
    // Get sidebar type from global state:
    const sidebarType = useSelector(state => state.profileType)
    const dispatch = useDispatch();
+
 
   // When user clicks the button to switch contexts, the slider is adjusted:
   const typeSwitch = () => {
