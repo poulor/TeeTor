@@ -12,14 +12,13 @@ import Card from '../../profileForm/myCard';
 
 // import Mentor from "./mentorCard.js";
 
-const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
+const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: { profile, loading, skills, languages}}) => {
 
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile]);
-
+  }, [getCurrentProfile, isAuthenticated]);
 
   const slideIn = () => {
     var x = document.getElementById("slider");
@@ -52,19 +51,29 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
       ) : (
         <Fragment>
           <p>Profile Does Not Exist</p>
-          <Link to='/editProfile'>Create Profile</Link>
+          <Link to='/createProfile'>Create Profile</Link>
         </Fragment>
       )}
+
+    {profile !== null ? (
     <Card 
       type = "mentee"
       //Why is this?
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
-      skills = {["math","history"]}
-      // skills = {profile && profile.skills} 
+      // skills = {["math","history"]}
+      skills = {profile.skills} 
       url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
     />
+    ) : (
+      <Fragment>
+        <p>Cat</p>
+      </Fragment>
+    )
+
+    
+    }
 
 {/* {profile && profile.skills[0]}  */}
       {/* <div className={styles.modalBody}>
