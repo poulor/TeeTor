@@ -44,7 +44,6 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
         </div>
       </div>
       <UserTypeSwitch />
-
       {profile !== null ? (
         <Fragment>
           <p>Profile Exists</p>
@@ -55,9 +54,6 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
           <Link to='/createProfile'>Create Profile</Link>
         </Fragment>
       )}
-
-
-
 
     {profile !== null ? (
     <Card 
