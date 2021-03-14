@@ -13,7 +13,6 @@
     font-size: 12px;
     position: relative;
     text-align: center;
-    cursor: pointer;
 }
 /* circle: */
 .progressBar li:before {
@@ -28,6 +27,7 @@
     margin: 0 auto 10px auto;
     border-radius: 50%;
     background-color: white;
+    cursor: pointer;
 }
 
 /* line: */
@@ -61,4 +61,14 @@
 
 .step {
     font-size: 14px;
+    -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   cursor: pointer;
 }
+
+/* To do:
+increase size of cirle
+increase font
+
+add some color */
