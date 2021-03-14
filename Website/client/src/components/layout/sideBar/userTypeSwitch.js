@@ -15,10 +15,10 @@ const UserTypeSwitch = () => {
 
   // When user clicks the button to switch contexts, the slider is adjusted:
   const typeSwitch = () => {
-    if (sidebarType == "mentee") {
+    if (sidebarType === "mentee") {
       dispatch(changeMentor())
     }
-    else if (sidebarType == "mentor"){
+    else if (sidebarType === "mentor"){
       dispatch(changeMentee())
     }
     // toggleTeeTorType(); 

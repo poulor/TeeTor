@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import uuid from 'react-uuid';
 import styles from "./style/myCard.module.css";
 import FullBulb from "./resources/fullBulb.svg";
 import HalfBulb from "./resources/halfBulb.svg";
@@ -102,7 +103,7 @@ export default class myCard extends Component {
         {/* display content relevant to mentors */}
         {this.state.type === "mentor" && 
         <div className={[styles.profileCardBody].join(" ")}>
-            <h className={styles.profileCardName}>{this.props.name}</h>
+            <p className={styles.profileCardName}>{this.props.name}</p>
             <div className={styles.profileCardTitle}>{this.props.title}</div>
 
             <div className={styles.profileCardBio}>
@@ -111,13 +112,13 @@ export default class myCard extends Component {
 
             <div className = {styles.bulbRating}>
             {this.state.bulbs.map((bulb) => (
-                <div className = {styles.bulb}>{bulb}</div>
+                <div key = {uuid()} className = {styles.bulb}>{bulb}</div>
             ))}
             </div>
 
             <div className={[styles.tagSubjects].join(" ")}>
             {this.props.skills.map((skill) => (
-                <div className = {styles.sub}>{skill}</div>
+                <div key = {skill} className = {styles.sub}>{skill}</div>
             ))}
             </div>
         </div>}

@@ -1,10 +1,10 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import {getAllProfiles} from '../../actions/external'
 import LoadingAnim from '../layout/LoadingAnim';
-import axios from 'axios';
+// import axios from 'axios';
 import Card from '../profileForm/myCard'
 
 
@@ -22,6 +22,7 @@ const Dashboard = ({ getAllProfiles, auth: { user }, profile: { profile, loading
   //Function to map all profiles to a card component
   const displayAllProfiles = (allProfiles) => {return allProfiles.map(profile => (
     <Card 
+    key = {profile._id}
     type = "mentor"
     name = {profile.user.name}
     title = "Sup' Killer" 

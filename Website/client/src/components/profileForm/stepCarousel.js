@@ -1,4 +1,3 @@
-import { ContextHandlerImpl } from "express-validator/src/chain";
 import React, { Component } from "react";
 import styles from "./style/stepCarousel.module.css";
 
@@ -7,7 +6,7 @@ import styles from "./style/stepCarousel.module.css";
 // that we want to display when we click on that step (passed in as
 // 'component'). 
 // Use case (With 2 steps):
-{/* <Carousel steps = {[{step : "Profile", component:<Test1/>}, {step : "School Terms", component:<Test2/>}]}></Carousel> */}
+/* <Carousel steps = {[{step : "Profile", component:<Test1/>}, {step : "School Terms", component:<Test2/>}]}></Carousel> */
 // The component renders the steps by mapping the state to a 
 // carousel display and updating the state when a new step is clicked
 // so that that step can be displayed:
@@ -51,7 +50,7 @@ export default class stepCarousel extends Component {
       <div className={styles.container}>
         <ul className={styles.progressBar}>
           {this.state.steps.map((step) => (
-            <li onClick={this.updateStep.bind(this,step.key)}>
+            <li key = {step.key} onClick={this.updateStep.bind(this,step.key)}>
               <p className={styles.step}>{step.step}</p>
             </li>
           ))}
