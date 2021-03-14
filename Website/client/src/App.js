@@ -10,7 +10,6 @@ import { loadUser } from './actions/auth';
 import Dashboard from './components/dashboard/Dashboard';
 import EditProfileForm from './components/profileForm/EditProfileForm';
 import PrivateRoute from './components/routing/PrivateRoute';
-import Test from './components/test.js';
 
 //Redux
 import { Provider } from 'react-redux';
