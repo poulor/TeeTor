@@ -1,7 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import LoadingAnim from '../layout/LoadingAnim';
+
 
 // Private route that takes in route information and only gives access if user is authenticated
 // Will load and go to the passed in component *'{...props}'* if authenticated, otherwise will be
@@ -13,17 +16,21 @@ const PrivateRoute = ({
 }) => (
   <Route
     {...rest}
-    render={(props) =>
-      !isAuthenticated && !loading ? (
-        <Redirect to='/login' />
-      ) : (
+    render={props =>
+      loading ? (
+        <LoadingAnim />
+      ) : isAuthenticated ? (
         <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
       )
     }
   />
 );
 
-PrivateRoute.propTypes = {};
+PrivateRoute.propTypes = {
+  auth: PropTypes.object.isRequired
+};
 
 // Use mapStateToProps when we want to pull a value from the state, in this case updating auth
 const mapStateToProps = (state) => ({

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import styles from "./style/myCard.module.css";
 import FullBulb from "./resources/fullBulb.png";
 import HalfBulb from "./resources/halfBulb.png";
@@ -62,14 +63,13 @@ export default class myCard extends Component {
             comps.push(<img className={styles.bulb} src={HalfBulb} alt = "halfbulbnotfound"/>)
         }
         this.setState({bulbs: comps});
-        console.log(this.props.skills);
         this.setState({skills : this.props.skills })
     }
   render() {
     return (
       <div className={[styles.card, this.props.className].join(" ")}>
         <div className={[styles.activity].join(" ")}>
-          <i className="fas fa-cog"></i>
+          <Link to="editProfile" style={{textDecoration: 'none'}} className="fas fa-cog"></Link>
           <p className={styles.activityStatus}>Active</p>
           <div className={styles.statusCircle}></div>
         </div>
