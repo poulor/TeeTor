@@ -10,15 +10,7 @@ import Card from '../profileForm/myCard'
 
 
 
-const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
-
-  
-
-  //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
-  // Will run continuously unless we add the brackets as second parameter
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
+const Dashboard = ({ getAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
 
   //This checks to see if the external redux is 'dirty.' The state should be dirty when the user just logged in
   //or when the state has been modified
@@ -45,7 +37,7 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
     <Fragment>
       <div className = "page">
       {/* <LoadingAnim /> */}
-      {displayAllProfiles(external.allProfiles)}
+      {displayAllProfiles(.allProfiles)}
       </div>
     </Fragment>
 };
