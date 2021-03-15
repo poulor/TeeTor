@@ -13,7 +13,7 @@ const ManageExperiencePage = ({ profile: { profile, loading }}) => {
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      <div className='page'>
+      <div>
         <h1>Manage Experience Page</h1>
         <Experience experience={profile.experience} />
         <br/>

@@ -14,7 +14,7 @@ const ManageEducationPage = ({ profile: { profile, loading }}) => {
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      <div className='page'>
+      <div >
         <h1>Manage Education Page</h1>
         <br/>
         <Education education={profile.education} />

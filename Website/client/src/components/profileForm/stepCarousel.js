@@ -47,7 +47,7 @@ export default class stepCarousel extends Component {
   };
   render() {
     return (
-      <div className={styles.container}>
+      <div >
         <ul className={styles.progressBar}>
           {this.state.steps.map((step) => (
             <li key = {step.key} onClick={this.updateStep.bind(this,step.key)}>
