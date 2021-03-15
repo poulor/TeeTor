@@ -103,7 +103,7 @@ const EditGeneralInfoForm = ({
 
   return (
     <Fragment>
-      <div className="page">
+      <div >
         <div className={styles.formWrapper}>
           <form id="editProfileForm" onSubmit={(e) => onSubmit(e)}>
             <h1 className={styles.fieldTitle}>I am a ...</h1>
