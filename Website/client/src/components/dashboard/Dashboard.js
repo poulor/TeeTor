@@ -49,7 +49,7 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
     <div className = "page">
-      <Modal show={showModal} onClose={() => setShowModal(false)}>
+      <Modal show={showModal} onClose={() => setShowModal(false)} onOpen={() => setShowModal(true)}>
         <div>
           <Card 
             type = "mentor"
@@ -71,7 +71,7 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
         rating = {1}/> 
       {displayAllProfiles(external.allProfiles)}
       <div><button  onClick={e => {
-              setShowModal(!showModal)
+              setShowModal(true)
          }}
           > show Modal </button></div>
     </div>
