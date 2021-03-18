@@ -17,6 +17,10 @@ html, body {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
   }
 
   .modal {
@@ -27,12 +31,9 @@ html, body {
       -2rem 2rem 2rem rgba(black, 0.2);
     filter: blur(0);
     z-index: 1;
-    transform: scale(1);  
     opacity: 1;
     visibility: visible;
-    position: absolute;
     margin:auto;
-    transform: translate(50%,50%);
     &.off {
       opacity: 0;
       visibility: hidden;
