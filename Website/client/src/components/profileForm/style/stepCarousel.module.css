@@ -1,0 +1,71 @@
+.progressBar {
+    justify-content: center;
+    counter-reset: step;
+    display: flex;
+}
+.progressBar li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+}
+/* circle: */
+.progressBar li:before {
+    width: 25px;
+    height: 25px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 20px;
+    border: 2px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* line: */
+.progressBar li:after {
+    width: 50%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 10px;
+    left: -50%;
+    z-index: -1;
+}
+
+/* no line before first child: */
+.progressBar li:first-child:after {
+    content: none;
+}
+/* Make active circle green: */
+.progressBar li.active {
+    color: green;
+}
+
+/* make lines green: */
+.progressBar li.active:before {
+    border-color: #55b776;
+}
+.progressBar li.active + li:after {
+    background-color: #55b776;
+}
+
+.step {
+    font-size: 14px;
+    -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   cursor: pointer;
+}
+
+/* To do:
+increase size of cirle
+increase font
+
+add some color */
