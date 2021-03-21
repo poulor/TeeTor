@@ -38,9 +38,9 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
+          <Alert />
           <Route exact path='/' component={Landing} />
           <section className='container'>
-            <Alert />
             <PrivateRoute component={SideBar} />
             <Switch>
               <Route exact path='/register' component={Register} />
