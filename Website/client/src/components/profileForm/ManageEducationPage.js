@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import LoadingAnim from '../layout/LoadingAnim';
 import Education from './Education';
 
@@ -14,7 +14,7 @@ const ManageEducationPage = ({ profile: { profile, loading }}) => {
   // Otherwise show the main content of the page
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
-      <div className='page'>
+      <div >
         <h1>Manage Education Page</h1>
         <br/>
         <Education education={profile.education} />

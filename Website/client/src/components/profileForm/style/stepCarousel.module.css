@@ -1,10 +1,7 @@
-.container {
-    width: 600px;
-    margin: 100px auto; 
-    font-family: 'Montserrat';
-}
 .progressBar {
+    justify-content: center;
     counter-reset: step;
+    display: flex;
 }
 .progressBar li {
     list-style-type: none;
@@ -16,8 +13,8 @@
 }
 /* circle: */
 .progressBar li:before {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     content: counter(step);
     counter-increment: step;
     line-height: 20px;
@@ -32,7 +29,7 @@
 
 /* line: */
 .progressBar li:after {
-    width: 100%;
+    width: 50%;
     height: 2px;
     content: '';
     position: absolute;
