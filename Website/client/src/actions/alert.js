@@ -3,8 +3,7 @@ import { SET_ALERT, REMOVE_ALERT } from './types';
 
 // This function gets passed to a specific use case. In this case, it is register.js. That use case passes in specific values
 // relevant to the function. In this case, msg, alertType and position for the view.
-// position: 1 = top right, 2 = top right, 3 = bottom left, 4 = bottom right, 5 = center
-// position = 2 sets a default position
+// position = 'top-right' sets a default position of top right
 // timeout = 4000 sets a default timeout of 4 seconds
 export const setAlert = (msg, alertType, position = 'top-right', timeout = 4000) => (dispatch) => {
   //Generate a random id for the alert
