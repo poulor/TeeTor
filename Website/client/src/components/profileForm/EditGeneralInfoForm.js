@@ -30,6 +30,22 @@ const EditGeneralInfoForm = ({
   useEffect(() => {
     if (!profile) getCurrentProfile();
 
+    // Set styling of the checkboxes
+    if (profile.teetorType === 1){
+      console.log("Teetor type is 1")
+      onCheck('mentee');
+    }
+    else if (profile.teetorType === 2){
+      console.log("Teetor type is 2")
+
+      onCheck('mentor');
+    }
+    else if (profile.teetorType === 3){
+      console.log("Teetor type is 3")
+      onCheck('mentee');
+      onCheck('mentor');
+    }
+
     setFormData({
       teetorType: loading || !profile.teetorType ? null : profile.teetorType,
       bio: loading || !profile.bio ? "" : profile.bio,
@@ -211,6 +227,7 @@ EditGeneralInfoForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  teetorType: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

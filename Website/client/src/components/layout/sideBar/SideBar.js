@@ -46,7 +46,7 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
           <p onClick={slideIn}> Profile </p>
         </div>
       </div>
-      <UserTypeSwitch />
+      <UserTypeSwitch teetorType = {profile && profile.teetorType}/>
       {profile !== null ? (
         <Fragment>
           <p>Profile Exists</p>
