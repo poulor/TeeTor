@@ -8,10 +8,7 @@ import UserTypeSwitch from "./userTypeSwitch";
 import { getCurrentProfile } from '../../../actions/profile';
 import Card from '../../profileForm/myCard';
 
-
-
-
-
+import LoadingAnim from '../LoadingAnim';
 
 // import Mentor from "./mentorCard.js";
 
@@ -21,7 +18,7 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile, isAuthenticated]);
+  }, [getCurrentProfile, isAuthenticated, loading]);
 
   const slideIn = () => {
     var x = document.getElementById("slider");
@@ -58,25 +55,17 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
         </Fragment>
       )}
 
-    {profile !== null ? (
-    <Card 
-      type = "mentee"
+    {profile === null && loading && <LoadingAnim/>}
+    {profile !== null && !loading && <Card type = "mentee"
       //Why is this?
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
       // skills = {["math","history"]}
       skills = {profile.skills} 
-      url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
-    />
-    ) : (
-      <Fragment>
-        <p>Cat</p>
-      </Fragment>
-    )
-
+      url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"/>}
+   
     
-    }
 
 {/* {profile && profile.skills[0]}  */}
       {/* <div className={styles.modalBody}>

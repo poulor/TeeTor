@@ -20,7 +20,7 @@ const EditGeneralInfoForm = ({
   };
 
   const [formData, setFormData] = useState({
-    teetorType: "null",
+    teetorType: "",
     bio: "",
     location: "",
     languages: "",
@@ -32,53 +32,51 @@ const EditGeneralInfoForm = ({
   useEffect(() => {
     if (!profile) getCurrentProfile();
 
-    
-
     setFormData({
-      teetorType: loading || !profile.teetorType ? null : profile.teetorType,
+      teetorType: loading || !profile.teetorType ? '' : profile.teetorType,
       bio: loading || !profile.bio ? "" : profile.bio,
       location: loading || !profile.location ? "" : profile.location,
       languages:
         loading || !profile.languages ? "" : profile.languages.join(","),
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
     });
+
     var x = document.getElementById("menteeCircle");
     var y = document.getElementById("mentorCircle");
 
     // Set styling of the checkboxes
     if (profile.teetorType === 1){
+      // adjust styling of checkboxes:
       x.classList.add(styles.expanded);
       y.classList.remove(styles.expanded);
+      // toggles checkboxes based on profile data
       document.getElementById('toggle').checked = true;
       document.getElementById('toggle2').checked = false;
-      formData.teetorType = 1;
       toggleData.menteeChecked = true;
       toggleData.mentorChecked = false;
       
     }
     else if (profile.teetorType === 2){
+      // adjust styling of checkboxes:
       y.classList.add(styles.expanded);
       x.classList.remove(styles.expanded);
+      // toggles checkboxes based on profile data
       document.getElementById('toggle2').checked = true;
       document.getElementById('toggle').checked = false;
-      formData.teetorType = 2;
       toggleData.menteeChecked = false;
       toggleData.mentorChecked = true;
     }
     else if (profile.teetorType === 3){
+      // adjust styling of checkboxes:
       x.classList.add(styles.expanded);
       y.classList.add(styles.expanded);
+      // toggles checkboxes based on profile data
       document.getElementById('toggle').checked = true;
-      document.getElementById('toggle2').checked = true;
-      formData.teetorType = 3;
-      
+      document.getElementById('toggle2').checked = true;      
       toggleData.menteeChecked = true;
       toggleData.mentorChecked = true;
     }
-  }, [loading, getCurrentProfile, profile]);
-
-  
-
+  }, [loading, getCurrentProfile, profile, toggleData]);
   const { bio, location, languages, skills } = formData;
 
   // When the form is changed, update the state values:
@@ -93,7 +91,7 @@ const EditGeneralInfoForm = ({
     e.preventDefault();
     let teetorType = checkTypes();
     if (teetorType === 0){
-        setAlert('You must select mentor, mentee, or both', 'danger');
+        setAlert('You must select mentor, mentee, or both', 'danger', 'top-right','10000');
         return;
     }
     createProfile(formData, history, true);
