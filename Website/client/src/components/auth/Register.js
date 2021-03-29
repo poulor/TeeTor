@@ -29,7 +29,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     e.preventDefault();
     if (password !== password2) {
       // Params as formed in alert.js from actions
-      setAlert('Passwords do not match', 'danger');
+      // setAlert(msg, alertType, position, timeout);
+      setAlert('Passwords do not match!', 'danger');
+
     } else {
       register({ name, email, password });
     }

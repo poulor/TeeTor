@@ -3,7 +3,7 @@ import { SET_ALERT, REMOVE_ALERT } from '../actions/types';
 //This reducer gets specific functions dispatched to it from 'actions' folder. Actions doesn't know how to deal with the requests
 // Reducer takes the content passed in by the 'actions' js file and does what needs to be done. In this case updating the state
 
-//Just pertains to allerts
+//Just pertains to alerts
 const initialState = [];
 
 export default function (state = initialState, action) {
