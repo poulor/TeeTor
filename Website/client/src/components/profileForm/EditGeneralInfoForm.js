@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+import { setAlert } from '../../actions/alert';
 
 import styles from "./style/profile.module.css";
 
@@ -11,6 +12,7 @@ const EditGeneralInfoForm = ({
   createProfile,
   getCurrentProfile,
   history,
+  setAlert,
 }) => {
   const toggleType = {
     mentorChecked: false,
@@ -30,21 +32,7 @@ const EditGeneralInfoForm = ({
   useEffect(() => {
     if (!profile) getCurrentProfile();
 
-    // Set styling of the checkboxes
-    if (profile.teetorType === 1){
-      console.log("Teetor type is 1")
-      onCheck('mentee');
-    }
-    else if (profile.teetorType === 2){
-      console.log("Teetor type is 2")
-
-      onCheck('mentor');
-    }
-    else if (profile.teetorType === 3){
-      console.log("Teetor type is 3")
-      onCheck('mentee');
-      onCheck('mentor');
-    }
+    
 
     setFormData({
       teetorType: loading || !profile.teetorType ? null : profile.teetorType,
@@ -54,7 +42,42 @@ const EditGeneralInfoForm = ({
         loading || !profile.languages ? "" : profile.languages.join(","),
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
     });
+    var x = document.getElementById("menteeCircle");
+    var y = document.getElementById("mentorCircle");
+
+    // Set styling of the checkboxes
+    if (profile.teetorType === 1){
+      x.classList.add(styles.expanded);
+      y.classList.remove(styles.expanded);
+      document.getElementById('toggle').checked = true;
+      document.getElementById('toggle2').checked = false;
+      formData.teetorType = 1;
+      toggleData.menteeChecked = true;
+      toggleData.mentorChecked = false;
+      
+    }
+    else if (profile.teetorType === 2){
+      y.classList.add(styles.expanded);
+      x.classList.remove(styles.expanded);
+      document.getElementById('toggle2').checked = true;
+      document.getElementById('toggle').checked = false;
+      formData.teetorType = 2;
+      toggleData.menteeChecked = false;
+      toggleData.mentorChecked = true;
+    }
+    else if (profile.teetorType === 3){
+      x.classList.add(styles.expanded);
+      y.classList.add(styles.expanded);
+      document.getElementById('toggle').checked = true;
+      document.getElementById('toggle2').checked = true;
+      formData.teetorType = 3;
+      
+      toggleData.menteeChecked = true;
+      toggleData.mentorChecked = true;
+    }
   }, [loading, getCurrentProfile, profile]);
+
+  
 
   const { bio, location, languages, skills } = formData;
 
@@ -68,11 +91,11 @@ const EditGeneralInfoForm = ({
   // submit the form as usual:
   const onSubmit = (e) => {
     e.preventDefault();
-    // let teetorType = checkTypes();
-    // if (teetorType === "null"){
-    //     alert("You must select mentor, mentee, or both");
-    //     return;
-    // }
+    let teetorType = checkTypes();
+    if (teetorType === 0){
+        setAlert('You must select mentor, mentee, or both', 'danger');
+        return;
+    }
     createProfile(formData, history, true);
   };
 
@@ -227,6 +250,7 @@ EditGeneralInfoForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  setAlert: PropTypes.func.isRequired,
   teetorType: PropTypes.number.isRequired,
 };
 
@@ -234,6 +258,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+export default connect(mapStateToProps, { setAlert, createProfile, getCurrentProfile })(
   withRouter(EditGeneralInfoForm)
 );
