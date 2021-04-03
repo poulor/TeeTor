@@ -95,18 +95,21 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
                 onChange={onChange}
               />
             </div>
-            <h1 className={styles.fieldTitle}>Current</h1>
-            <div className="form-group">
-              <input
-                className={styles.input}
-                type="checkbox"
-                name="current"
-                value={current}
-                onChange={(e) => {
-                  setFormData({ ...formData, current: !current });
-                  toggleDisabled(!toDateDisabled);
-                }}
-              />
+            <div className = {styles.checkWrapper}>
+              <h1 className={styles.fieldTitle}>Current</h1>
+              <div className="form-group">
+                <input
+                  className={styles.check}
+                  type="checkbox"
+                  name="current"
+                  value={current}
+                  onChange={(e) => {
+                    setFormData({ ...formData, current: !current });
+                    toggleDisabled(!toDateDisabled);
+                  }}
+                />
+            </div>
+            
             </div>
             <h1 className={styles.fieldTitle}>To Date:</h1>
             <div className="form-group">
