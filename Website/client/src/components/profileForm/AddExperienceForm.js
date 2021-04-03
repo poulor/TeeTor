@@ -32,7 +32,7 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
             onSubmit={(e) => {
               e.preventDefault();
               addExperience(formData, history);
-              console.log('Submitting experience');
+              onToggle();
             }}
           >
             <h1 className={styles.fieldTitle}>Job Title</h1>
@@ -87,19 +87,23 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
                 onChange={onChange}
               />
             </div>
-            <h1 className={styles.fieldTitle}>Current</h1>
-            <div className="form-group">
-              <input
-                className={styles.input}
-                type="checkbox"
-                name="current"
-                value={current}
-                onChange={(e) => {
-                  setFormData({ ...formData, current: !current });
-                  toggleDisabled(!toDateDisabled);
-                }}
-              />
+            <div className = {styles.checkWrapper}>
+              <h1 className={styles.fieldTitle}>Current: </h1>
+              <div className="form-group">
+                <input
+                  className={styles.check}
+                  type="checkbox"
+                  name="current"
+                  value={current}
+                  onChange={(e) => {
+                    setFormData({ ...formData, current: !current });
+                    toggleDisabled(!toDateDisabled);
+                  }}
+                />
+              </div>
             </div>
+            
+            
             <h1 className={styles.fieldTitle}>To Date:</h1>
             <div className="form-group">
               <input
@@ -114,7 +118,6 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
             <div className={styles.buttonWrapper}>
               <button
                 type="submit"
-                onClick={onToggle}
                 className={styles.submit}
               >
                 Submit

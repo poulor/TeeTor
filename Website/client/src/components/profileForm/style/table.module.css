@@ -6,18 +6,22 @@
     margin-top: 75px;
     /* border-width: 50px; */
     /* border-collapse: collapse; */
+    border-bottom: 12px solid #01303f;
 }
 
 .profileTable th {
     padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
     background-color: #01303f;
     color: white;
 }
 
 .profileTable td {
     padding: 10px;
+    font-size: 16px;
     /* background-color: #01303f; */
-    /* color: white; */
+    color: #01303f;
 }
 
 
@@ -43,5 +47,17 @@
   }
 
   .buttonWrapper {
-      text-align: center;
+    text-align: center;
+  }
+
+  .rowBold {
+    font-weight: 600;
+  }
+
+  .deleteWrapper {
+    text-align: center;
+  }
+
+  .deleteButton {
+    font-size: 18px;
   }
