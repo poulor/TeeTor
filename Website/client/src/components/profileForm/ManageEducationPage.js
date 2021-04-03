@@ -1,14 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link} from 'react-router-dom';
 import LoadingAnim from '../layout/LoadingAnim';
-import Education from './Education';
+import Education from './EducationDisplay';
+import AddEducation from "./AddEducationForm";
 
 
 import styles from './style/profile.module.css';
 
 const ManageEducationPage = ({ profile: { profile, loading }}) => {
+  const [form, toggleForm] = useState(false);
+
+  const onToggle = () => {
+    toggleForm(!form);
+  }
 
   // While the component is being loaded and profile has not been updated, display the loading animation
   // Otherwise show the main content of the page
@@ -17,12 +23,10 @@ const ManageEducationPage = ({ profile: { profile, loading }}) => {
       <div >
         <h1>Manage Education Page</h1>
         <br/>
-        <Education education={profile.education} />
+        {!form && <Education education={profile.education} onToggle = {onToggle}/>}
         
         {/* Borrowed style.. please update */}
-        <Link to='/AddEducation' className={styles.submit}>Add Experience</Link>
-        <br/>
-        <Link to='/EditProfile'>Edit Profile</Link>
+        {form && <AddEducation onToggle = {onToggle}/>}
       </div>
     </Fragment>
 };
