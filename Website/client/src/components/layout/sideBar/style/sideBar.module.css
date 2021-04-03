@@ -19,6 +19,7 @@
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  text-align: center;
 }
 
 .slideOut {
@@ -33,6 +34,8 @@
   transition-property: all;
   transition-duration: 1.6s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  text-align: center;
+
 }
 
 .slideOutTab {

@@ -34,8 +34,6 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
     }
   };
 
-
-
   return (
     <div id="slider" className={styles.slideOut}>
       <div id="slideOutTab" className={styles.slideOutTab} onClick={slideIn}>
@@ -44,26 +42,22 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
         </div>
       </div>
       <UserTypeSwitch teetorType = {profile && profile.teetorType}/>
-      {profile !== null ? (
+      {profile === null && 
         <Fragment>
-          <p>Profile Exists</p>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>Profile Does Not Exist</p>
-          <Link to='/createProfile'>Create Profile</Link>
-        </Fragment>
-      )}
+        <p>Profile Does Not Exist</p>
+        <Link to='/createProfile'>Create Profile</Link>
+      </Fragment>
+      }
 
     {profile === null && loading && <LoadingAnim/>}
     {profile !== null && !loading && <Card type = "mentee"
-      //Why is this?
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
       // skills = {["math","history"]}
       skills = {profile.skills} 
-      url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"/>}
+      url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
+      style = {{marginLeft: 'auto', marginRight: 'auto'}}/>}
    
     
 
