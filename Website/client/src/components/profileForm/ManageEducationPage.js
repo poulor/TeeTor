@@ -1,13 +1,11 @@
 import React, { Fragment, useState} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link} from 'react-router-dom';
 import LoadingAnim from '../layout/LoadingAnim';
 import Education from './EducationDisplay';
 import AddEducation from "./AddEducationForm";
 
 
-import styles from './style/profile.module.css';
 
 const ManageEducationPage = ({ profile: { profile, loading }}) => {
   const [form, toggleForm] = useState(false);
@@ -21,7 +19,6 @@ const ManageEducationPage = ({ profile: { profile, loading }}) => {
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
       <div >
-        <h1>Manage Education Page</h1>
         <br/>
         {!form && <Education education={profile.education} onToggle = {onToggle}/>}
         

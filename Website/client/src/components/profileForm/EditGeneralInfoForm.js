@@ -20,7 +20,7 @@ const EditGeneralInfoForm = ({
   };
 
   const [formData, setFormData] = useState({
-    teetorType: "",
+    teetorType: 0,
     bio: "",
     location: "",
     languages: "",
@@ -33,7 +33,7 @@ const EditGeneralInfoForm = ({
     if (!profile) getCurrentProfile();
 
     setFormData({
-      teetorType: loading || !profile.teetorType ? '' : profile.teetorType,
+      teetorType: loading || !profile.teetorType ? 0 : profile.teetorType,
       bio: loading || !profile.bio ? "" : profile.bio,
       location: loading || !profile.location ? "" : profile.location,
       languages:
@@ -43,6 +43,8 @@ const EditGeneralInfoForm = ({
 
     var x = document.getElementById("menteeCircle");
     var y = document.getElementById("mentorCircle");
+
+    if(profile.teetorType === undefined ) console.log('Here');
 
     // Set styling of the checkboxes
     if (profile.teetorType === 1){

@@ -6,7 +6,6 @@ import Carousel from "./stepCarousel.js";
 import EditGeneralInfoForm from './EditGeneralInfoForm';
 import ManageEducationPage from './ManageEducationPage';
 import ManageExperiencePage from './ManageExperiencePage';
-import { Profiler } from 'react';
 
 // import styles from './style/profile.module.css';
 

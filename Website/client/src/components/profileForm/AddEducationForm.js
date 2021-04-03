@@ -33,7 +33,7 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
     <Fragment>
-      <div className="page">
+      <div>
         <div className={styles.formWrapper}>
           <form
             id="addEducationForm"
@@ -118,7 +118,6 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
                 disabled={toDateDisabled ? "disabled" : ""}
               />
             </div>
-
             <div className={styles.buttonWrapper}>
               <button
                 type="submit"
@@ -128,6 +127,7 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
                 Submit
               </button>
             </div>
+
             <br />
             <Link to="/AddExperience">Return</Link>
           </form>

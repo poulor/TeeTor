@@ -1,3 +1,47 @@
-.table {
-    width
+.profileTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    min-width: 650px;
+    margin-top: 75px;
+    /* border-width: 50px; */
+    /* border-collapse: collapse; */
 }
+
+.profileTable th {
+    padding: 10px;
+    background-color: #01303f;
+    color: white;
+}
+
+.profileTable td {
+    padding: 10px;
+    /* background-color: #01303f; */
+    /* color: white; */
+}
+
+
+
+.profileTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.profileTable tr:hover {background-color: #ddd;}
+
+.add {
+    border: solid;
+    background: #01303f;
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    cursor: pointer;
+    margin: auto;
+    margin-top: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buttonWrapper {
+      text-align: center;
+  }

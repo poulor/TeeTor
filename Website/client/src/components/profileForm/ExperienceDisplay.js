@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
+import styles from './style/table.module.css';
+
 const Experience = ({ experience, onToggle }) => {
     const experiences = experience.map( exp => (
         <tr key={exp._id}>
@@ -19,7 +21,7 @@ const Experience = ({ experience, onToggle }) => {
     ));
     return (
         <Fragment>
-            <table className='table'>
+            <table className={styles.profileTable} cellSpacing="5px">
                 <thead>
                     <tr>
                         <th>Company</th>
@@ -30,7 +32,9 @@ const Experience = ({ experience, onToggle }) => {
                 </thead>
                 <tbody>{experiences}</tbody>
             </table>
-            <button onClick = {onToggle}>Add</button>
+            <div className = {styles.buttonWrapper}>
+                <button className = {styles.add} onClick = {onToggle}>Add</button>
+            </div>
         </Fragment>
     )
 }
