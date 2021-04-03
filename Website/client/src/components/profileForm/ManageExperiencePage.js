@@ -1,12 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link} from 'react-router-dom';
 import LoadingAnim from '../layout/LoadingAnim';
 import Experience from './ExperienceDisplay';
 import AddExperience from './AddExperienceForm'
-
-import styles from './style/profile.module.css';
 
 const ManageExperiencePage = ({ profile: { profile, loading }}) => {
   const [form, toggleForm] = useState(false);
@@ -20,7 +17,6 @@ const ManageExperiencePage = ({ profile: { profile, loading }}) => {
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
       <div>
-        <h1>Manage Experience Page</h1>
         {!form && <Experience experience={profile.experience} onToggle = {onToggle}/>}
         <br/>
         

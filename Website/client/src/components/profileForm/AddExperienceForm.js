@@ -25,13 +25,14 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
     <Fragment>
-      <div className="page">
+      <div >
         <div className={styles.formWrapper}>
           <form
             id="addExperienceForm"
             onSubmit={(e) => {
               e.preventDefault();
               addExperience(formData, history);
+              console.log('Submitting experience');
             }}
           >
             <h1 className={styles.fieldTitle}>Job Title</h1>
@@ -120,8 +121,7 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
               </button>
             </div>
             <br />
-            <Link to="/AddEducation">Add Education</Link>
-          </form>
+            </form>
         </div>
       </div>
     </Fragment>
