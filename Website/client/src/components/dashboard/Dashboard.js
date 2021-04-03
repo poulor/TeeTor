@@ -16,7 +16,6 @@ const Dashboard = ({ getAllProfiles, auth: { user }, profile: { profile, loading
   //or when the state has been modified
   if(external.isDirty){
     getAllProfiles();
-    console.log("Happened");
   }
 
   //Function to map all profiles to a card component
