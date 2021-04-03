@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-const Experience = ({ experience }) => {
+const Experience = ({ experience, onToggle }) => {
     const experiences = experience.map( exp => (
         <tr key={exp._id}>
             <td>{exp.company}</td>
@@ -30,12 +30,14 @@ const Experience = ({ experience }) => {
                 </thead>
                 <tbody>{experiences}</tbody>
             </table>
+            <button onClick = {onToggle}>Add</button>
         </Fragment>
     )
 }
 
 Experience.propTypes = {
     experience: PropTypes.array.isRequired,
+    onToggle: PropTypes.func.isRequired,
 }
 
 export default Experience

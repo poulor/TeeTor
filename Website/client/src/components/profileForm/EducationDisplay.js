@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-const Education = ({ education }) => {
+const Education = ({ education, onToggle }) => {
     const educations = education.map( edu => (
         <tr key={edu._id}>
             <td>{edu.school}</td>
@@ -30,12 +30,14 @@ const Education = ({ education }) => {
                 </thead>
                 <tbody>{educations}</tbody>
             </table>
+            <button onClick = {onToggle}>Add</button>
         </Fragment>
     )
 }
 
 Education.propTypes = {
     education: PropTypes.array.isRequired,
+    onToggle: PropTypes.func.isRequired,
 }
 
 export default Education

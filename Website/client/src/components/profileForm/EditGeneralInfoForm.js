@@ -238,8 +238,6 @@ const EditGeneralInfoForm = ({
             </div>
             <br />
             <Link to="/dashboard">Return</Link>
-            <br />
-            <Link to="/ManageExperience">Manage Experiences</Link>
           </form>
         </div>
       </div>
