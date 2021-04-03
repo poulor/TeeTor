@@ -5,7 +5,7 @@
 }
 
 .fieldTitle {
-  color: black;
+  color: #01303f;
   font-size: 25px;
 }
 
@@ -14,14 +14,26 @@
   box-sizing: border-box;
   margin-bottom: 15px;
   border: solid;
-  border-color: #cccccf;
+  border-width: 3px;
   font-size: 15px;
   padding: 10px;
   text-align: left;
+  border-color: #01303f;
+
+}
+
+.input:focus {
+  border-color: #01303f;
+  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.1);
+  
 }
 
 .input:focus::placeholder {
   color: transparent;
+}
+
+.buttonWrapper{
+  text-align: center;
 }
 
 .submit {
@@ -36,6 +48,8 @@
   margin: auto;
   margin-top: 50px;
   width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submit:hover {
@@ -80,7 +94,7 @@
 .container h3 {
   color: #111;
   position: relative;
-  font-size: 20px;
+  font-size: 22px;
   z-index: 2;
 }
 

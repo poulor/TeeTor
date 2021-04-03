@@ -232,7 +232,10 @@ const EditGeneralInfoForm = ({
                 onChange={onChange}
               />
             </div>
-            <input type="submit" className={styles.submit} />
+            <div className = {styles.buttonWrapper}>
+              <button type="submit" className={styles.submit}>Submit</button>
+
+            </div>
             <br />
             <Link to="/dashboard">Return</Link>
             <br />
