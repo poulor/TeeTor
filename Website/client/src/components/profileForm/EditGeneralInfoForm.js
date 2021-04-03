@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+import { setAlert } from '../../actions/alert';
 
 import styles from "./style/profile.module.css";
 
@@ -11,6 +12,7 @@ const EditGeneralInfoForm = ({
   createProfile,
   getCurrentProfile,
   history,
+  setAlert,
 }) => {
   const toggleType = {
     mentorChecked: false,
@@ -18,7 +20,7 @@ const EditGeneralInfoForm = ({
   };
 
   const [formData, setFormData] = useState({
-    teetorType: "null",
+    teetorType: 0,
     bio: "",
     location: "",
     languages: "",
@@ -31,15 +33,52 @@ const EditGeneralInfoForm = ({
     if (!profile) getCurrentProfile();
 
     setFormData({
-      teetorType: loading || !profile.teetorType ? null : profile.teetorType,
+      teetorType: loading || !profile.teetorType ? 0 : profile.teetorType,
       bio: loading || !profile.bio ? "" : profile.bio,
       location: loading || !profile.location ? "" : profile.location,
       languages:
         loading || !profile.languages ? "" : profile.languages.join(","),
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
     });
-  }, [loading, getCurrentProfile, profile]);
 
+    var x = document.getElementById("menteeCircle");
+    var y = document.getElementById("mentorCircle");
+
+    if(profile.teetorType === undefined ) console.log('Here');
+
+    // Set styling of the checkboxes
+    if (profile.teetorType === 1){
+      // adjust styling of checkboxes:
+      x.classList.add(styles.expanded);
+      y.classList.remove(styles.expanded);
+      // toggles checkboxes based on profile data
+      document.getElementById('toggle').checked = true;
+      document.getElementById('toggle2').checked = false;
+      toggleData.menteeChecked = true;
+      toggleData.mentorChecked = false;
+      
+    }
+    else if (profile.teetorType === 2){
+      // adjust styling of checkboxes:
+      y.classList.add(styles.expanded);
+      x.classList.remove(styles.expanded);
+      // toggles checkboxes based on profile data
+      document.getElementById('toggle2').checked = true;
+      document.getElementById('toggle').checked = false;
+      toggleData.menteeChecked = false;
+      toggleData.mentorChecked = true;
+    }
+    else if (profile.teetorType === 3){
+      // adjust styling of checkboxes:
+      x.classList.add(styles.expanded);
+      y.classList.add(styles.expanded);
+      // toggles checkboxes based on profile data
+      document.getElementById('toggle').checked = true;
+      document.getElementById('toggle2').checked = true;      
+      toggleData.menteeChecked = true;
+      toggleData.mentorChecked = true;
+    }
+  }, [loading, getCurrentProfile, profile, toggleData]);
   const { bio, location, languages, skills } = formData;
 
   // When the form is changed, update the state values:
@@ -52,11 +91,11 @@ const EditGeneralInfoForm = ({
   // submit the form as usual:
   const onSubmit = (e) => {
     e.preventDefault();
-    // let teetorType = checkTypes();
-    // if (teetorType === "null"){
-    //     alert("You must select mentor, mentee, or both");
-    //     return;
-    // }
+    let teetorType = checkTypes();
+    if (teetorType === 0){
+        setAlert('You must select mentor, mentee, or both', 'danger', 'top-right','10000');
+        return;
+    }
     createProfile(formData, history, true);
   };
 
@@ -195,11 +234,12 @@ const EditGeneralInfoForm = ({
                 onChange={onChange}
               />
             </div>
-            <input type="submit" className={styles.submit} />
+            <div className = {styles.buttonWrapper}>
+              <button type="submit" className={styles.submit}>Submit</button>
+
+            </div>
             <br />
             <Link to="/dashboard">Return</Link>
-            <br />
-            <Link to="/ManageExperience">Manage Experiences</Link>
           </form>
         </div>
       </div>
@@ -211,12 +251,14 @@ EditGeneralInfoForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  setAlert: PropTypes.func.isRequired,
+  teetorType: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+export default connect(mapStateToProps, { setAlert, createProfile, getCurrentProfile })(
   withRouter(EditGeneralInfoForm)
 );
