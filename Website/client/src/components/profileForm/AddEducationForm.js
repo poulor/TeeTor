@@ -40,6 +40,7 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
             onSubmit={(e) => {
               e.preventDefault();
               addEducation(formData, history);
+              onToggle();
             }}
           >
             <h1 className={styles.fieldTitle}>School:</h1>
@@ -121,13 +122,11 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
             <div className={styles.buttonWrapper}>
               <button
                 type="submit"
-                onClick={onToggle}
                 className={styles.submit}
               >
                 Submit
               </button>
             </div>
-
             <br />
             <Link to="/AddExperience">Return</Link>
           </form>
