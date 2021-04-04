@@ -11,6 +11,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateProfileForm from './components/profileForm/CreateProfileForm';
 import EditProfile from './components/profileForm/EditProfile';
 import Profile from './components/profiles/profile';
+import Posts from './components/posts/Posts';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -47,6 +48,7 @@ const App = () => {
               <PrivateRoute exact path='/CreateProfile' component={CreateProfileForm} />
               <PrivateRoute exact path='/EditProfile' component={EditProfile} />
               <PrivateRoute exact path='/profile/:id' component={Profile} />
+              <PrivateRoute exact path='/posts' component={Posts} />
             </Switch>
           </section>
         </Fragment>
