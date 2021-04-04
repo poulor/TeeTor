@@ -8,7 +8,12 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import { loadUser } from './actions/auth';
 import Dashboard from './components/dashboard/Dashboard';
-import EditProfileForm from './components/profileForm/EditProfileForm';
+import CreateProfileForm from './components/profileForm/CreateProfileForm';
+import EditProfile from './components/profileForm/EditProfile';
+// import ManageExperiencePage from './components/profileForm/ManageExperiencePage';
+// import AddExperienceForm from './components/profileForm/AddExperienceForm';
+// import ManageEducationPage from './components/profileForm/ManageEducationPage';
+// import AddEducationForm from './components/profileForm/AddEducationForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 //Redux
@@ -33,15 +38,20 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
+          <Alert />
           <Route exact path='/' component={Landing} />
           <section className='container'>
-            <Alert />
             <PrivateRoute component={SideBar} />
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/Dashboard' component={Dashboard} />
-              <PrivateRoute exact path='/EditProfile' component={EditProfileForm} />
+              <PrivateRoute exact path='/CreateProfile' component={CreateProfileForm} />
+              <PrivateRoute exact path='/EditProfile' component={EditProfile} />
+              {/* <PrivateRoute exact path='/ManageExperience' component={ManageExperiencePage} />
+              <PrivateRoute exact path='/AddExperience' component={AddExperienceForm} />
+              <PrivateRoute exact path='/ManageEducation' component={ManageEducationPage} />
+              <PrivateRoute exact path='/AddEducation' component={AddEducationForm} /> */}
             </Switch>
           </section>
         </Fragment>
