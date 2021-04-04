@@ -8,18 +8,17 @@ import UserTypeSwitch from "./userTypeSwitch";
 import { getCurrentProfile } from '../../../actions/profile';
 import Card from '../../profileForm/myCard';
 
-
+import LoadingAnim from '../LoadingAnim';
 
 // import Mentor from "./mentorCard.js";
 
-const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
+const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: { profile, loading, skills, languages}}) => {
 
   //Will call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
   // Will run continuously unless we add the brackets as second parameter
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile]);
-
+  }, [getCurrentProfile, isAuthenticated, loading]);
 
   const slideIn = () => {
     var x = document.getElementById("slider");
@@ -35,8 +34,6 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
     }
   };
 
-
-
   return (
     <div id="slider" className={styles.slideOut}>
       <div id="slideOutTab" className={styles.slideOutTab} onClick={slideIn}>
@@ -44,27 +41,25 @@ const SideBar = ({ getCurrentProfile, auth: { user }, profile}) => {
           <p onClick={slideIn}> Profile </p>
         </div>
       </div>
-      <UserTypeSwitch />
-      {profile !== null ? (
+      <UserTypeSwitch teetorType = {profile && profile.teetorType}/>
+      {profile === null && 
         <Fragment>
-          <p>Profile Exists</p>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>Profile Does Not Exist</p>
-          <Link to='/editProfile'>Create Profile</Link>
-        </Fragment>
-      )}
-    <Card 
-      type = "mentee"
-      //Why is this?
+        <p>Profile Does Not Exist</p>
+        <Link to='/createProfile'>Create Profile</Link>
+      </Fragment>
+      }
+
+    {profile === null && loading && <LoadingAnim/>}
+    {profile !== null && !loading && <Card type = "mentee"
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
-      skills = {["math","history"]}
-      // skills = {profile && profile.skills} 
+      // skills = {["math","history"]}
+      skills = {profile.skills} 
       url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
-    />
+      style = {{marginLeft: 'auto', marginRight: 'auto'}}/>}
+   
+    
 
 {/* {profile && profile.skills[0]}  */}
       {/* <div className={styles.modalBody}>

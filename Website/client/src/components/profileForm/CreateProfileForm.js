@@ -1,15 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
-import styles from './style/editProfile.module.css';
+import styles from './style/profile.module.css';
 
-const EditProfileForm = ({
-    // profile: { profile, loading },
+const CreateProfileForm = ({
     createProfile,
-    // getCurrentProfile,
     history
 }) => {
 
@@ -123,16 +121,6 @@ const EditProfileForm = ({
                             </div>
                         </div>
                         <br/>
-                        {/* <div className="form-group">
-                            <input
-                            className={styles.input}
-                            type="text"
-                            placeholder="1=Mentee/2=Mentor/3=Both"
-                            name="teetorType"
-                            value={formData.teetorType}
-                            onChange={onChange}
-                            />
-                        </div> */}
                         <h1 className={styles.fieldTitle}>Bio:</h1>
                         <div className="form-group">
                             <textarea
@@ -189,7 +177,7 @@ const EditProfileForm = ({
     );
 };
 
-EditProfileForm.propTypes = {
+CreateProfileForm.propTypes = {
     createProfile: PropTypes.func.isRequired,
     // getCurrentProfile: PropTypes.func.isRequired,
     // profile: PropTypes.object.isRequired
@@ -200,5 +188,5 @@ EditProfileForm.propTypes = {
 // });
   
 export default connect(null, { createProfile })(
-    withRouter(EditProfileForm)
+    withRouter(CreateProfileForm)
 );

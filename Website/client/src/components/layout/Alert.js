@@ -3,6 +3,19 @@ import PropTypes from 'prop-types';
 // Import connect when you want to access from the redux store
 import { connect } from 'react-redux';
 
+// first parameter: message
+// second paramter: alertType
+// third parameter: position on screen
+// fourth paramter: timeout for alert in ms
+// setAlert('top-right', 'danger', 'top-right', 10000);
+// setAlert('top-left', 'warning', 'top-left', 4000);
+// setAlert('This is a message', 'success', 'bottom-right', 15000);
+// setAlert('bottom-left', 'danger', 'bottom-left', 2000);
+// setAlert('Wrong password', 'danger', 'top-right', 8000);
+// setAlert('This will be in the center', 'danger', 'center', 16000);
+// third and fourth parameter will default to 'top-right' and 4000
+// setAlert('Testing Default', 'danger');
+
 // Destructuring the alerts taken from the state using mapStateToProps below
 const Alert = ({ alerts }) =>
   // As long as its not empty, map all the alerts to divs with keys and styling --- and content taken from the alert.msg
@@ -11,14 +24,17 @@ const Alert = ({ alerts }) =>
   alerts.map((alert) => (
     // Want to return a div for each alert
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
-    <div key={alert.id} className={`alert alert-${alert.alertType}`}>
+    <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position}>
       {alert.msg}
     </div>
+
   ));
 
 Alert.propTypes = {
   alerts: PropTypes.array.isRequired,
 };
+
+
 
 // Want to get state and put it into the component props
 const mapStateToProps = (state) => ({

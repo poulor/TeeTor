@@ -14,6 +14,9 @@
   margin-bottom: 20px;
   cursor: pointer;
   position: relative;
+  text-align: left;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+
 }
 
 .switchSliderLeft {
@@ -55,12 +58,10 @@
   transition: transform 0.3s;
 }
 
-.switchTextLeft {
+.switchText {
   position: absolute;
   top: 10px;
   width: 50%;
-  margin-left: 4%;
-  /* text-align: right; */
   font-size: 25px;
   font-weight: bold;
   border-radius: 9px 4px;
@@ -73,22 +74,13 @@
   user-select: none;
 }
 
+.switchTextLeft{
+  margin-left: 4%;
+}
+
 .switchTextRight {
-  position: absolute;
-  top: 10px;
-  width: 50%;
   margin-left: 44%;
   text-align: right;
-  font-size: 25px;
-  font-weight: bold;
-  border-radius: 9px 4px;
-  line-height: 1.5;
-  padding: 9px 4px;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .switchTextActive {

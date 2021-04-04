@@ -15,12 +15,6 @@ import Modal from '../Modal/Modal'
 const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile: { profile, loading }, external}) => {
 
 
-  //Will  call useEffect everytime Dashboard is mounted since getCurrentProfile is not a component but a function.
-  // Will run continuously unless we add the brackets as second parameter
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
-
   //This checks to see if the external redux is 'dirty.' The state should be dirty when the user just logged in
   //or when the state has been modified
   if(external.isDirty){
