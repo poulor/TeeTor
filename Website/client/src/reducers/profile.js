@@ -1,8 +1,9 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from '../actions/types';
+import { GET_PROFILE, GET_PROFILES, GET_OTHER_PROFILE, CLEAR_OTHER_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from '../actions/types';
 
 // Default initial status
 const initialState = {
   profile: null,
+  visitingProfile: null,
   profiles: [],
   loading: true,
   error: {},
@@ -25,10 +26,22 @@ export default function (state = initialState, action) {
         profiles: payload,
         loading: false,
       }
+    case GET_OTHER_PROFILE:
+      return {
+        ...state,
+        visitingProfile: payload,
+        loading: false,
+      }
     case PROFILE_ERROR:
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case CLEAR_OTHER_PROFILE:
+      return {
+        ...state,
+        visitingProfile: null,
         loading: false,
       };
     case CLEAR_PROFILE:
