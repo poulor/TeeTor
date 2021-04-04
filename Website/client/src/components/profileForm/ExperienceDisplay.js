@@ -20,7 +20,7 @@ const ExperienceDisplay = ({experience, onToggle, deleteExperience}) => {
                 )}
             </td>
             <td className = {styles.deleteWrapper}>
-                <i onClick={() => deleteExperience(exp._id)} className={styles.deleteButton}><i class="fas fa-minus-circle"></i></i>
+                <i onClick={() => deleteExperience(exp._id)} className={styles.deleteButton}><i className="fas fa-minus-circle"></i></i>
             </td>
         </tr>
     ));
