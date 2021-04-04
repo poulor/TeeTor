@@ -20,7 +20,7 @@ const EducationDisplay = ({ education, onToggle }) => {
                 )}
             </td>
             <td className = {styles.deleteWrapper}>
-                <i onClick={() => deleteEducation(edu._id)} className={styles.deleteButton}><i class="fas fa-minus-circle"></i></i>
+                <i onClick={() => deleteEducation(edu._id)} className={styles.deleteButton}><i className="fas fa-minus-circle"></i></i>
             </td>
         </tr>
     ));
