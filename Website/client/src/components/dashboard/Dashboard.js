@@ -49,7 +49,7 @@ const Dashboard = ({ getCurrentProfile, getAllProfiles, auth: { user }, profile:
   return loading && profile == null ? <LoadingAnim /> : 
     <Fragment>
     <div className = "page">
-      <Modal show={showModal} onClose={() => setShowModal(false)} onOpen={() => setShowModal(true)}>
+      <Modal show={showModal} onClose={() => setShowModal(false)} onOpen={() => setShowModal(true)} width='50vw' height= '50vh'>
         <div>
           <Card 
             type = "mentor"
