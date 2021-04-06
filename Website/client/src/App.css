@@ -53,6 +53,8 @@ img {
   margin-right: 0;
   padding: 2rem;
 
+  padding-left: 70px;
+
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);

@@ -51,6 +51,7 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
 
     {profile === null && loading && <LoadingAnim/>}
     {profile !== null && !loading && <Card type = "mentee"
+      userId = {profile.user._id}
       name = {user && user.name} 
       title = "Hamster" 
       score = {451} 
