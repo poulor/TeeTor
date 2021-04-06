@@ -86,7 +86,7 @@ export default class myCard extends Component {
         {/* display content relevant to mentees */}
         {this.state.type === "mentee" && 
         <div className={[styles.profileCardBody].join(" ")}>
-          <p className={styles.profileCardName}>{this.props.name}</p>
+          <Link to={`/profile/${this.props.userId}`} className={styles.profileCardName}>{this.props.name}</Link>
           <div className={styles.profileCardTitle}>{this.props.title}</div>
 
           <div className={styles.bulbRating}>
@@ -103,7 +103,7 @@ export default class myCard extends Component {
         {/* display content relevant to mentors */}
         {this.state.type === "mentor" && 
         <div className={[styles.profileCardBody].join(" ")}>
-            <p className={styles.profileCardName}>{this.props.name}</p>
+            <Link to={`/profile/${this.props.userId}`} className={styles.profileCardName}>{this.props.name}</Link>
             <div className={styles.profileCardTitle}>{this.props.title}</div>
 
             <div className={styles.profileCardBio}>

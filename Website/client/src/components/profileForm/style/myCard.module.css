@@ -10,6 +10,8 @@
   /* border: solid; */
   display: inline-block;
   margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
@@ -67,6 +69,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(88, 88, 88);
+  text-decoration: none !important;
 }
 
 .profileCardTitle {
