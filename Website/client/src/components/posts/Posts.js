@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import LoadingAnim from '../layout/LoadingAnim';
 import { getPosts } from '../../actions/post';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
@@ -13,7 +14,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <Fragment>
         <div className="page">
             {loading ? (
-                <p>Put loading anim here</p>
+                <LoadingAnim />
             ) : (
                 <Fragment>
                     {posts.length > 0 ? (
