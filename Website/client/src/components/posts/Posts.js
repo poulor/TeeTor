@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import LoadingAnim from '../layout/LoadingAnim';
 import { getPosts } from '../../actions/post';
+import IndividualPost from './IndividualPost';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
                 <Fragment>
                     {posts.length > 0 ? (
                         posts.map(post => (
-                            <p>{post.text}</p>
+                          <IndividualPost key={post._id} post={post} />
                         ))
                     ) : (
                         <p>No Posts</p>
