@@ -11,6 +11,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
+        <Link to='/posts'>
+          <i></i>{' '}
+          {/* Add css class that hides the text when on a small screen */}
+          <span>Posts</span>
+        </Link>
+      </li>
+      <li>
         <Link to='/dashboard'>
           <i></i>{' '}
           {/* Add css class that hides the text when on a small screen */}
