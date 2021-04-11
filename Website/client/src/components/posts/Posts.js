@@ -9,7 +9,9 @@ import IndividualPost from './IndividualPost';
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
-  }, [getPosts]);
+  }, []);
+  // getPosts();
+  console.log('rerender');
 
   return (
     <Fragment>
@@ -18,6 +20,8 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
                 <LoadingAnim />
             ) : (
                 <Fragment>
+                  <div>Hello</div>
+                  {/* <IndividualPost key={posts[0]._id} post = {posts[0]}/> */}
                     {posts.length > 0 ? (
                         posts.map(post => (
                           <IndividualPost key={post._id} post={post} />

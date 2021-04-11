@@ -19,12 +19,22 @@ const IndividualPost = ({
   showActions
 }) => {
 
-  const [liked, setLiked] = useState(false);
+  var liked = false;
   let likeButton;
+
+  var i;
+  for (i = 0; i < likes.length; i++) {
+    console.log(i);
+    if(auth.user._id === likes[i].user) {
+      liked = true;
+    }
+  }
+  
+
   if(liked) {
-    likeButton = <span onClick={()=> setLiked(removeLike(_id))} class="fas fa-thumbs-up"></span>;
+    likeButton = <span onClick={()=> removeLike(_id)} class="fas fa-thumbs-up"></span>;
   } else {
-    likeButton = <span onClick={()=> setLiked(addLike(_id))} class="far fa-thumbs-up"></span>
+    likeButton = <span onClick={()=> addLike(_id)} class="far fa-thumbs-up"></span>
   }
 
   return (
