@@ -114,8 +114,11 @@ router.put('/like/:id', auth, async (req, res) => {
         // Higher order array function that compares current user to user thats logged in
         // // If length is greater than 0, then it has already been liked
         if (post.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-            return res.status(400).json({msg: 'Post already liked'});
+            return res.json(post.likes);
         }
+        // if (post.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
+        //     return res.status(400).json({msg: 'Post already liked'});
+        // }
         // Adds current user to the list of people that have liked the post
         post.likes.unshift({user: req.user.id});
 
