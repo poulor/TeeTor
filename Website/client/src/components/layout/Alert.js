@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 // Import connect when you want to access from the redux store
 import { connect } from 'react-redux';
 
+import { removeAlert } from '../../actions/alert'
+
 // const removeAlert = (alertID) => {
 //   // var removeAlert = document.getElementById(alertID);
 //   console.log(alertID)
@@ -23,20 +25,21 @@ import { connect } from 'react-redux';
 // setAlert('Testing Default', 'danger');
 
 // Destructuring the alerts taken from the state using mapStateToProps below
-const Alert = ({ alerts }) =>
+const Alert = ({ alerts, removeAlert }) =>
+// const Alert = ({ alerts }) =>
   // As long as its not empty, map all the alerts to divs with keys and styling --- and content taken from the alert.msg
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((alert) => (
     // Want to return a div for each alert
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
-    <div className='alertBox'>
-      <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
+    <div className='alertBox' key={alert.id}>
+      <div className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
         {/* <div className='alertXButton' onClick={setHidden(true)}> */}
-        {/* <div className='alertXButton' onClick={removeAlert(alert.id)}> */}
+        <div className='alertXButton' onClick= {() => removeAlert(alert.id)}>
         {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
-        <div className='alertXButton'>
-          <i class="fas fa-times"></i>
+        {/* <div className='alertXButton'> */}
+          <i className="fas fa-times"></i>
         </div>
         {alert.msg}
       </div>
@@ -46,6 +49,7 @@ const Alert = ({ alerts }) =>
 
 Alert.propTypes = {
   alerts: PropTypes.array.isRequired,
+  removeAlert: PropTypes.func.isRequired,
 };
 
 // Want to get state and put it into the component props
@@ -54,4 +58,4 @@ const mapStateToProps = (state) => ({
   alerts: state.alert,
 });
 
-export default connect(mapStateToProps)(Alert);
+export default connect(mapStateToProps, {removeAlert})(Alert);
