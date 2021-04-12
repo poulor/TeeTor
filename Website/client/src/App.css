@@ -67,6 +67,12 @@ img {
   margin-left: 15px;
 }
 
+.alertBox {
+  z-index: 50;
+  background-color: green;
+
+}
+
 .alert {
   position: fixed;
   color: white;
@@ -122,4 +128,13 @@ img {
   bottom: 0;
   height: 50px;
   text-align: center;
+}
+
+.alertXButton {
+  position: absolute;
+  z-index: 51;
+  width: 20px;
+  height: 20px;
+  margin-left: 165px;
+  float: right;
 }
