@@ -31,17 +31,15 @@ const Alert = ({ alerts }) =>
     // Want to return a div for each alert
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
     <div className='alertBox'>
-      { !hidden &&
-        <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
-          {/* <div className='alertXButton' onClick={setHidden(true)}> */}
-          {/* <div className='alertXButton' onClick={removeAlert(alert.id)}> */}
-          {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
-          <div className='alertXButton'>
-            <i class="fas fa-times"></i>
-          </div>
-          {alert.msg}
+      <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
+        {/* <div className='alertXButton' onClick={setHidden(true)}> */}
+        {/* <div className='alertXButton' onClick={removeAlert(alert.id)}> */}
+        {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
+        <div className='alertXButton'>
+          <i class="fas fa-times"></i>
         </div>
-      }
+        {alert.msg}
+      </div>
     </div>
 
   ));
