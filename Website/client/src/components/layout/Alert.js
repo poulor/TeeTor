@@ -5,12 +5,6 @@ import { connect } from 'react-redux';
 
 import { removeAlert } from '../../actions/alert'
 
-// const removeAlert = (alertID) => {
-//   // var removeAlert = document.getElementById(alertID);
-//   console.log(alertID)
-//   // removeAlert.remove();
-// }
-
 // first parameter: message
 // second parameter: alertType
 // third parameter: position on screen
