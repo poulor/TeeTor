@@ -3,10 +3,18 @@ import PropTypes from 'prop-types';
 // Import connect when you want to access from the redux store
 import { connect } from 'react-redux';
 
+// const removeAlert = (alertID) => {
+//   // var removeAlert = document.getElementById(alertID);
+//   console.log(alertID)
+//   // removeAlert.remove();
+// }
+
+const [hidden, setHidden] = useState(false);
+
 // first parameter: message
-// second paramter: alertType
+// second parameter: alertType
 // third parameter: position on screen
-// fourth paramter: timeout for alert in ms
+// fourth parameter: timeout for alert in ms
 // setAlert('top-right', 'danger', 'top-right', 10000);
 // setAlert('top-left', 'warning', 'top-left', 4000);
 // setAlert('This is a message', 'success', 'bottom-right', 15000);
@@ -24,8 +32,18 @@ const Alert = ({ alerts }) =>
   alerts.map((alert) => (
     // Want to return a div for each alert
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
-    <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position}>
-      {alert.msg}
+    <div className='alertBox'>
+      { !hidden &&
+        <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
+          <div className='alertXButton' onClick={setHidden(true)}>
+          {/* <div className='alertXButton' onClick={removeAlert(alert.id)}> */}
+          {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
+          {/* <div className='alertXButton'> */}
+            <i class="fas fa-times"></i>
+          </div>
+          {alert.msg}
+        </div>
+      }
     </div>
 
   ));
@@ -33,8 +51,6 @@ const Alert = ({ alerts }) =>
 Alert.propTypes = {
   alerts: PropTypes.array.isRequired,
 };
-
-
 
 // Want to get state and put it into the component props
 const mapStateToProps = (state) => ({
