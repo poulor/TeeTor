@@ -9,8 +9,6 @@ import { connect } from 'react-redux';
 //   // removeAlert.remove();
 // }
 
-const [hidden, setHidden] = useState(false);
-
 // first parameter: message
 // second parameter: alertType
 // third parameter: position on screen
@@ -35,10 +33,10 @@ const Alert = ({ alerts }) =>
     <div className='alertBox'>
       { !hidden &&
         <div key={alert.id} className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
-          <div className='alertXButton' onClick={setHidden(true)}>
+          {/* <div className='alertXButton' onClick={setHidden(true)}> */}
           {/* <div className='alertXButton' onClick={removeAlert(alert.id)}> */}
           {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
-          {/* <div className='alertXButton'> */}
+          <div className='alertXButton'>
             <i class="fas fa-times"></i>
           </div>
           {alert.msg}
