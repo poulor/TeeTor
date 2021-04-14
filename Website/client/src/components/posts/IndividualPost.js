@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
 import { Link } from 'react-router-dom';
-// import formatDate from '../../utils/formatDate';
 import { connect } from 'react-redux';
 
 import { addLike, removeLike, deletePost } from '../../actions/post';
-import { post } from 'request';
 import styles from "./style/individualPost.module.css";
 
 const IndividualPost = ({
@@ -16,16 +14,22 @@ const IndividualPost = ({
   deletePost,
   auth,
   post: { _id, title, text, name, user, likes, comments, date },
-  showActions
 }) => {
 
   var liked = false;
+  var commented = false;
   let likeButton;
+  let commentButton;
 
   var i;
   for (i = 0; i < likes.length; i++) {
     if(auth.user._id === likes[i].user) {
       liked = true;
+    }
+  }
+  for (i = 0; i < comments.length; i++) {
+    if(auth.user._id === comments[i].user) {
+      commented = true;
     }
   }
   
@@ -34,6 +38,12 @@ const IndividualPost = ({
     likeButton = <span onClick={()=> removeLike(_id)} className="fas fa-thumbs-up"></span>;
   } else {
     likeButton = <span onClick={()=> addLike(_id)} className="far fa-thumbs-up"></span>
+  }
+
+  if(commented) {
+    commentButton = <span className="fas fa-comment-alt"></span>
+  } else {
+    commentButton = <span className="far fa-comment-alt"></span>
   }
 
   return (
@@ -85,16 +95,12 @@ const IndividualPost = ({
               <span className={styles.interCount}>{likes.length}</span>
             </div>
             <div className ={styles.shareSec}>
-              <i className="fas fa-comment-alt"></i>
+              {commentButton}
               <span className={styles.interCount}>{comments.length}</span>
             </div>
         </div>
     </div>
   );
-};
-
-IndividualPost.defaultProps = {
-  showActions: true
 };
 
 IndividualPost.propTypes = {
@@ -103,7 +109,6 @@ IndividualPost.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
-  showActions: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
