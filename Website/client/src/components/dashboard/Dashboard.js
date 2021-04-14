@@ -5,6 +5,7 @@ import Profiles from '../profiles/profiles';
 
 
 const Dashboard = () => {
+
   return (
     <Fragment>
       <Profiles />
