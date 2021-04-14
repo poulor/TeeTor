@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import LoadingAnim from '../layout/LoadingAnim';
 import { getPosts } from '../../actions/post';
 import IndividualPost from './IndividualPost';
+import SubmitPost from './SubmitPost';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, []);
-  // getPosts();
-  console.log('rerender');
 
   return (
     <Fragment>
@@ -20,8 +19,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
                 <LoadingAnim />
             ) : (
                 <Fragment>
-                  <div>Hello</div>
-                  {/* <IndividualPost key={posts[0]._id} post = {posts[0]}/> */}
+                  <SubmitPost/>
                     {posts.length > 0 ? (
                         posts.map(post => (
                           <IndividualPost key={post._id} post={post} />

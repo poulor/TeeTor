@@ -24,7 +24,6 @@ const IndividualPost = ({
 
   var i;
   for (i = 0; i < likes.length; i++) {
-    console.log(i);
     if(auth.user._id === likes[i].user) {
       liked = true;
     }
@@ -32,9 +31,9 @@ const IndividualPost = ({
   
 
   if(liked) {
-    likeButton = <span onClick={()=> removeLike(_id)} class="fas fa-thumbs-up"></span>;
+    likeButton = <span onClick={()=> removeLike(_id)} className="fas fa-thumbs-up"></span>;
   } else {
-    likeButton = <span onClick={()=> addLike(_id)} class="far fa-thumbs-up"></span>
+    likeButton = <span onClick={()=> addLike(_id)} className="far fa-thumbs-up"></span>
   }
 
   return (
@@ -54,12 +53,26 @@ const IndividualPost = ({
             <p className={styles.title}>
               {title}
             </p>
+            {!auth.loading && user === auth.user._id && (
+            <div className={styles.dropdown}>
+              <button className={styles.dropbtn}>
+                <i className="fas fa-caret-down"></i>
+              </button>
+              <div className={styles.dropdownContent}>
+              <a onClick={() => deletePost(_id)}>Delete 
+                <i className="fas fa-minus-circle" style={{marginLeft: '50px'}}></i>
+              </a>
+              {/* <a href="#">Link 2</a>
+              <a href="#">Link 3</a> */}
+              </div>
+            </div>
+            )}
             <p className={styles.date}>
             <Moment format='MM/DD/YYYY'>{date}</Moment>
             </p>
           </div>
           <div className={styles.text}>
-              {`${text.substring(0, 170)}...`}
+            {text}
           </div>
             
         </div>
@@ -72,7 +85,7 @@ const IndividualPost = ({
               <span className={styles.interCount}>{likes.length}</span>
             </div>
             <div className ={styles.shareSec}>
-              <i class="fas fa-comment-alt"></i>
+              <i className="fas fa-comment-alt"></i>
               <span className={styles.interCount}>{comments.length}</span>
             </div>
         </div>
