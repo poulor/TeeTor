@@ -20,7 +20,7 @@ import {
     const { type, payload } = action;
   
     switch (type) {
-      case GET_POSTS:
+      case GET_POSTS: 
         return {
           ...state,
           posts: payload,

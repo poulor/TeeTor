@@ -35,7 +35,7 @@ img {
 }
 
 .page {
-  height: 100%;
+  min-height: 100%;
   margin-left: max(20%, 300px);
   width: var(vw - max(20%, 300px));
   padding: 2em;
@@ -48,7 +48,7 @@ img {
 
 .pageExpand {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin-left: 0;
   margin-right: 0;
   padding: 2rem;
