@@ -1,0 +1,64 @@
+.body {
+    min-width: 600px;
+}
+
+.genInfo {
+    border-radius: 15px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nameWrapper {
+    text-align: center;
+}
+
+.profileImage {
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
+}
+
+.name {
+    font-size: 20px;
+    display: inline-block;
+    margin-left: auto;
+    
+}
+
+.title {
+    font-size: 15px;
+    font-weight: unset;
+}
+
+
+.bio {
+    font-size: 16px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.tags {
+    display: flex;
+    flex-direction: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tag {
+    padding: 1px 3px 1px 3px;
+    margin: 0px 2px 0px 2px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #47c2ff;
+    color: white;
+}
