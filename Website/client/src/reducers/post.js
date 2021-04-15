@@ -61,20 +61,32 @@ import {
       case ADD_COMMENT:
         return {
           ...state,
-          post: { ...state.post, comments: payload },
+          posts: state.posts.map((post) =>
+            post._id === payload.postId ? { ...post, comments: payload.comments } : post
+          ),
           loading: false
         };
-      case REMOVE_COMMENT:
+      case REMOVE_COMMENT: {
+        var rightComments;
+        state.posts.map((post) => {
+          if(post._id === payload.postId) {
+            rightComments = post.comments;
+          }}
+        )
+        rightComments = rightComments.filter(
+          (comment) => comment._id !== payload.commentId
+        )
         return {
           ...state,
-          post: {
-            ...state.post,
-            comments: state.post.comments.filter(
-              (comment) => comment._id !== payload
-            )
-          },
-          loading: false
+            posts: state.posts.map((post) =>
+              post._id === payload.postId ? {
+                ...post, comments: rightComments 
+              } : post
+            ),
+            
+            loading: false
         };
+      }
       default:
         return state;
     }

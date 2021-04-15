@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { deleteComment } from '../../actions/post';
-import styles from "./style/individualPost.module.css";
+import styles from "./style/individualComment.module.css";
 
 const IndividualComment = ({
   postId,
@@ -14,15 +14,18 @@ const IndividualComment = ({
   auth,
   comment: { _id, text, name, user, date },
 }) => {
-
+  // console.log(postId);
+  // console.log(_id);
   return (
+    <div className={styles.commentContainer}>
+
     <div className={styles.indivComment}>
         <div className={styles.iconSec}>
           <img
               className={styles.profileImg}
               src='https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist' 
               alt="profile"
-          />
+              />
         </div>
         <div className={styles.contentSec}>
           <div className={styles.header}>
@@ -30,7 +33,7 @@ const IndividualComment = ({
               {name}:
             </p>
             {!auth.loading && user === auth.user._id && (
-            <div className={styles.dropdown}>
+              <div className={styles.dropdown}>
               <button className={styles.dropbtn}>
                 <i className="fas fa-caret-down"></i>
               </button>
@@ -52,6 +55,7 @@ const IndividualComment = ({
           </div>
         </div>
     </div>
+</div>
   );
 };
 

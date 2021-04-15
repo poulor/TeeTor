@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-
-import { Link } from 'react-router-dom';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { addLike, removeLike, deletePost } from '../../actions/post';
-import styles from "./style/individualPost.module.css";
+import styles from './style/individualPost.module.css';
+import SubmitComment from './SubmitComment';
+import IndividualComment from './IndividualComment';
 
 const IndividualPost = ({
   addLike,
@@ -20,6 +22,9 @@ const IndividualPost = ({
   var commented = false;
   let likeButton;
   let commentButton;
+
+  const [commentFocused, focusComment] = useState(false);
+  // const [comment, setComment] = useState('');
 
   var i;
   for (i = 0; i < likes.length; i++) {
@@ -41,65 +46,88 @@ const IndividualPost = ({
   }
 
   if(commented) {
-    commentButton = <span className="fas fa-comment-alt"></span>
+    commentButton = <span onClick={
+      ()=> {
+        focusComment(!commentFocused);
+      }
+    } className="fas fa-comment-alt"></span>
   } else {
-    commentButton = <span className="far fa-comment-alt"></span>
+    commentButton = <span onClick={()=> focusComment(!commentFocused)} className="far fa-comment-alt"></span>
   }
 
   return (
-    <div className={styles.indivPost}>
-        <div className={styles.iconSec}>
-          <img
-              className={styles.profileImg}
-              src='https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist' 
-              alt="profile"
-          />
-        </div>
-        <div className={styles.contentSec}>
-          <div className={styles.header}>
-            <p className={styles.name}>
-              {name}:
-            </p>
-            <p className={styles.title}>
-              {title}
-            </p>
-            {!auth.loading && user === auth.user._id && (
-            <div className={styles.dropdown}>
-              <button className={styles.dropbtn}>
-                <i className="fas fa-caret-down"></i>
-              </button>
-              <div className={styles.dropdownContent}>
-              <a onClick={() => deletePost(_id)}>Delete 
-                <i className="fas fa-minus-circle" style={{marginLeft: '50px'}}></i>
-              </a>
-              {/* <a href="#">Link 2</a>
-              <a href="#">Link 3</a> */}
+    <Fragment>
+      <div className={styles.postContainer}>
+        <div className={styles.indivPost}>
+            <div className={styles.iconSec}>
+              <img
+                  className={styles.profileImg}
+                  src='https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist' 
+                  alt="profile"
+              />
+            </div>
+            <div className={styles.contentSec}>
+              <div className={styles.header}>
+                <p className={styles.name}>
+                  {name}:
+                </p>
+                <p className={styles.title}>
+                  {title}
+                </p>
+                {!auth.loading && user === auth.user._id && (
+                <div className={styles.dropdown}>
+                  <button className={styles.dropbtn}>
+                    <i className="fas fa-caret-down"></i>
+                  </button>
+                  <div className={styles.dropdownContent}>
+                  <a onClick={() => deletePost(_id)}>Delete 
+                    <i className="fas fa-minus-circle" style={{marginLeft: '50px'}}></i>
+                  </a>
+                  {/* <a href="#">Link 2</a>
+                  <a href="#">Link 3</a> */}
+                  </div>
+                </div>
+                )}
+                <p className={styles.date}>
+                <Moment format='MM/DD/YYYY'>{date}</Moment>
+                </p>
               </div>
+              <div className={styles.text}>
+                {text}
+              </div>
+                
             </div>
-            )}
-            <p className={styles.date}>
-            <Moment format='MM/DD/YYYY'>{date}</Moment>
-            </p>
-          </div>
-          <div className={styles.text}>
-            {text}
-          </div>
-            
-        </div>
-        <div className={styles.tagSec}>
-            <p className={styles.sub}>General Post</p>
-        </div>
-        <div className={styles.interactables}>
-            <div className ={styles.likeSec}>
-              {likeButton}
-              <span className={styles.interCount}>{likes.length}</span>
+            <div className={styles.tagSec}>
+                <p className={styles.sub}>General Post</p>
             </div>
-            <div className ={styles.shareSec}>
-              {commentButton}
-              <span className={styles.interCount}>{comments.length}</span>
+            <div className={styles.interactables}>
+                <div className ={styles.likeSec}>
+                  {likeButton}
+                  <span className={styles.interCount}>{likes.length}</span>
+                </div>
+                <div className ={styles.shareSec}>
+                  {commentButton}
+                  <span className={styles.interCount}>{comments.length}</span>
+                </div>
             </div>
         </div>
-    </div>
+        {commentFocused && (
+        <div className={styles.replySection}>
+          <hr/>
+          <SubmitComment postId={_id} />
+        </div>
+        )}
+      </div>
+      { commentFocused && (
+        <div>
+          {comments.length > 0 && (
+            comments.map(comment => (
+              <IndividualComment key={comment._id} comment={comment} postId={_id}/>
+            ))
+          )}
+        </div>
+      )}
+    </Fragment>
   );
 };
 
@@ -112,7 +140,7 @@ IndividualPost.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { addLike, removeLike, deletePost })(
