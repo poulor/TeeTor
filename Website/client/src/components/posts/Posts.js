@@ -22,7 +22,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
                   <SubmitPost/>
                     {posts.length > 0 ? (
                         posts.map(post => (
-                          <IndividualPost key={post._id} post={post} reply='true'/>
+                          <IndividualPost key={post._id} post={post}/>
                         ))
                     ) : (
                         <p>No Posts</p>
