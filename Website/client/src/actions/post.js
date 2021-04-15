@@ -58,7 +58,10 @@ export const addLike = id => async dispatch => {
         type: UPDATE_LIKES,
         payload: { id, likes: res.data }
         });
+
+        return true;
     } catch (err) {
+
         dispatch({
         type: POST_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
@@ -94,6 +97,8 @@ export const removeLike = id => async dispatch => {
       type: UPDATE_LIKES,
       payload: { id, likes: res.data }
     });
+
+    return false;
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -125,7 +130,6 @@ export const deletePost = id => async dispatch => {
 export const getPosts = () => async dispatch => {
   try {
     const res = await axios.get('/api/posts');
-
     dispatch({
       type: GET_POSTS,
       payload: res.data
