@@ -1,10 +1,13 @@
 .body {
     min-width: 600px;
+    max-width: 900px;
+    margin: auto;
 }
 
 .genInfo {
     border-radius: 15px;
     padding: 20px;
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: 50% 50%;
     
@@ -62,3 +65,65 @@
     background-color: #47c2ff;
     color: white;
 }
+
+.education, .experience {
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: grid;
+    
+    /* padding: 20px; */
+    /* box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); */
+}
+
+/* Table CSS:*/
+
+.profileTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /* border-width: 50px; */
+    /* border-collapse: collapse; */
+    border-bottom: 12px solid #01303f;
+}
+
+.profileTable th {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #01303f;
+    color: white;
+}
+
+.profileTable td {
+    padding: 10px;
+    font-size: 16px;
+    /* background-color: #01303f; */
+    color: #01303f;
+}
+
+.profileTable tr {
+    display: block;
+}
+
+.breakCell {
+    float: left;
+}
+
+.profileTable tr:nth-child(even){margin-top:-100px; color: red;}
+
+.profileTable tr:hover {background-color: #ddd;}
+
+.school {
+    width: 100px;
+}
+.degree {
+    width: 100px;
+}
+.fieldOfStudy {
+    width: 100px;
+}
+.years {
+    width: 100px;
+}
+
+
