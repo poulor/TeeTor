@@ -9,10 +9,10 @@ import { removeAlert } from '../../actions/alert'
 // second parameter: alertType
 // third parameter: position on screen
 // fourth parameter: timeout for alert in ms
-// setAlert('top-right', 'danger', 'top-right', 10000);
-// setAlert('top-left', 'warning', 'top-left', 4000);
+// setAlert('Enter valid email!', 'danger', 'top-right', 10000);
+// setAlert('Don't do that', 'warning', 'top-left', 4000);
 // setAlert('This is a message', 'success', 'bottom-right', 15000);
-// setAlert('bottom-left', 'danger', 'bottom-left', 2000);
+// setAlert('We love spaghetti code', 'danger', 'bottom-left', 2000);
 // setAlert('Wrong password', 'danger', 'top-right', 8000);
 // setAlert('This will be in the center', 'danger', 'center', 16000);
 // third and fourth parameter will default to 'top-right' and 4000
@@ -29,10 +29,7 @@ const Alert = ({ alerts, removeAlert }) =>
     // Whenever you map through an array like this and output jsx, you need to have a key. In this case its the alert id generated in actions
     <div className='alertBox' key={alert.id}>
       <div className={'alert alert-' + alert.alertType + ' alert-' + alert.position} id={alert.id}>
-        {/* <div className='alertXButton' onClick={setHidden(true)}> */}
         <div className='alertXButton' onClick= {() => removeAlert(alert.id)}>
-        {/* <div className='alertXButton' onClick={document.getElementById(alert.id).remove()}> */}
-        {/* <div className='alertXButton'> */}
           <i className="fas fa-times"></i>
         </div>
         {alert.msg}
