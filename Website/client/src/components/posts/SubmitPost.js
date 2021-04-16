@@ -6,7 +6,7 @@ import { addPost } from '../../actions/post';
 import styles from './style/submitPost.module.css';
 import { setAlert } from '../../actions/alert';
 
-const PostForm = ({ addPost }) => {
+const SubmitPost = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [titleFocused, focusTitle] = useState(false);
@@ -68,11 +68,11 @@ const PostForm = ({ addPost }) => {
   );
 };
 
-PostForm.propTypes = {
+SubmitPost.propTypes = {
   addPost: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
   { addPost }
-)(PostForm);
+)(SubmitPost);
