@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Import connect when you want to access from the redux store
 import { connect } from 'react-redux';
-
 import { removeAlert } from '../../actions/alert'
 
 // first parameter: message
