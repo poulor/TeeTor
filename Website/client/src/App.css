@@ -68,23 +68,13 @@ img {
 }
 
 .alertBox {
-<<<<<<< HEAD
   z-index: 50;
-=======
-  /* z-index: 150; */
-  /* height: 100vh; */
-  /* width: 100vw; */
->>>>>>> 526c688fd89630ba2e33cb68650be8fce028d838
 }
 
 .alert {
   position: fixed;
   color: white;
-<<<<<<< HEAD
   width: 215px;
-=======
-  width: 200px;
->>>>>>> 526c688fd89630ba2e33cb68650be8fce028d838
   background-color: lightblue;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -134,7 +124,6 @@ img {
   right: 0;
   top: 0;
   bottom: 0;
-<<<<<<< HEAD
   height: 70px;
   text-align: center;
 }
@@ -148,8 +137,3 @@ img {
   float: right;
   padding-left: 20px;
 }
-=======
-  height: 50px;
-  text-align: center;
-}
->>>>>>> 526c688fd89630ba2e33cb68650be8fce028d838
