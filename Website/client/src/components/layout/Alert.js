@@ -20,7 +20,6 @@ import { removeAlert } from '../../actions/alert'
 
 // Destructuring the alerts taken from the state using mapStateToProps below
 const Alert = ({ alerts, removeAlert }) =>
-// const Alert = ({ alerts }) =>
   // As long as its not empty, map all the alerts to divs with keys and styling --- and content taken from the alert.msg
   alerts !== null &&
   alerts.length > 0 &&
