@@ -9,8 +9,8 @@ import { connect } from 'react-redux';
 const ExperienceDisplay = ({experience, onToggle, deleteExperience}) => {
     const experiences = experience.map( exp => (
         <tr key={exp._id}>
-            <td className={styles.rowBold}>{exp.company}</td>
-            <td>{exp.title}</td>
+            <td className={`${styles.rowBold} ${styles.wordBreak}`}>{exp.company}</td>
+            <td className = {styles.wordBreak}>{exp.title}</td>
             <td>
                 <Moment format='YYYY/MM/DD'>{exp.from}</Moment> -{' '}
                 {exp.to === null ? (

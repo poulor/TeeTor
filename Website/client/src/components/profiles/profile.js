@@ -33,46 +33,46 @@ const Profile = ({
     visitingProfile &&
     visitingProfile.education.map((edu) => (
       <Fragment>
-      <tr rowSpan = "2" key={edu._id}>
-        <td className={styles.rowBold}>{edu.school}</td>
-        <td>{edu.degree}</td>
-        <td>{edu.fieldofstudy}</td>
-        <td>
-          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -{" "}
-          {edu.to === null ? (
-            " Current"
-          ) : (
-            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
-          )}
-        </td>
-        <td className = {styles.breakCell} colSpan = "4">{edu.description}</td>
-      </tr>
+        <div className={styles.education}>
+          <div className={`${styles.institution} ${styles.tableItem}`}>{edu.school}</div>
+          <div className={`${styles.degTit} ${styles.tableItem}`}>{edu.degree}</div>
+          <div className={`${styles.fieLoc} ${styles.tableItem}`}>{edu.fieldOfStudy}</div>
+          <div className={`${styles.duration} ${styles.tableItem}`}>
+            <Moment format="YYYY/MM/DD">{edu.from}</Moment> -{" "}          
+            {edu.to === null ? (
+              " Current"
+            ) : (
+              <Moment format="YYYY/MM/DD">{edu.to}</Moment>
+            )}
+          </div>
 
+          <div className={styles.desc}>{edu.description}</div>
+        </div>
       </Fragment>
     ));
 
   const experiences =
     visitingProfile &&
     visitingProfile.experience.map((exp) => (
-      <tr key={exp._id}>
-        <td className={styles.rowBold}>{exp.company}</td>
-        <td>{exp.title}</td>
-        <td>{exp.location}</td>
-        <td>{exp.description}</td>
-        <td>
+      <div key={exp._id} className={styles.experience}>
+        <div className={`${styles.institution} ${styles.tableItem}`}>{exp.company}</div>
+        <div className={`${styles.degTit} ${styles.tableItem}`}>{exp.title}</div>
+        <div className={`${styles.fieLoc} ${styles.tableItem}`}>{exp.location}</div>
+        <div className={`${styles.duration} ${styles.tableItem}`}>
           <Moment format="YYYY/MM/DD">{exp.from}</Moment> -{" "}
           {exp.to === null ? (
             " Current"
           ) : (
             <Moment format="YYYY/MM/DD">{exp.to}</Moment>
           )}
-        </td>
-      </tr>
+        </div>
+        <div className={styles.desc}>{exp.description}</div>
+      </div>
     ));
 
   return (
     <Fragment>
-      <div className="page">
+      <div className = "page">
         {visitingProfile === null ? (
           <LoadingAnim />
         ) : (
@@ -124,36 +124,27 @@ const Profile = ({
                     ></Link>
                   )}
               </div>
+              
+              {visitingProfile.education.length !== 0 && 
+              <div className={styles.tableHeader} >
+                    <div className={styles.school}>School</div>
+                    {/* Should probably hide some on smaller windows */}
+                    <div className={styles.degree}>Degree</div>
+                    <div className={styles.fieldOfStudy}>Field of Study</div>
+                    <div className={styles.years}>Years</div>
+              </div>}
+              <Fragment>{educations}</Fragment>
 
-              <div className={styles.education}>
-                <table className={styles.profileTable} cellSpacing="5px">
-                  <thead>
-                    <tr>
-                      <th className = {styles.school}>School</th>
-                      {/* Should probably hide some on smaller windows */}
-                      <th className = {styles.degree}>Degree</th>
-                      <th className = {styles.fieldOfStudy}>Field of Study</th>
-                      <th className = {styles.years}>Years</th>
-                    </tr>
-                  </thead>
-                  <tbody>{educations}</tbody>
-                </table>
-              </div>
+              {visitingProfile.experience.length !== 0 && 
+              <div className={styles.tableHeader}>
+                <div className={styles.institution}>Company</div>
+                {/* Should probably hide some on smaller windows */}
+                <div className={styles.degTit}>Title</div>
+                <div className={styles.fieLoc}>Location</div>
+                <div className={styles.duration}>Years</div>
+              </div>}
 
-              <div className={styles.experience}>
-                <table className={styles.profileTable} cellSpacing="5px">
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      {/* Should probably hide some on smaller windows */}
-                      <th>Title</th>
-                      <th>Location</th>
-                      <th>Years</th>
-                    </tr>
-                  </thead>
-                  <tbody>{experiences}</tbody>
-                </table>
-              </div>
+              <Fragment>{experiences}</Fragment>
             </div>
           </Fragment>
         )}

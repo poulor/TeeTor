@@ -42,6 +42,7 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
                 name="title"
                 value={title}
                 onChange={onChange}
+                maxLength="64"
               />
             </div>
             <h1 className={styles.fieldTitle}>Description</h1>
@@ -52,17 +53,19 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
                 name="description"
                 value={description}
                 onChange={onChange}
+                maxLength="250"
               />
             </div>
             <h1 className={styles.fieldTitle}>Company:</h1>
             <div className="form-group">
-              <input
+              <textarea
                 className={styles.input}
                 type="text"
                 placeholder="Company"
                 name="company"
                 value={company}
                 onChange={onChange}
+                maxLength="64"
               />
             </div>
             <h1 className={styles.fieldTitle}>Location:</h1>
@@ -74,6 +77,7 @@ const AddExperienceForm = ({ addExperience, history, onToggle }) => {
                 name="location"
                 value={location}
                 onChange={onChange}
+                maxLength="64"
               />
             </div>
             <h1 className={styles.fieldTitle}>From Date:</h1>

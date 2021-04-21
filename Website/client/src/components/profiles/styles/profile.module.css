@@ -67,63 +67,89 @@
 }
 
 .education, .experience {
-    border-radius: 15px;
-    margin-bottom: 30px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);    
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    min-height: 100px;
+    /* margin-bottom: 20px; */
+    padding: 10px;
+    width: 100%;
+    min-width: 900px;
     display: grid;
-    
-    /* padding: 20px; */
-    /* box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); */
+    grid-template-columns: 
+    30% 20% 25% 25%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    "institution degTit fieLoc duration"
+    "desc desc desc desc";
 }
 
-/* Table CSS:*/
+.education div, .experience div {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.education .desc, .experience .desc {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.tableItem {
+    max-height: 100px;
+    overflow: hidden;
+    white-space: initial;
+    text-overflow: ellipsis;
+}
+
+
+
+.institution {
+    grid-area: institution;
+    /* background-color: yellow; */
+}
+.degTit {
+    grid-area: degTit;
+    /* background-color: orange; */
+}
+.fieLoc {
+    grid-area: fieLoc;
+    /* background-color: orangered; */
+}
+.duration {
+    grid-area: duration;
+    /* background-color: red; */
+}
+.desc {
+    grid-area: desc;
+}
+
+
 
 .profileTable {
+    border-collapse: collapse;
+    /* border-width: 50px; */
+    /* border-collapse: collapse; */
+}
+
+.tableHeader {
+    background-color: #01303f;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    /* border-width: 50px; */
-    /* border-collapse: collapse; */
-    border-bottom: 12px solid #01303f;
-}
-
-.profileTable th {
-    padding: 10px;
-    font-size: 20px;
+    min-width: 900px;
+    padding: 15px;
+    margin-top:15px;
+    text-align: left;
+    font-size: 30px;
     font-weight: 500;
-    background-color: #01303f;
     color: white;
+    height: 80px;
+    
+    display: grid;
+    grid-template-columns: 
+    30% 20% 25% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "institution degTit fieLoc duration";
 }
-
-.profileTable td {
-    padding: 10px;
-    font-size: 16px;
-    /* background-color: #01303f; */
-    color: #01303f;
-}
-
-.profileTable tr {
-    display: block;
-}
-
-.breakCell {
-    float: left;
-}
-
-.profileTable tr:nth-child(even){margin-top:-100px; color: red;}
-
-.profileTable tr:hover {background-color: #ddd;}
-
-.school {
-    width: 100px;
-}
-.degree {
-    width: 100px;
-}
-.fieldOfStudy {
-    width: 100px;
-}
-.years {
-    width: 100px;
-}
-
-
