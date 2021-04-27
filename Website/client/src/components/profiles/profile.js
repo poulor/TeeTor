@@ -99,7 +99,7 @@ const Profile = ({
                     {getTitle(visitingProfile.teetorType)}
                   </h3>
                 </div>
-                <div className={styles.bio}>
+                <div className={styles.rightSec}>
                   <h2 className={styles.bio}>{visitingProfile.bio}</h2>
                   <div className={styles.tags}>
                     {visitingProfile.languages.map((language) => (
