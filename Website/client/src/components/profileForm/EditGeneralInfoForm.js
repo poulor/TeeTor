@@ -29,7 +29,6 @@ const EditGeneralInfoForm = ({
   });
 
   const [toggleData] = useState(toggleType);
-
   useEffect(() => {
     if (!profile) getCurrentProfile();
 
@@ -41,7 +40,6 @@ const EditGeneralInfoForm = ({
         loading || !profile.languages ? "" : profile.languages.join(","),
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
     });
-
     var x = document.getElementById("menteeCircle");
     var y = document.getElementById("mentorCircle");
 
@@ -80,12 +78,19 @@ const EditGeneralInfoForm = ({
       toggleData.mentorChecked = true;
     }
   }, [loading, getCurrentProfile, profile, toggleData]);
+  console.log(formData)
   const { bio, location, languages, skills } = formData;
 
   // When the form is changed, update the state values:
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  // onChange for AutoTag
+  const onChangeAutoTag = (dataName, value ) => {
+    console.log("HEERRRRRE")
+    setFormData({ ...formData, [dataName]: value });
+  }
 
   // On submission of form, check if either box was checked, using
   // checkTypes(). If neither box was checked, alert the user. Otherwise
@@ -213,9 +218,14 @@ const EditGeneralInfoForm = ({
                 onChange={onChange}
               />
             </div>
-            <h1 className={styles.fieldTitle}>Languagessssss:</h1>
+            <h1 className={styles.fieldTitle}>Languages:</h1>
             <div className="form-group">
-              <AutoTag fileName = 'languages.json'/>
+              <AutoTag 
+              onChange = {onChangeAutoTag}
+              name = "languages"
+              fileName = 'languages'
+              value = {languages}
+              />
               {/* <input
                 className={styles.input}
                 type="text"
@@ -227,14 +237,20 @@ const EditGeneralInfoForm = ({
             </div>
             <h1 className={styles.fieldTitle}>Skills:</h1>
             <div className="form-group">
-              <input
+            <AutoTag 
+              onChange = {onChangeAutoTag}
+              name = "skills"
+              fileName = 'subjects'
+              value = {skills}
+              />
+              {/*<input
                 className={styles.input}
                 type="text"
                 placeholder="Skills"
                 name="skills"
                 value={skills}
                 onChange={onChange}
-              />
+              />*/}
             </div>
             <div className = {styles.buttonWrapper}>
               <button type="submit" className={styles.submit}>Submit</button>

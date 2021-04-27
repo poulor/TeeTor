@@ -105,7 +105,7 @@
 	},
 	{
 		"id": 526,
-		"name": " Valencian"
+		"name": "Valencian"
 	},
 	{
 		"id": 527,
@@ -121,11 +121,11 @@
 	},
 	{
 		"id": 530,
-		"name": " Chewa"
+		"name": "Chewa"
 	},
 	{
 		"id": 531,
-		"name": " Nyanja"
+		"name": "Nyanja"
 	},
 	{
 		"id": 532,
@@ -165,15 +165,11 @@
 	},
 	{
 		"id": 541,
-		"name": " Dhivehi"
+		"name": "Dhivehi"
 	},
 	{
 		"id": 542,
-		"name": " Maldivian"
-	},
-	{
-		"id": 543,
-		"name": ""
+		"name": "Maldivian"
 	},
 	{
 		"id": 544,
@@ -217,15 +213,15 @@
 	},
 	{
 		"id": 554,
-		"name": " Fulah"
+		"name": "Fulah"
 	},
 	{
 		"id": 555,
-		"name": " Pulaar"
+		"name": "Pulaar"
 	},
 	{
 		"id": 556,
-		"name": " Pular"
+		"name": "Pular"
 	},
 	{
 		"id": 557,
@@ -257,7 +253,7 @@
 	},
 	{
 		"id": 564,
-		"name": " Haitian Creole"
+		"name": "Haitian Creole"
 	},
 	{
 		"id": 565,
@@ -609,7 +605,7 @@
 	},
 	{
 		"id": 652,
-		"name": " Gaelic"
+		"name": "Gaelic"
 	},
 	{
 		"id": 653,
@@ -641,7 +637,7 @@
 	},
 	{
 		"id": 660,
-		"name": " Castilian"
+		"name": "Castilian"
 	},
 	{
 		"id": 661,
