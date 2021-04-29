@@ -19,3 +19,7 @@ export const setAlert = (msg, alertType, position = 'top-right', timeout = 4000)
   // Triggers the 'remove_alert' in the reducer causing it to get removed from the state after 4 seconds
   setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), timeout);
 };
+
+export const removeAlert = (alertID) => (dispatch) => {
+  dispatch({ type: REMOVE_ALERT, payload: alertID });
+};

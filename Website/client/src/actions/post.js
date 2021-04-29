@@ -37,7 +37,7 @@ export const addComment = (postId, formData) => async dispatch => {
 
     dispatch({
         type: ADD_COMMENT,
-        payload: res.data
+        payload: {postId, comments: res.data}
     });
 
     dispatch(setAlert('Comment Added', 'success'));
@@ -58,7 +58,10 @@ export const addLike = id => async dispatch => {
         type: UPDATE_LIKES,
         payload: { id, likes: res.data }
         });
+
+        return true;
     } catch (err) {
+
         dispatch({
         type: POST_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
@@ -67,22 +70,26 @@ export const addLike = id => async dispatch => {
 };
 
 // Delete comment
+
 export const deleteComment = (postId, commentId) => async dispatch => {
-    try {
-        await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+  try {
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
-        dispatch({
-        type: REMOVE_COMMENT,
-        payload: commentId
-        });
+    dispatch({
+      type: REMOVE_COMMENT,
+      payload: {postId, commentId}
+    });
 
-        dispatch(setAlert('Comment Removed', 'success'));
-    } catch (err) {
-        dispatch({
+    dispatch(setAlert('Comment Removed', 'success'));
+  } catch (err) {
+    console.log(err);
+    if(err) {
+      dispatch({
         type: POST_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
-        });
+      });
     }
+  }
 };
 
 // Remove like from post
@@ -94,6 +101,8 @@ export const removeLike = id => async dispatch => {
       type: UPDATE_LIKES,
       payload: { id, likes: res.data }
     });
+
+    return false;
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -125,7 +134,6 @@ export const deletePost = id => async dispatch => {
 export const getPosts = () => async dispatch => {
   try {
     const res = await axios.get('/api/posts');
-
     dispatch({
       type: GET_POSTS,
       payload: res.data

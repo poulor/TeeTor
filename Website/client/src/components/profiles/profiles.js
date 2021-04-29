@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import LoadingAnim from '../layout/LoadingAnim';
 import { getProfiles } from '../../actions/profile';
 import Card from '../profileForm/myCard';

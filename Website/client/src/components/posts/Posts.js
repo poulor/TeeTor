@@ -2,23 +2,27 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import LoadingAnim from '../layout/LoadingAnim';
 import { getPosts } from '../../actions/post';
+import IndividualPost from './IndividualPost';
+import SubmitPost from './SubmitPost';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
-  }, [getPosts]);
+  }, []);
 
   return (
     <Fragment>
         <div className="page">
             {loading ? (
-                <p>Put loading anim here</p>
+                <LoadingAnim />
             ) : (
                 <Fragment>
+                  <SubmitPost/>
                     {posts.length > 0 ? (
                         posts.map(post => (
-                            <p>{post.text}</p>
+                          <IndividualPost key={post._id} post={post}/>
                         ))
                     ) : (
                         <p>No Posts</p>
