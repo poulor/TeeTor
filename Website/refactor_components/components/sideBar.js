@@ -72,7 +72,7 @@ export default class sideBar extends Component {
             name="Hughie Campbell"
             title="The Boys"
             bio="The best character in the Boys"
-            url="https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist"
+            url="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png"
             subjects={["electronics", "bowling", "customer service"]}
             rating={5}
           />

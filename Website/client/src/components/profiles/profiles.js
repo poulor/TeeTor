@@ -28,11 +28,12 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                                 name = {profile.user.name}
                                 title = "Sup' Killer" 
                                 bio = {profile.bio}
-                                url = "https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist" 
+                                url = "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" 
                                 skills = {profile.skills}
                                 rating = {3.5}
                             />
-                        ))
+                        )
+                    )
                         ) : (
                         <h1>No profiles found...</h1>
                         )}

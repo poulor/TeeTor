@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 import styles from "./style/myCard.module.css";
-import FullBulb from "./resources/fullBulb.svg";
-import HalfBulb from "./resources/halfBulb.svg";
+import FullBulb from "./resources/fullBulb.png";
+import HalfBulb from "./resources/halfBulb.png";
 
 /* 
   Use Case:

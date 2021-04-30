@@ -23,7 +23,7 @@ const IndividualComment = ({
         <div className={styles.iconSec}>
           <img
               className={styles.profileImg}
-              src='https://vignette.wikia.nocookie.net/p__/images/d/d8/Hughie-The-Boys.png/revision/latest?cb=20190910184751&path-prefix=protagonist' 
+              src='https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png' 
               alt="profile"
               />
         </div>

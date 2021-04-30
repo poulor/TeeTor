@@ -91,7 +91,7 @@ const Profile = ({
                 <div className={styles.nameWrapper}>
                   <img
                     className={styles.profileImage}
-                    src="https://img1.looper.com/img/gallery/how-hughie-from-the-boys-should-really-look/intro-1603561090.jpg"
+                    src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png"
                     alt="profile image"
                   />
                   <h1 className={styles.name}>{visitingProfile.user.name}</h1>
