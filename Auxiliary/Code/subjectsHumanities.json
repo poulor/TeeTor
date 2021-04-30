@@ -1,0 +1,17 @@
+[
+	{"id": 100, "name": "Reading Comprehension", "color": "#00ffff"},
+	{"id": 101, "name": "Writing (Non-Fiction)", "color": "#00faff"},
+	{"id": 102, "name": "Writing (Fiction)", "color": "#00f5ff"},
+	{"id": 103, "name": "Writing (Poetry)", "color": "#00f0ff"},
+	{"id": 104, "name": "US History", "color": "#00ebff"},
+	{"id": 105, "name": "World History", "color": "#00e5ff"},
+	{"id": 106, "name": "Government", "color": "#00e0ff"},
+	{"id": 107, "name": "Art History", "color": "#00dbff"},
+	{"id": 108, "name": "Psychology", "color": "#00d6ff"},
+	{"id": 109, "name": "Art", "color": "#00d1ff"},
+	{"id": 110, "name": "Anthropology", "color": "#00ccff"},
+	{"id": 111, "name": "General Music", "color": "#00c7ff"},
+	{"id": 112, "name": "Religion", "color": "#00c2ff"},
+	{"id": 113, "name": "Geography", "color": "#00bdff"},
+	{"id": 114, "name": "Politics", "color": "#00b8ff"}
+]

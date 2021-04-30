@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
 import { setAlert } from '../../actions/alert';
+import { AutoTag } from '../layout/autoTag/AutoTag';
 
 import styles from "./style/profile.module.css";
 
@@ -212,16 +213,17 @@ const EditGeneralInfoForm = ({
                 onChange={onChange}
               />
             </div>
-            <h1 className={styles.fieldTitle}>Languages:</h1>
+            <h1 className={styles.fieldTitle}>Languagessssss:</h1>
             <div className="form-group">
-              <input
+              <AutoTag fileName = 'languages.json'/>
+              {/* <input
                 className={styles.input}
                 type="text"
                 placeholder="Languages"
                 name="languages"
                 value={languages}
                 onChange={onChange}
-              />
+              /> */}
             </div>
             <h1 className={styles.fieldTitle}>Skills:</h1>
             <div className="form-group">

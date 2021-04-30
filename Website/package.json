@@ -28,6 +28,7 @@
     "mongoose": "^5.9.20",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
+    "react-tag-autocomplete": "^6.1.0",
     "react-uuid": "^1.0.2",
     "request": "^2.88.2"
   },

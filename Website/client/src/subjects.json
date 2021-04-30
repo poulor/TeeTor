@@ -1,0 +1,22 @@
+[
+    {
+        "subject": "Math",
+        "color": "#2D728F"
+    },
+    {
+        "subject": "Science",
+        "color": "#054A29"
+    },
+    {
+        "subject": "English",
+        "color": "#FB3640"
+    },
+    {
+        "subject": "History",
+        "color": "#E1BC29"
+    },
+    {
+        "subject": "Art",
+        "color": "#A599B5"
+    }
+]
