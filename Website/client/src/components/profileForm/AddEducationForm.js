@@ -51,6 +51,7 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
                 name="school"
                 value={school}
                 onChange={onChange}
+                maxLength = "64"
               />
             </div>
             <h1 className={styles.fieldTitle}>Degree:</h1>
@@ -61,28 +62,31 @@ const AddEducationForm = ({ addEducation, history, onToggle }) => {
                 name="degree"
                 value={degree}
                 onChange={onChange}
+                maxLength = "64"
               />
             </div>
             <h1 className={styles.fieldTitle}>Field of Study:</h1>
             <div className="form-group">
-              <input
+              <textarea
                 className={styles.input}
                 type="text"
                 placeholder="Field of Study"
                 name="fieldofstudy"
                 value={fieldofstudy}
                 onChange={onChange}
+                maxLength = "64"
               />
             </div>
             <h1 className={styles.fieldTitle}>Description:</h1>
             <div className="form-group">
-              <input
+              <textarea
                 className={styles.input}
                 type="text"
                 placeholder="Description"
                 name="description"
                 value={description}
                 onChange={onChange}
+                maxLength = "250"
               />
             </div>
             <h1 className={styles.fieldTitle}>From Date:</h1>

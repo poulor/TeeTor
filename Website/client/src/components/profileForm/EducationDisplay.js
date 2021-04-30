@@ -6,12 +6,12 @@ import { deleteEducation } from '../../actions/profile';
 import styles from './style/table.module.css';
 import { connect } from 'react-redux';
 
-const EducationDisplay = ({ education, onToggle }) => {
+const EducationDisplay = ({ education, onToggle, deleteEducation}) => {
     const educations = education.map( edu => (
         <tr key={edu._id}>
-            <td className={styles.rowBold}>{edu.school}</td>
-            <td>{edu.degree}</td>
-            <td>
+            <td className={`${styles.rowBold} ${styles.wordBreak}`}>{edu.school}</td>
+            <td className = {styles.wordBreak}>{edu.degree}</td>
+            <td >
                 <Moment format='YYYY/MM/DD'>{edu.from}</Moment> -{' '}
                 {edu.to === null ? (
                     ' Current'
@@ -20,7 +20,8 @@ const EducationDisplay = ({ education, onToggle }) => {
                 )}
             </td>
             <td className = {styles.deleteWrapper}>
-                <i onClick={() => deleteEducation(edu._id)} className={styles.deleteButton}><i className="fas fa-minus-circle"></i></i>
+                <i onClick={() => {deleteEducation(edu._id);
+                }} className={styles.deleteButton}><i className="fas fa-minus-circle"></i></i>
             </td>
         </tr>
     ));
