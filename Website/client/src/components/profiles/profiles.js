@@ -26,7 +26,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                                 userId = {profile.user._id}
                                 type = "mentor"
                                 name = {profile.user.name}
-                                title = "Sup' Killer" 
+                                title = "Student" 
                                 bio = {profile.bio}
                                 url = "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" 
                                 skills = {profile.skills}
