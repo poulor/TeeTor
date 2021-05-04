@@ -56,7 +56,7 @@ const SideBar = ({ getCurrentProfile, auth: { user, isAuthenticated }, profile: 
       title = "Hamster" 
       score = {451} 
       // skills = {["math","history"]}
-      skills = {profile.skills} 
+      skills = {profile.skills}
       url = "https://thumbs.gfycat.com/PleasedOrdinaryDeinonychus-max-1mb.gif"
       style = {{marginLeft: 'auto', marginRight: 'auto'}}/>}
    
